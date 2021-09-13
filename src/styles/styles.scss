@@ -1,1 +1,6 @@
+//config, vars
 @use "config";
+//sections
+@use "sections/header";
+//pages
+@use "pages/home";
