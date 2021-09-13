@@ -1,9 +1,12 @@
 import "../styles/styles.scss"
 import Header from "./sections/Header";
+import Home from "./pages/home";
 
 const App = () => (
-  <Header/>
-  // <Inicio/>
+  <>
+    <Header/>
+    <Home/>
+  </>
 )
 
 export default App;
