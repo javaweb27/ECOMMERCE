@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-# Dependencia yarn 2
+## Dependencia yarn 2
 
     npm install -g yarn
     cd ~/path/to/Proyecto-de-EDcupcake
