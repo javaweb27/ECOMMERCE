@@ -1,0 +1,14 @@
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  background-color: var(--menu-color);
+}
+
+.menu {
+  display: flex;
+}
+
+.menu .link {
+  list-style: none;
+}
