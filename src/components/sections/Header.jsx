@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom"
+import {NavLink} from "react-router-dom"
 
 const Header = () => (
   <header className="header">
@@ -8,8 +8,23 @@ const Header = () => (
     <span/>
     <nav>
       <ul className="menu">
-          <li className="item"><Link className="link" to="/">Inicio</Link></li>
-          <li className="item"><Link className="link" to="/cupcakes">Cupcake</Link></li>
+          <li className="item">
+            <NavLink 
+              className="link" 
+              activeClassName="active-page" 
+              exact
+              to="/">Inicio
+              </NavLink>
+          </li>
+
+          <li className="item">
+            <NavLink 
+              className="link" 
+              activeClassName="active-page" 
+              exact
+              to="/cupcakes">Cupcake
+              </NavLink>
+          </li>
       </ul>
     </nav>
   </header>
