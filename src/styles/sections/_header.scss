@@ -15,6 +15,10 @@
   gap: 1rem;
 }
 
-.menu .link {
+.item {
   list-style: none;
+}
+
+.link {
+  display: inline-block;
 }
