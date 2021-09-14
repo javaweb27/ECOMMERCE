@@ -8,8 +8,8 @@ const Header = () => (
     <span/>
     <nav>
       <ul className="menu">
-          <li className="link"><Link to="/">Inicio</Link></li>
-          <li className="link"><Link to="/cupcakes">Cupcake</Link></li>
+          <li className="item"><Link className="link" to="/">Inicio</Link></li>
+          <li className="item"><Link className="link" to="/cupcakes">Cupcake</Link></li>
       </ul>
     </nav>
   </header>
