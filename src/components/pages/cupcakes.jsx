@@ -18,7 +18,23 @@ const Cupcakes = () => {
       cupcakes ? (
         <div>
           {
-            cupcakes.map(c => <Cupcake/>)
+            cupcakes.map(({
+              id,
+              description,
+              img,
+              flavor,
+              color,
+              price
+            }) => (
+              <Cupcake
+                key={id}
+                img={img}
+                description={description}
+                flavor={flavor}
+                color={color}
+                price={price}
+              />
+            ))
           }
         </div>
       ) : (<span>cargando</span>)
