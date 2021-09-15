@@ -1,15 +1,15 @@
 const Cupcake = ({
-  descripcion,
+  description,
   img,
-  sabor,
+  flavor,
   color,
-  precio}) => (
-
+  price
+}) => (
   <div>
-    <img src={img} alt={sabor} />
-    <p>{descripcion}</p>
+    <img src={img} alt={flavor} />
+    <p>{description}</p>
     <span>Color: {color}</span>
-    <span>Precio: {precio}</span>
+    <span>Precio: {price}</span>
   </div>
 )
 
