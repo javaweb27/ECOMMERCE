@@ -14,7 +14,7 @@ const Header = () => (
               activeClassName="active-page" 
               exact
               to="/">Inicio
-              </NavLink>
+            </NavLink>
           </li>
 
           <li className="item">
@@ -23,7 +23,7 @@ const Header = () => (
               activeClassName="active-page" 
               exact
               to="/cupcakes">Cupcake
-              </NavLink>
+            </NavLink>
           </li>
       </ul>
     </nav>
