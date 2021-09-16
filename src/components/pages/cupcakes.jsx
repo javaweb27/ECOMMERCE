@@ -12,11 +12,11 @@ const Cupcakes = () => {
   }, [])
 
   return (
-  <section>
+  <section className="cupcakes">
     <h1>Pagina de Cupcakes</h1>
     {
       cupcakes ? (
-        <div>
+        <div className="container">
           {
             cupcakes.map(({
               id,
