@@ -6,7 +6,7 @@ const Cupcake = ({
   price
 }) => (
   <div>
-    <img src={img} alt={flavor} />
+    <img className="img" src={img} alt={flavor} />
     <p>{description}</p>
     <span>Color: {color}</span>
     <span>Precio: {price}</span>
