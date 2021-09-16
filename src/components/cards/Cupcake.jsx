@@ -5,7 +5,7 @@ const Cupcake = ({
   color,
   price
 }) => (
-  <div>
+  <div className="cupcake">
     <img className="img" src={img} alt={flavor} />
     <p>{description}</p>
     <span>Color: {color}</span>
