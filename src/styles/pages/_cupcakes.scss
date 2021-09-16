@@ -1,0 +1,11 @@
+.cupcakes .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 0 12%;
+}
+
+.cupcakes .img {
+  object-fit: cover;
+  height: 40%;
+}
