@@ -6,10 +6,12 @@ const Cupcake = ({
   price
 }) => (
   <div className="cupcake">
-    <img className="img" src={img} alt={flavor} />
-    <p>{description}</p>
-    <span>Color: {color}</span>
-    <span>Precio: {price}</span>
+    <div>
+      <img className="img" src={img} alt={flavor} />
+    </div>
+    <p className="text">{description}</p>
+    <span className="text">Color: {color}</span>
+    <span className="text">Precio: {price}</span>
   </div>
 )
 
