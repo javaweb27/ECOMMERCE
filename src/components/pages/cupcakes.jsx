@@ -13,11 +13,11 @@ const Cupcakes = ({request, title}) => {
 
   return (
   <>
-    { title === "h1" && <h1>Pagina de Cupcakes</h1>}
+    { title === "h1" && <h1 className="title">Pagina de Cupcakes</h1>}
     {
       cupcakes ? (
         <section className="cupcakes">
-          { title === "h2" && <h2>Cupcakes mas vendidos</h2>}
+          { title === "h2" && <h2 className="title">Cupcakes mas vendidos</h2>}
           <div className="container">
           {
             cupcakes.map(({
