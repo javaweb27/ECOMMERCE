@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Cupcake from "../cards/Cupcake"
-const Cupcakes = ({request}) => {
+const Cupcakes = ({request, title}) => {
 
   const [cupcakes, setCupcakes] = useState()
 
@@ -12,11 +12,13 @@ const Cupcakes = ({request}) => {
   }, [request])
 
   return (
-  <section className="cupcakes">
-    <h1>Pagina de Cupcakes</h1>
+  <>
+    { title === "h1" && <h1>Pagina de Cupcakes</h1>}
     {
       cupcakes ? (
-        <div className="container">
+        <section className="cupcakes">
+          { title === "h2" && <h2>Cupcakes mas vendidos</h2>}
+          <div className="container">
           {
             cupcakes.map(({
               id,
@@ -36,10 +38,11 @@ const Cupcakes = ({request}) => {
               />
             ))
           }
-        </div>
+          </div>
+        </section>
       ) : (<span>cargando</span>)
     }
-  </section>
+  </>
   )
 }
 
