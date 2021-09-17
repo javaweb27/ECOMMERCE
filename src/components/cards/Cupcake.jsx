@@ -5,14 +5,14 @@ const Cupcake = ({
   color,
   price
 }) => (
-  <div className="cupcake">
+  <article className="cupcake">
     <div>
       <img className="img" src={img} alt={flavor} />
     </div>
     <p className="text">{description}</p>
     <span className="text">Color: {color}</span>
     <span className="text">Precio: {price}</span>
-  </div>
+  </article>
 )
 
 export default Cupcake
