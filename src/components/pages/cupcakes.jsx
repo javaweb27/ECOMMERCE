@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import Cupcake from "../cards/Cupcake"
-const Cupcakes = () => {
+const Cupcakes = ({request}) => {
 
   const [cupcakes, setCupcakes] = useState()
 
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_URL_API}cupcakes`)
+    fetch(`${process.env.REACT_APP_URL_API}${request}`)
       .then(response => response.json())
       .then(data => setCupcakes(data))
   }, [])
