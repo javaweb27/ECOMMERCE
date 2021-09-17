@@ -9,7 +9,7 @@ const Cupcakes = ({request}) => {
     fetch(`${process.env.REACT_APP_URL_API}${request}`)
       .then(response => response.json())
       .then(data => setCupcakes(data))
-  }, [])
+  }, [request])
 
   return (
   <section className="cupcakes">
