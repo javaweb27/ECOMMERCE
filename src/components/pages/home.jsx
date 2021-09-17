@@ -10,7 +10,7 @@ const  Home = () => (
         <button>Ver cupcakes</button>
       </div>
     </section>
-    <Cupcakes request="cupcakes?flavor_like=Chocolate"/>
+    <Cupcakes title="h2" request="cupcakes?flavor_like=Chocolate"/>
   </>
 )
 export default Home
