@@ -6,7 +6,7 @@ const Cupcakes = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:3050/cupcake")
+    fetch(`${process.env.REACT_APP_URL_API}cupcakes`)
       .then(response => response.json())
       .then(data => setCupcakes(data))
   }, [])
