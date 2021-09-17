@@ -13,7 +13,7 @@ const App = () => (
     <Header/>
     <Switch>
       {/* <Route path="https://devfjavier.github.io/Proyecto-de-EDcupcake/"></Route> */}
-      <Route path="/cupcakes"><Cupcakes request="cupcakes"/></Route>
+      <Route path="/cupcakes"><Cupcakes title="h1" request="cupcakes"/></Route>
       <Route path="/"><Home/></Route>
     </Switch>
   </Router>
