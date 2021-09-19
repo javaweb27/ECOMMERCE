@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react"
 import Cupcake from "../cards/Cupcake"
+import useFetch from "../hooks/useFetch"
 const Cupcakes = ({request, title}) => {
 
-  const [cupcakes, setCupcakes] = useState()
+  const [cupcakes, error] = useFetch(request)
 
-
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_URL_API}${request}`)
-      .then(response => response.json())
-      .then(data => setCupcakes(data))
-  }, [request])
+  if (error) {
+    return <span>hubo un error en cupcakes</span>
+  }
 
   return (
   <>

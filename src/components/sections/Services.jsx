@@ -1,17 +1,15 @@
-import {useState, useEffect} from "react"
+import useFetch from "../hooks/useFetch"
 
 const Services = ({request}) => {
 
-  const [services, setServices] = useState()
-
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_URL_API}${request}`)
-      .then(response => response.json())
-      .then(data => setServices(data))
-  }, [request])
+  const [services, error] = useFetch(request)
 
   if (!services) {
     return <span>No hay servicios</span>
+  }
+
+  if (error) {
+    return <span>hubo un error en services</span>
   }
 
   return (
