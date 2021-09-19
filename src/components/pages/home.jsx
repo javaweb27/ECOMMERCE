@@ -1,3 +1,4 @@
+import Services from "../sections/Services"
 import Cupcakes from "./cupcakes"
 
 const  Home = () => (
@@ -11,6 +12,7 @@ const  Home = () => (
       </div>
     </section>
     <Cupcakes title="h2" request="cupcakes?flavor_like=Chocolate"/>
+    <Services request="services"/>
   </>
 )
 export default Home
