@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"
+import {number, string} from "prop-types"
 
 const Cupcake = ({
   description,
@@ -18,11 +18,11 @@ const Cupcake = ({
 )
 
 Cupcake.propTypes = {
-  price: PropTypes.number,
-  color: PropTypes.string,
-  description: PropTypes.string,
-  flavor: PropTypes.string,
-  img: PropTypes.string
+  price: number,
+  color: string,
+  description: string,
+  flavor: string,
+  img: string
 }
 
 export default Cupcake
