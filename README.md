@@ -3,12 +3,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-## Dependencia yarn 2
+## gh-pages
 
-    npm install -g yarn
-    cd ~/path/to/Proyecto-de-EDcupcake
-    yarn set version berry
-    yarn
+    solo contiene el proyecto compilado
 
 ## Available Scripts
 
