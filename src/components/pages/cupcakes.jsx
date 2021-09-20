@@ -4,6 +4,10 @@ const Cupcakes = ({request, title}) => {
 
   const [cupcakes, error] = useFetch(request)
 
+  if (!cupcakes) {
+    return <span>No hay servicios</span>
+  }
+
   if (error) {
     return <span>hubo un error en cupcakes</span>
   }
