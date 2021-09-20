@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"
+
 const Cupcake = ({
   description,
   img,
@@ -14,5 +16,13 @@ const Cupcake = ({
     <span className="text">Precio: {price}</span>
   </article>
 )
+
+Cupcake.propTypes = {
+  price: PropTypes.number,
+  color: PropTypes.string,
+  description: PropTypes.string,
+  flavor: PropTypes.string,
+  img: PropTypes.string
+}
 
 export default Cupcake
