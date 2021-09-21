@@ -1,21 +1,36 @@
 import {number, string} from "prop-types"
+import { useRef, useState } from "react"
 
 const Cupcake = ({
-  description,
-  img,
   flavor,
   color,
-  price
-}) => (
-  <article className="cupcake">
-    <div>
-      <img className="img" src={img} alt={flavor} />
-    </div>
-    <p className="text">{description}</p>
-    <span className="text">Color: {color}</span>
-    <span className="text">Precio: {price}</span>
-  </article>
-)
+  description,
+  price,
+  img
+}) => {
+
+  const imgCupcake = useRef()
+  const [sold, setSold] = useState(false)
+
+  const sell = () => {
+    setSold(true)
+
+    const element = imgCupcake.current
+    element.classList.add("sold")
+  }
+  
+  return (
+    <article className="cupcake">
+      <div>
+        <img ref={imgCupcake} className="img" src={img} alt={flavor} />
+      </div>
+      <p className="text">{description}</p>
+      <span className="text">Color: {color}</span>
+      <span className="text">Precio: {price}</span>
+      {sold ? <span className="text">vendido</span> : <button onClick={sell}>Vender</button>}
+    </article>
+  )
+} 
 
 Cupcake.propTypes = {
   price: number,
