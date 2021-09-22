@@ -13,7 +13,8 @@ const Header = () => (
               className="link" 
               activeClassName="active-page" 
               exact
-              to="/">Inicio
+              to="https://devfjavier.github.io/Proyecto-de-EDcupcake/">Inicio
+              {/* to="/">Inicio */}
             </NavLink>
           </li>
 
@@ -22,7 +23,8 @@ const Header = () => (
               className="link" 
               activeClassName="active-page" 
               exact
-              to="/cupcakes">Cupcake
+              to="https://devfjavier.github.io/Proyecto-de-EDcupcake/cupcakes">Cupcake
+              {/* to="/cupcakes">Cupcake */}
             </NavLink>
           </li>
       </ul>

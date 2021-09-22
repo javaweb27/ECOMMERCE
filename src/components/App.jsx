@@ -12,7 +12,8 @@ const App = () => (
   <Router>
     <Header/>
     <Switch>
-      {/* <Route path="https://devfjavier.github.io/Proyecto-de-EDcupcake/"></Route> */}
+      {/* <Route path="https://devfjavier.github.io/Proyecto-de-EDcupcake/cupcakes"><Cupcakes title="h1" request="cupcakes"/></Route>
+      <Route path="https://devfjavier.github.io/Proyecto-de-EDcupcake/"><Home/></Route> */}
       <Route path="/cupcakes"><Cupcakes title="h1" request="cupcakes"/></Route>
       <Route path="/"><Home/></Route>
     </Switch>
