@@ -27,17 +27,22 @@ const Cupcakes = ({request, title}) => {
               img,
               flavor,
               color,
-              price
-            }) => (
-              <Cupcake
-                key={id}
-                img={img}
-                description={description}
-                flavor={flavor}
-                color={color}
-                price={price}
-              />
-            ))
+              price,
+              sold
+            }) => {
+              return (
+                <Cupcake
+                  idKey={id}
+                  description={description}
+                  img={img}
+                  flavor={flavor}
+                  color={color}
+                  price={price}
+                  sold={sold}
+                />
+              )
+            })
+            
           }
           </div>
         </section>
