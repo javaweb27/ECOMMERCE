@@ -2,32 +2,48 @@ import {number, string} from "prop-types"
 import { useRef, useState } from "react"
 
 const Cupcake = ({
+  idKey,
+  description,
+  img,
   flavor,
   color,
-  description,
   price,
-  img
+  sold
 }) => {
 
   const imgCupcake = useRef()
-  const [sold, setSold] = useState(false)
+  const [hasBeenSold, setHasBeenSold] = useState(sold)
 
+  
   const sell = () => {
-    setSold(true)
 
-    const element = imgCupcake.current
-    element.classList.add("sold")
+    if (!sold) {
+      fetch(`${process.env.REACT_APP_URL_API}cupcakes/${idKey}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          sold: true
+        })
+      })
+      .then(response => response.ok && response.json())
+      .then(data => setHasBeenSold(data.sold))
+
+      // const element = imgCupcake.current
+      // element.classList.add("sold")
+    }
   }
   
   return (
     <article className="cupcake">
       <div>
-        <img ref={imgCupcake} className="img" src={img} alt={flavor} />
+        <img ref={imgCupcake} className={hasBeenSold ? "img sold" : "img"} src={img} alt={flavor} />
       </div>
       <p className="text">{description}</p>
       <span className="text">Color: {color}</span>
       <span className="text">Precio: {price}</span>
-      {sold ? <span className="text">vendido</span> : <button onClick={sell}>Vender</button>}
+      {hasBeenSold ? <span className="text">vendido</span> : <button onClick={sell}>Vender</button>}
     </article>
   )
 } 
