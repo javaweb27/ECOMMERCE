@@ -12,8 +12,8 @@ const App = () => (
   <Router>
     <Header/>
     <Switch>
-      <Route path="/cupcakes"><Cupcakes title="h1" request="cupcakes"/></Route>
-      <Route path="/"><Home/></Route>
+      <Route path="/Proyecto-de-EDcupcake/cupcakes"><Cupcakes title="h1" request="cupcakes"/></Route>
+      <Route path="/Proyecto-de-EDcupcake/"><Home/></Route>
     </Switch>
   </Router>
 )
