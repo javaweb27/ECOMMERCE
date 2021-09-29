@@ -13,16 +13,16 @@ const Services = ({request}) => {
   }
 
   return (
-    <div>
+    <section className="services">
       {
         services.map(s => (
-          <div key={s.id}>
+          <article key={s.id}>
             <h2>{s.name}</h2>
             <p>{s.description}</p>
-          </div>
+          </article>
         ))
       }
-    </div>
+    </section>
   )
 }
 
