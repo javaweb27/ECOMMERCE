@@ -1,8 +1,8 @@
 import Cupcake from "../cards/Cupcake"
-import useFetch from "../hooks/useFetch"
+import useFetchGET from "../hooks/useFetchGET"
 const Cupcakes = ({request, title}) => {
 
-  const [cupcakes, error] = useFetch(request)
+  const [cupcakes, error] = useFetchGET(request)
 
   if (!cupcakes) {
     return <span>No hay cupcakes</span>

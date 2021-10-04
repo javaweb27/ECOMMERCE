@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 
-const useFetch = (endpoint) => {
+const useFetchGET = (endpoint) => {
 
   const [data, setData] = useState()
   const [error, setError] = useState()
@@ -15,4 +15,4 @@ const useFetch = (endpoint) => {
   return [data, error]
 }
 
-export default useFetch
+export default useFetchGET
