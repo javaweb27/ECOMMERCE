@@ -1,8 +1,10 @@
+import { useContext } from "react"
 import Cupcake from "../cards/Cupcake"
-import useFetchGET from "../hooks/useFetchGET"
-const Cupcakes = ({request, title}) => {
+import CupcakesContext from "../context/CupcakesContext"
 
-  const [cupcakes, error] = useFetchGET(request)
+const Cupcakes = ({title}) => {
+
+  const {cupcakes, error} = useContext(CupcakesContext)
 
   if (!cupcakes) {
     return <span>No hay cupcakes</span>
