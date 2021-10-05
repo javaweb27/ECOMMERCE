@@ -34,7 +34,8 @@ const Cupcakes = ({title}) => {
             }) => {
               return (
                 <Cupcake
-                  idKey={id}
+                  key={id}
+                  id={id}
                   description={description}
                   img={img}
                   flavor={flavor}

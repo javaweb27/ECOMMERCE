@@ -2,7 +2,7 @@ import {number, string} from "prop-types"
 import { useRef, useState } from "react"
 
 const Cupcake = ({
-  idKey,
+  id,
   description,
   img,
   flavor,
@@ -18,7 +18,7 @@ const Cupcake = ({
   const sell = () => {
 
     if (!sold) {
-      fetch(`${process.env.REACT_APP_URL_API}cupcakes/${idKey}`, {
+      fetch(`${process.env.REACT_APP_URL_API}cupcakes/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json"
