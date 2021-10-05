@@ -7,7 +7,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import CupcakesProvider from "./context/CoursesProvider";
+import CupcakesProvider from "./context/CupcakesProvider";
 
 const App = () => (
   <CupcakesProvider request="cupcakes">
