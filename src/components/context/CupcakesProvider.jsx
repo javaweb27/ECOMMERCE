@@ -4,14 +4,9 @@ import CupcakesContext from "./CupcakesContext"
 const CupcakesProvider = ({children, request}) => {
 
   const [cupcakes, error] = useFetchGET(request)
-  
-  const context = {
-    cupcakes,
-    error
-  }
 
   return (
-    <CupcakesContext.Provider value={context}>
+    <CupcakesContext.Provider value={{cupcakes, error}}>
       {children}
     </CupcakesContext.Provider>
   )
