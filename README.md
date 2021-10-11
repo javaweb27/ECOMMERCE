@@ -8,7 +8,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     npm install -g yarn
     cd ~/path/to/Proyecto-de-EDcupcake
     yarn set version berry
-    yarn
 
 ## Available Scripts
 
