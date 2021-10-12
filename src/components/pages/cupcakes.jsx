@@ -8,9 +8,10 @@ const Cupcakes = ({title}) => {
   const cupcakesContext = useContext(CupcakesContext)
   const cupcakesMostSoldContext = useContext(CupcakesMostSoldContext)
 
-  const context = 
+  const context = (
     title === "h2" ? cupcakesMostSoldContext : 
     title === "h1" ? cupcakesContext :  false
+  )
 
   const {cupcakes, error} = context
 
