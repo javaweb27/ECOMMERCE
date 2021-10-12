@@ -8,17 +8,25 @@ import {
   Route
 } from "react-router-dom";
 import CupcakesProvider from "./context/CupcakesProvider";
+import CupcakesMostSoldProvider from "./context/CupcakesMostSoldProvider";
 
 const App = () => (
-  <CupcakesProvider request="cupcakes">
-    <Router>
+  <Router>
       <Header/>
       <Switch>
-        <Route path="/Proyecto-de-EDcupcake/cupcakes"><Cupcakes title="h1"/></Route>
-        <Route path="/Proyecto-de-EDcupcake/"><Home/></Route>
+        <Route path="/Proyecto-de-EDcupcake/cupcakes">
+          <CupcakesProvider request="cupcakes">
+            <Cupcakes title="h1"/>
+          </CupcakesProvider>
+        </Route>
+
+        <Route path="/Proyecto-de-EDcupcake/">
+          <CupcakesMostSoldProvider>
+            <Home/>
+          </CupcakesMostSoldProvider>
+        </Route>
       </Switch>
     </Router>
-  </CupcakesProvider>
 )
 
 export default App;
