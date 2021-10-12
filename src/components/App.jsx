@@ -21,7 +21,7 @@ const App = () => (
         </Route>
 
         <Route path="/Proyecto-de-EDcupcake/">
-          <CupcakesMostSoldProvider>
+          <CupcakesMostSoldProvider request="cupcakes?flavor_like=Chocolate">
             <Home/>
           </CupcakesMostSoldProvider>
         </Route>
