@@ -1,5 +1,6 @@
 import {number, string} from "prop-types"
 import { useRef, useState } from "react"
+import useFetchPATCH from "../hooks/useFetchPATCH"
 
 const Cupcake = ({
   id,
@@ -14,26 +15,7 @@ const Cupcake = ({
   const imgCupcake = useRef()
   const [hasBeenSold, setHasBeenSold] = useState(sold)
 
-  
-  const sell = () => {
-
-    if (!sold) {
-      fetch(`${process.env.REACT_APP_URL_API}cupcakes/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          sold: true
-        })
-      })
-      .then(response => response.ok && response.json())
-      .then(data => setHasBeenSold(data.sold))
-
-      // const element = imgCupcake.current
-      // element.classList.add("sold")
-    }
-  }
+  const sell = useFetchPATCH
   
   return (
     <article className="cupcake">
@@ -43,7 +25,7 @@ const Cupcake = ({
       <p className="text">{description}</p>
       <span className="text">Color: {color}</span>
       <span className="text">Precio: {price}</span>
-      {hasBeenSold ? <span className="text">vendido</span> : <button onClick={sell}>Vender</button>}
+      {hasBeenSold ? <span className="text">vendido</span> : <button onClick={() => sell(id, setHasBeenSold)}>Vender</button>}
     </article>
   )
 } 
