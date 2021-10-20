@@ -1,5 +1,7 @@
 import {number, string} from "prop-types"
+import { useContext } from "react"
 import { useRef, useState } from "react"
+import CartContext from "../context/CartContext"
 import useFetchPATCH from "../hooks/useFetchPATCH"
 
 const Cupcake = ({
@@ -15,6 +17,7 @@ const Cupcake = ({
   const imgCupcake = useRef()
   const [hasBeenSold, setHasBeenSold] = useState(sold)
 
+  const [state, dispatch] = useContext(CartContext)
   const sell = useFetchPATCH
   
   return (
@@ -25,7 +28,18 @@ const Cupcake = ({
       <p className="text">{description}</p>
       <span className="text">Color: {color}</span>
       <span className="text">Precio: {price}</span>
-      {hasBeenSold ? <span className="text">vendido</span> : <button onClick={() => sell(id, setHasBeenSold)}>Vender</button>}
+      <div>
+        { hasBeenSold ? 
+          <span className="text">vendido</span> 
+          : 
+          <button onClick={() => sell(id, setHasBeenSold)}>Vender</button>
+        }
+        { state.cart.find(c => c === id) ? 
+          <button className="text">Remover Del Carrito</button>
+          :
+          <button>Agregar al carrito</button>
+        }
+      </div>
     </article>
   )
 } 
