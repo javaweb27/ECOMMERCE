@@ -3,7 +3,7 @@ import { ADD_TO_CART, REMOVE_FROM_CART } from "./actions"
 import CartContext from "./CartContext"
 
 const initialState = {
-  cart: [1, 2, 3, 4, 5, 6]
+  cart: []
 }
 
 const cartReducer = (state, {type, cupcake}) => {
@@ -16,7 +16,7 @@ const cartReducer = (state, {type, cupcake}) => {
 
   if (type === REMOVE_FROM_CART) {
     return {
-      cart: state.cart.filter(c => c.id !== cupcake)
+      cart: state.cart.filter(c => c !== cupcake)
     }
   }
 
