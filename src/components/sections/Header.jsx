@@ -1,4 +1,5 @@
 import {NavLink} from "react-router-dom"
+import CartCounter from "../elements/CartCounter"
 
 const Header = () => (
   <header className="header">
@@ -24,6 +25,10 @@ const Header = () => (
               exact
               to="/Proyecto-de-EDcupcake/cupcakes">Cupcake
             </NavLink>
+          </li>
+
+          <li className="item">
+            <CartCounter/>
           </li>
       </ul>
     </nav>
