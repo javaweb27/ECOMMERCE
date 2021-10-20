@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/Proyecto-de-EDcupcake/static/css/main.d176236b.chunk.css",
-    "main.js": "/Proyecto-de-EDcupcake/static/js/main.67ae2c0a.chunk.js",
-    "main.js.map": "/Proyecto-de-EDcupcake/static/js/main.67ae2c0a.chunk.js.map",
-    "runtime-main.js": "/Proyecto-de-EDcupcake/static/js/runtime-main.5c44aec7.js",
-    "runtime-main.js.map": "/Proyecto-de-EDcupcake/static/js/runtime-main.5c44aec7.js.map",
-    "static/js/2.34de9f9e.chunk.js": "/Proyecto-de-EDcupcake/static/js/2.34de9f9e.chunk.js",
-    "static/js/2.34de9f9e.chunk.js.map": "/Proyecto-de-EDcupcake/static/js/2.34de9f9e.chunk.js.map",
+    "main.js": "/Proyecto-de-EDcupcake/static/js/main.6f53f155.chunk.js",
+    "main.js.map": "/Proyecto-de-EDcupcake/static/js/main.6f53f155.chunk.js.map",
+    "runtime-main.js": "/Proyecto-de-EDcupcake/static/js/runtime-main.f8e775e8.js",
+    "runtime-main.js.map": "/Proyecto-de-EDcupcake/static/js/runtime-main.f8e775e8.js.map",
+    "static/js/2.f5fc4e86.chunk.js": "/Proyecto-de-EDcupcake/static/js/2.f5fc4e86.chunk.js",
+    "static/js/2.f5fc4e86.chunk.js.map": "/Proyecto-de-EDcupcake/static/js/2.f5fc4e86.chunk.js.map",
     "index.html": "/Proyecto-de-EDcupcake/index.html",
     "static/css/main.d176236b.chunk.css.map": "/Proyecto-de-EDcupcake/static/css/main.d176236b.chunk.css.map",
-    "static/js/2.34de9f9e.chunk.js.LICENSE.txt": "/Proyecto-de-EDcupcake/static/js/2.34de9f9e.chunk.js.LICENSE.txt"
+    "static/js/2.f5fc4e86.chunk.js.LICENSE.txt": "/Proyecto-de-EDcupcake/static/js/2.f5fc4e86.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.5c44aec7.js",
-    "static/js/2.34de9f9e.chunk.js",
+    "static/js/runtime-main.f8e775e8.js",
+    "static/js/2.f5fc4e86.chunk.js",
     "static/css/main.d176236b.chunk.css",
-    "static/js/main.67ae2c0a.chunk.js"
+    "static/js/main.6f53f155.chunk.js"
   ]
 }
