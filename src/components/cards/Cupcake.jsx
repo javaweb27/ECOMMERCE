@@ -43,7 +43,8 @@ const Cupcake = ({
       <p className="text">{description}</p>
       <span className="text">Color: {color}</span>
       <span className="text">Precio: {price}</span>
-      <div>
+      
+      <div className="buttons">
         { hasBeenSold ? 
           <span className="text">vendido</span> 
           : 
