@@ -1,11 +1,17 @@
+@use "../sass-vars" as vars;
+
 .cupcake {
   padding: .8rem;
   background-color: var(--menu-bg-color);
   box-shadow: .12rem .12rem .6rem -.4rem;
   display: grid;
-  grid-template-rows: 60% 1fr 1fr 1fr;
+  grid-template-rows: 8fr repeat(4, 1fr);
   flex-direction: column;
-  gap: .5rem;
+  gap: .8rem;
+  
+  @media screen and (min-width: vars.$medium-screen) {
+    grid-template-rows: 12fr repeat(4, 1fr);
+  }
 
   .img {
     height: 100%;
