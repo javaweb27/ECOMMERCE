@@ -1,0 +1,22 @@
+@use "../sass-vars" as vars;
+
+.title {
+  text-align: center;
+  margin: 0;
+  padding: .6em;
+}
+
+.cupcakes .container {
+  display: grid;
+  gap: 1.6rem;
+  margin: 0 6%;
+  
+  @media screen and (min-width: vars.$medium-screen) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: vars.$big-screen) {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 12%;
+  }
+}
