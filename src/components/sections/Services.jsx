@@ -1,8 +1,8 @@
-import useFetch from "../hooks/useFetchGET"
+import useFetchGET from "../hooks/useFetchGET"
 
 const Services = ({request}) => {
 
-  const [services, error] = useFetch(request)
+  const [services, error] = useFetchGET(request)
 
   if (!services) {
     return <span>No hay servicios</span>

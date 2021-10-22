@@ -1,6 +1,8 @@
+import { REACT_APP_URL_API } from "../../../API_URL"
+
 const useFetchPATCH = (id, setData) => {
 
-  fetch(`${process.env.REACT_APP_URL_API}cupcakes/${id}`, {
+  fetch(`${REACT_APP_URL_API}cupcakes/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
