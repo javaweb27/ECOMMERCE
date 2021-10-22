@@ -1,3 +1,4 @@
+import "../styles/styles.scss"
 import Header from "./sections/Header";
 import Home from "./pages/home";
 import Cupcakes from "./pages/cupcakes";
