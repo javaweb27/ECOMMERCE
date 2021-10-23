@@ -1,6 +1,6 @@
 {
   "name": "proyecto-de-edcupcake",
-  "homepage": "https://devfjavier.github.io/re/",
+  "homepage": "https://devfjavier.github.io/Proyecto-de-EDcupcake/",
   "version": "0.0.0",
   "scripts": {
     "deploy": "gh-pages -d dist",
