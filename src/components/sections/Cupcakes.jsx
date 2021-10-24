@@ -1,15 +1,15 @@
 import { useContext } from "react"
 import Cupcake from "../cards/Cupcake"
-import CupcakesContext from "../context/CupcakesContext"
-import CupcakesMostSoldContext from "../context/CupcakesMostSoldContext"
+import CupcakesContext from "../context/cupcakes/CupcakesContext"
+import MostSoldContext from "../context/most-sold/MostSoldContext"
 
 const Cupcakes = ({title}) => {
 
   const cupcakesContext = useContext(CupcakesContext)
-  const cupcakesMostSoldContext = useContext(CupcakesMostSoldContext)
+  const mostSoldContext = useContext(MostSoldContext)
 
   const context = (
-    title === "h2" ? cupcakesMostSoldContext : 
+    title === "h2" ? mostSoldContext : 
     title === "h1" ? cupcakesContext :  false
   )
 
