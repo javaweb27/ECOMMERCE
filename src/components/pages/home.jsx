@@ -1,4 +1,4 @@
-import Cupcakes from "./cupcakes"
+import Cupcakes from "../sections/Cupcakes"
 import Services from "../sections/Services"
 import Banner from "../sections/Banner"
 
