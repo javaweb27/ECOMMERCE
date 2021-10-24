@@ -1,4 +1,4 @@
-import useFetchGET from "../hooks/useFetchGET"
+import useFetchGET from "../../hooks/useFetchGET"
 import CupcakesContext from "./CupcakesContext"
 
 const CupcakesProvider = ({children, request}) => {
