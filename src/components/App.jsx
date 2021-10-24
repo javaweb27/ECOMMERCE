@@ -1,15 +1,15 @@
 import "../styles/styles.scss"
 import Header from "./sections/Header";
 import Home from "./pages/home";
-import Cupcakes from "./pages/cupcakes";
+import AllCupcakes from "./pages/allCupcakes";
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import CupcakesProvider from "./context/CupcakesProvider";
-import CupcakesMostSoldProvider from "./context/CupcakesMostSoldProvider";
-import CartProvider from "./context/CartProvider";
+import CupcakesProvider from "./context/cupcakes/CupcakesProvider";
+import MostSoldProvider from "./context/most-sold/MostSoldProvider";
+import CartProvider from "./context/cart/CartProvider";
 
 const App = () => (
   <CartProvider>
@@ -19,14 +19,14 @@ const App = () => (
       <Switch>
         <Route path="/Proyecto-de-EDcupcake/cupcakes">
           <CupcakesProvider request="cupcakes">
-            <Cupcakes title="h1"/>
+            <AllCupcakes/>
           </CupcakesProvider>
         </Route>
 
         <Route path="/Proyecto-de-EDcupcake/">
-          <CupcakesMostSoldProvider request="cupcakes?flavor_like=Chocolate">
+          <MostSoldProvider request="cupcakes?flavor_like=Chocolate">
             <Home/>
-          </CupcakesMostSoldProvider>
+          </MostSoldProvider>
         </Route>
       </Switch>
     </Router>

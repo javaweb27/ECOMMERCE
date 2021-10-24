@@ -2,7 +2,7 @@ import {number, string} from "prop-types"
 import { useContext } from "react"
 import { useRef, useState } from "react"
 import { ADD_TO_CART, REMOVE_FROM_CART } from "../context/actions"
-import CartContext from "../context/CartContext"
+import CartContext from "../context/cart/CartContext"
 import useFetchPATCH from "../hooks/useFetchPATCH"
 
 const Cupcake = ({
