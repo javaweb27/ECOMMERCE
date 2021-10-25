@@ -8,7 +8,6 @@ import {
   Route
 } from "react-router-dom";
 import CupcakesProvider from "./context/cupcakes/CupcakesProvider";
-import MostSoldProvider from "./context/most-sold/MostSoldProvider";
 import CartProvider from "./context/cart/CartProvider";
 
 const App = () => (
@@ -24,9 +23,9 @@ const App = () => (
         </Route>
 
         <Route path="/Proyecto-de-EDcupcake/">
-          <MostSoldProvider request="cupcakes?flavor_like=Chocolate">
+          <CupcakesProvider request="cupcakes?flavor_like=Chocolate">
             <Home/>
-          </MostSoldProvider>
+          </CupcakesProvider>
         </Route>
       </Switch>
     </Router>
