@@ -1,5 +1,5 @@
-import {NavLink} from "react-router-dom"
 import CartCounter from "../elements/CartCounter"
+import RelativeLink from "../elements/RelativeLink"
 
 const Header = () => (
   <header className="header">
@@ -9,27 +9,21 @@ const Header = () => (
     <span/>
     <nav>
       <ul className="menu">
-          <li className="item">
-            <NavLink 
-              className="link" 
-              activeClassName="active-page" 
-              exact
-              to="/Proyecto-de-EDcupcake/">Inicio
-            </NavLink>
-          </li>
-
-          <li className="item">
-            <NavLink 
-              className="link" 
-              activeClassName="active-page" 
-              exact
-              to="/Proyecto-de-EDcupcake/cupcakes">Cupcake
-            </NavLink>
-          </li>
-
-          <li className="item">
-            <CartCounter/>
-          </li>
+        <li className="item">
+          <RelativeLink path="/" text="Inicio"/>
+        </li>
+        <li className="item">
+          <RelativeLink path="/cupcakes" text="Cupcakes"/>
+        </li>
+        <li className="item">
+          <RelativeLink path="/login" text="Iniciar sesion"/>
+        </li>
+        <li className="item">
+          <RelativeLink path="/register" text="Registrarse"/>
+        </li>
+        <li className="item">
+          <CartCounter/>
+        </li>
       </ul>
     </nav>
   </header>
