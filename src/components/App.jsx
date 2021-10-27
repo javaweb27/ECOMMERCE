@@ -20,7 +20,7 @@ const App = () => (
         <Protected component={Login} path="/Proyecto-de-EDcupcake/login"/>
         <Protected component={Register} path="/Proyecto-de-EDcupcake/register"/>
         <Protected component={AllCupcakes} path="/Proyecto-de-EDcupcake/cupcakes" request="cupcakes"/>
-        <Protected component={Home} path="/Proyecto-de-EDcupcake//" request="cupcakes?flavor_like=Chocolate"/>
+        <Protected component={Home} path="/Proyecto-de-EDcupcake/" request="cupcakes?flavor_like=Chocolate"/>
       </Switch>
     </Router>
   </CartProvider>
