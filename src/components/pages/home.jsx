@@ -5,7 +5,7 @@ import Banner from "../sections/Banner"
 const  Home = () => (
   <>
     <Banner/>
-    <Cupcakes title="h2" request="cupcakes?flavor_like=Chocolate"/>
+    <Cupcakes title="h2"/>
     <Services request="services"/>
   </>
 )
