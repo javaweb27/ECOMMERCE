@@ -2,13 +2,14 @@ import "../styles/styles.scss"
 import Header from "./sections/Header";
 import Home from "./pages/home";
 import AllCupcakes from "./pages/allCupcakes";
+import Login from "./pages/login";
+import Register from "./pages/register";
+import Protected from "./routes/Protected";
+import CartProvider from "./context/cart/CartProvider";
 import {
   BrowserRouter as Router,
-  Switch,
-  Route
+  Switch
 } from "react-router-dom";
-import CupcakesProvider from "./context/cupcakes/CupcakesProvider";
-import CartProvider from "./context/cart/CartProvider";
 
 const App = () => (
   <CartProvider>
@@ -16,17 +17,10 @@ const App = () => (
       <Header/>
     
       <Switch>
-        <Route path="/Proyecto-de-EDcupcake/cupcakes">
-          <CupcakesProvider request="cupcakes">
-            <AllCupcakes/>
-          </CupcakesProvider>
-        </Route>
-
-        <Route path="/Proyecto-de-EDcupcake/">
-          <CupcakesProvider request="cupcakes?flavor_like=Chocolate">
-            <Home/>
-          </CupcakesProvider>
-        </Route>
+        <Protected component={Login} path="/Proyecto-de-EDcupcake/login"/>
+        <Protected component={Register} path="/Proyecto-de-EDcupcake/register"/>
+        <Protected component={AllCupcakes} path="/cupcakes" request="cupcakes"/>
+        <Protected component={Home} path="/" request="cupcakes?flavor_like=Chocolate"/>
       </Switch>
     </Router>
   </CartProvider>
