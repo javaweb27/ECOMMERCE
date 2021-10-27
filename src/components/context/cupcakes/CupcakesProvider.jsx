@@ -3,6 +3,8 @@ import CupcakesContext from "./CupcakesContext"
 
 const CupcakesProvider = ({children, request}) => {
 
+  if (!request) return children
+
   const [cupcakes, error] = useFetchGET(request)
 
   return (
