@@ -6,6 +6,7 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import Protected from "./routes/Protected";
 import CartProvider from "./context/cart/CartProvider";
+import { BASE_PATH } from "../BASE_PATH";
 import {
   BrowserRouter as Router,
   Switch
@@ -17,10 +18,20 @@ const App = () => (
       <Header/>
     
       <Switch>
-        <Protected component={Login} path="/Proyecto-de-EDcupcake/login"/>
-        <Protected component={Register} path="/Proyecto-de-EDcupcake/register"/>
-        <Protected component={AllCupcakes} path="/Proyecto-de-EDcupcake/cupcakes" request="cupcakes"/>
-        <Protected component={Home} path="/Proyecto-de-EDcupcake/" request="cupcakes?flavor_like=Chocolate"/>
+        <Protected 
+          path={BASE_PATH + "/login"}
+          component={Login}/>
+        <Protected 
+          path={BASE_PATH + "/register"}
+          component={Register}/>
+        <Protected 
+          path={BASE_PATH + "/cupcakes"}
+          request="cupcakes"
+          component={AllCupcakes}/>
+        <Protected 
+          path={BASE_PATH + "/"}
+          request="cupcakes?flavor_like=Chocolate"
+          component={Home} />
       </Switch>
     </Router>
   </CartProvider>
