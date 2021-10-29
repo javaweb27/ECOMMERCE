@@ -1,21 +1,17 @@
 import { Redirect, Route } from "react-router"
 import { BASE_PATH } from "../../BASE_PATH"
-import CupcakesProvider from "../context/cupcakes/CupcakesProvider"
 
-const Public = ({component: Component,  path, request}) => {
+const Public = ({component: Component, path}) => {
+  const userLogged = false
 
-  // const userLogged = false
-
-  // if (userLogged) {
-  //   return <Redirect to={BASE_PATH + "/"}/>
-  // }
+  if (userLogged) {
+    return <Redirect to={BASE_PATH + "/"}/>
+  }
 
   return (
-    <CupcakesProvider request={request}>
-      <Route exact path={path}>
-        {Component}
-      </Route>
-    </CupcakesProvider>
+    <Route exact path={path}>
+      {Component}
+    </Route>
   )
 }
 

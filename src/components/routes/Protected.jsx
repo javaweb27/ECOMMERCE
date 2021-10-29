@@ -1,14 +1,18 @@
-import { Route } from "react-router"
-import CupcakesProvider from "../context/cupcakes/CupcakesProvider"
+import { Redirect, Route } from "react-router"
+import { BASE_PATH } from "../../BASE_PATH"
 
-const Protected = ({component: Component,  path, request}) => {
+const Protected = ({component: Component,  path}) => {
+
+  const userLogged = true
+
+  if (!userLogged) {
+    return <Redirect to={BASE_PATH + "/login"}/>
+  }
 
   return (
-    <CupcakesProvider request={request}>
-      <Route exact path={path}>
-        {Component}
-      </Route>
-    </CupcakesProvider>
+    <Route exact path={path}>
+      {Component}
+    </Route>
   )
 }
 
