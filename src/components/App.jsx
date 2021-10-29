@@ -8,6 +8,7 @@ import Page404 from "./pages/page404";
 import Protected from "./routes/Protected";
 import Public from "./routes/Public";
 import CartProvider from "./context/cart/CartProvider";
+import CupcakesProvider from "./context/cupcakes/CupcakesProvider";
 import { BASE_PATH } from "../BASE_PATH";
 import {
   BrowserRouter as Router,
@@ -17,31 +18,31 @@ import {
 
 const App = () => (
   <CartProvider>
-    <Router>
-      <Header/>
-    
-      <Switch>
-        <Public 
-          path={BASE_PATH + "/login"}
-          component={Login}/>
-        <Public 
-          path={BASE_PATH + "/register"}
-          component={Register}/>
-        <Protected 
-          path={BASE_PATH + "/cupcakes"}
-          request="cupcakes"
-          component={AllCupcakes}/>
-        <Protected 
-          path={BASE_PATH + "/"}
-          request="cupcakes?flavor_like=Chocolate"
-          component={Home} />
+    <CupcakesProvider request="cupcakes">
+      <Router>
+        <Header/>
+      
+        <Switch>
+          <Public 
+            path={BASE_PATH + "/login"}
+            component={Login}/>
+          <Public 
+            path={BASE_PATH + "/register"}
+            component={Register}/>
+          <Protected 
+            path={BASE_PATH + "/cupcakes"}
+            component={AllCupcakes}/>
+          <Protected 
+            path={BASE_PATH + "/"}
+            component={Home} />
 
-        <Route>
-          <Page404/>
-        </Route>
-        
-      </Switch>
-    </Router>
+            <Route>
+              <Page404/>
+            </Route>
+          
+        </Switch>
+      </Router>
+    </CupcakesProvider>
   </CartProvider>
 )
 
