@@ -1,8 +1,9 @@
-const Register = () => {
+import RegisterUser from "../sections/RegisterUser"
 
-  return (
-    <h1>Registrarse</h1>
+const Register = () => (
+
+  <RegisterUser/>
+
   )
-}
 
 export default Register

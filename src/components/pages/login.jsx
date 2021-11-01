@@ -1,8 +1,9 @@
-const Login = () => {
+import LoginUser from "../sections/LoginUser"
 
-  return (
-    <h1>Iniciar sesion</h1>
-  )
-}
+const Login = () => (
+
+  <LoginUser/>
+  
+)
 
 export default Login
