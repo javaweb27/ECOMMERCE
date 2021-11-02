@@ -10,16 +10,16 @@ const Header = () => (
     <nav>
       <ul className="menu">
         <li className="item">
-          <RelativeLink path="/" text="Inicio"/>
+          <RelativeLink navLink path="/" text="Inicio"/>
         </li>
         <li className="item">
-          <RelativeLink path="/cupcakes" text="Cupcakes"/>
+          <RelativeLink navLink path="/cupcakes" text="Cupcakes"/>
         </li>
         <li className="item">
-          <RelativeLink path="/login" text="Iniciar sesion"/>
+          <RelativeLink navLink path="/login" text="Iniciar sesion"/>
         </li>
         <li className="item">
-          <RelativeLink path="/register" text="Registrarse"/>
+          <RelativeLink navLink path="/register" text="Registrarse"/>
         </li>
         <li className="item">
           <CartCounter/>
