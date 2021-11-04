@@ -1,6 +1,7 @@
 import { REACT_APP_URL_API } from "../../../API_URL"
+import { SELL_CUPCAKE } from "../context/actions"
 
-const useFetchPATCH = (id, setData) => {
+const useFetchPATCH = (id, cupcakesDispatch) => {
 
   fetch(`${REACT_APP_URL_API}cupcakes/${id}`, {
     method: "PATCH",
@@ -12,7 +13,11 @@ const useFetchPATCH = (id, setData) => {
     })
   })
   .then(response => response.ok && response.json())
-  .then(data => setData(data.sold))
+  .then(data => cupcakesDispatch({
+    type: SELL_CUPCAKE,
+    cupcake: id,
+    sold: data.sold
+  }))
 }
 
 export default useFetchPATCH
