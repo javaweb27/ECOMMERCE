@@ -1,2 +1,4 @@
 export const ADD_TO_CART = "ADD_TO_CART"
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART"
+export const START_INITIAL_STATE = "START_INITIAL_STATE"
+export const SELL_CUPCAKE = "SELL_CUPCAKE" 
