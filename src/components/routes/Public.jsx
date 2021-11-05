@@ -1,7 +1,7 @@
 import { Redirect, Route } from "react-router"
 import { BASE_PATH } from "../../BASE_PATH"
 
-const Public = ({component: Component, path}) => {
+const Public = ({component: Component}) => {
   const userLogged = false
 
   if (userLogged) {
@@ -9,9 +9,7 @@ const Public = ({component: Component, path}) => {
   }
 
   return (
-    <Route exact path={path}>
-      {Component}
-    </Route>
+    <Route component={Component}/>
   )
 }
 

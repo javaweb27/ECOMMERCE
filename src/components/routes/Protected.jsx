@@ -1,7 +1,7 @@
 import { Redirect, Route } from "react-router"
 import { BASE_PATH } from "../../BASE_PATH"
 
-const Protected = ({component: Component,  path}) => {
+const Protected = ({component: Component}) => {
 
   const userLogged = true
 
@@ -10,9 +10,7 @@ const Protected = ({component: Component,  path}) => {
   }
 
   return (
-    <Route exact path={path}>
-      {Component}
-    </Route>
+    <Route render={Component}/>
   )
 }
 
