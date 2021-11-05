@@ -23,22 +23,12 @@ const App = () => (
         <Header/>
       
         <Switch>
-          <Public 
-            path={BASE_PATH + "/login"}
-            component={Login}/>
-          <Public 
-            path={BASE_PATH + "/register"}
-            component={Register}/>
-          <Protected 
-            path={BASE_PATH + "/cupcakes"}
-            component={AllCupcakes}/>
-          <Protected 
-            path={BASE_PATH + "/"}
-            component={Home} />
+          <Public path={BASE_PATH + "/login"} exact component={Login}/>
+          <Public path={BASE_PATH + "/register"} exact component={Register}/>
+          <Protected path={BASE_PATH + "/cupcakes"} exact component={AllCupcakes}/>
+          <Protected path={BASE_PATH + "/"} exact component={Home} />
 
-            <Route>
-              <Page404/>
-            </Route>
+          <Route path="*" component={Page404}/>
           
         </Switch>
       </Router>
