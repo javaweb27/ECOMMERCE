@@ -12,12 +12,12 @@ const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
 
   const addToCart = () => cartDispatch({
     type: ADD_TO_CART,
-    cupcake: id
+    cupcake: { id, description, img, flavor, color, price, sold }
   })
 
   const removeFromCart = () => cartDispatch({
     type: REMOVE_FROM_CART,
-    cupcake: id
+    cupcake: { id, description, img, flavor, color, price, sold }
   })
   
   return (
@@ -35,7 +35,7 @@ const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
           : 
           <button onClick={() => useFetchPATCH(id, cupcakesDispatch)}>Vender</button>
         }
-        { cartState.cart.find(c => c === id) ? 
+        { cartState.cart.find(c => c.id === id) ? 
           <button onClick={removeFromCart} className="text">Remover Del Carrito</button>
           :
           <button onClick={addToCart}>Agregar al carrito</button>
