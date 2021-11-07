@@ -2,7 +2,7 @@ import { useState } from "react"
 
 const RegisterUser = () => {
 
-  const [data, setData] = useState({email: "", password: ""})
+  const [data, setData] = useState({name: "", email: "", password: ""})
 
   const [passwordRepeated, setPasswordRepeated] = useState("")
 
@@ -31,27 +31,31 @@ const RegisterUser = () => {
     e.preventDefault()
     if (!(data.password === passwordRepeated)) return
     alert("registrar")
-    console.log(data);
   }
 
   return (
     <section>
-      <h1>Registrar usuario</h1>
-      <form action="" onSubmit={submit}>
-        <label htmlFor="email">Escribe tu nombre de usuario
+      <h1 className="title">Registrar usuario</h1>
+      <form action="" onSubmit={submit} className="register">
+        <label htmlFor="name" className="data">Escribe tu nombre de usuario
+          <input type="text" name="name" value={data.name} onChange={changeData} required/>
+        </label>
+
+        <label htmlFor="email" className="data">Escribe tu correo
           <input type="email" name="email" value={data.email} onChange={changeData} required/>
         </label>
 
-        <label htmlFor="password">Escribe tu contraseña
+        <label htmlFor="password" className="data">Escribe tu contraseña
           <input type="password" name="password" value={data.password} onChange={changeData} required/>
         </label>
 
-        <label htmlFor="repeat-password">Repite la contraseña
+        <label htmlFor="repeat-password" className="data">Repite la contraseña
           <input type="password" name="repeat-password" value={passwordRepeated} onChange={checkPassword} required/>
-          { passwordError && <span>Las contraseñas tienen que ser iguales</span>}
         </label>
 
-        <button>Registrar</button>
+        <p className={`error-message${passwordError ? " is-active" : ""}`}>Las contraseñas tienen que ser iguales</p>
+
+        <input type="submit" value="Registrar" />
       </form>
     </section>
   )
