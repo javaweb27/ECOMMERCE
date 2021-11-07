@@ -2,6 +2,7 @@ import "../styles/styles.scss"
 import Header from "./sections/Header";
 import Home from "./pages/home";
 import AllCupcakes from "./pages/allCupcakes";
+import Cart from "./pages/cart";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Page404 from "./pages/page404";
@@ -25,6 +26,7 @@ const App = () => (
         <Switch>
           <Public path={BASE_PATH + "/login"} exact component={Login}/>
           <Public path={BASE_PATH + "/register"} exact component={Register}/>
+          <Protected path={BASE_PATH + "/cart"} exact component={Cart}/>
           <Protected path={BASE_PATH + "/cupcakes"} exact component={AllCupcakes}/>
           <Protected path={BASE_PATH + "/"} exact component={Home} />
 
