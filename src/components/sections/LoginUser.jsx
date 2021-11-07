@@ -17,17 +17,17 @@ const LoginUser = () => {
 
   return (
     <section>
-      <h1>Iniciar sesion</h1>
-      <form action="" onSubmit={submit}>
-        <label htmlFor="">Escribe tu nombre de usuario
+      <h1 className="title">Iniciar sesion</h1>
+      <form action="" onSubmit={submit} className="login">
+        <label htmlFor="email" className="data">Escribe tu correo
           <input type="email" name="email" value={data.email} onChange={changeData} required/>
         </label>
 
-        <label htmlFor="">Escribe tu contraseña
+        <label htmlFor="password" className="data">Escribe tu contraseña
           <input type="password" name="password" value={data.password} onChange={changeData} required/>
         </label>
 
-        <button>Ingresar</button>
+        <input type="submit" value="Ingresar" />
       </form>
     </section>
   )
