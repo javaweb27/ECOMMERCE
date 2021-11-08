@@ -1,22 +1,16 @@
 @use "../sass-vars" as vars;
 
 .cupcake {
-  padding: .8rem;
-  background-color: var(--menu-bg-color);
-  box-shadow: .12rem .12rem .6rem -.4rem;
-  display: grid;
-  grid-template-rows: 8fr repeat(4, 1fr);
-  flex-direction: column;
-  gap: .8rem;
-  
-  @media screen and (min-width: vars.$medium-screen) {
-    grid-template-rows: 12fr repeat(4, 1fr);
-  }
-
   .buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
   }
 
   .img {
@@ -30,5 +24,34 @@
   
   .text {
     margin: 0;
+  }
+}
+
+.cupcakes .cupcake {
+  background-color: var(--menu-bg-color);
+  box-shadow: .12rem .12rem .6rem -.4rem;
+  display: grid;
+  grid-template-rows: 12rem auto auto;
+  gap: .8rem;
+  
+  @media screen and (min-width: vars.$medium-screen) {
+    padding: .8rem;
+    grid-template-rows: 16rem auto auto;
+    
+  }
+
+}
+
+.cart-cupcakes .cupcake {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: .6rem;
+  
+  .img-container {
+    height: 8rem ;
+    width: 16rem ;
+    grid-row: 1 / 3;
   }
 }
