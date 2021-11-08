@@ -34,7 +34,7 @@ const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
         { sold ? 
           <span className="text">vendido</span> 
           : 
-          <button onClick={() => useFetchPATCH(id, cupcakesDispatch)}>Vender</button>
+          <button onClick={() => useFetchPATCH(id, cupcakesDispatch, cartDispatch)}>Vender</button>
         }
         { cartState.cart.find(c => c.id === id) ? 
           <button onClick={removeFromCart} className="text">Remover Del Carrito</button>
