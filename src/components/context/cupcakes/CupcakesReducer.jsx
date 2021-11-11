@@ -19,7 +19,8 @@ const CupcakesReducer = (state, {type, cupcakes, error, cupcake, sold}) => {
         }
 
         return c
-      })
+      }),
+      error
     }
   }
 

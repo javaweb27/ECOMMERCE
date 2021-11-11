@@ -1,10 +1,9 @@
 import { useContext } from "react"
 import {number, string} from "prop-types"
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../context/actions"
+import { ADD_TO_CART, REMOVE_FROM_CART, SELL_CUPCAKE } from "../context/actions"
 import CartContext from "../context/cart/CartContext"
 import CupcakesContext from "../context/cupcakes/CupcakesContext"
 import useFetchPATCH from "../hooks/useFetchPATCH"
-import { db } from "../../db"
 
 const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
 
@@ -26,11 +25,20 @@ const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
       return useFetchPATCH(id, cupcakesDispatch, cartDispatch)
     }
 
-    for (const c of db.cupcakes) {
-      if (c.id === id) {
-        c.sold = true
+    cupcakesDispatch({
+      type: SELL_CUPCAKE,
+      cupcake: id,
+      sold: true,
+      error: cupcakesState.error
+    })
+
+    cartDispatch({
+      type: SELL_CUPCAKE,
+      cupcake: {
+        id,
+        sold: true,
       }
-    }
+    })
   }
   
   return (
