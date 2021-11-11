@@ -2,7 +2,8 @@
 
 Este proyecto al inicio fue creado con `npx create-react-app project-name` y usaba yarn 2 (3.0.2). Luego de un error de importacion, se creo un nuevo proyecto con VITE, `yarn create vite project-name` y solo se paso la carpeta "src", se corrigio las importaciones y se agrego index.jsx al index.html, esta version usa yarn 1. 
 
-## Activar `cupcakes` y `services`
+## Activar `cupcakes` y `services` (OPCIONAL)
+Si no esta activado el servidor json-server, se cargan los datos locales y son los mismos del json-server
 1. instalar json-server: npm install -g json-server
 2. click derecho y luego "Guardar como" o "Save as" en la pagina: `https://raw.githubusercontent.com/devfjavier/Proyecto-de-EDcupcake/gh-pages/db.json` y desde la terminal, en la ruta de la descarga ejecutar:json-server --watch db.json --port 3050
 ## Available Scripts
