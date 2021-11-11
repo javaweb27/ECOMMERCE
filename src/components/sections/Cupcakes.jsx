@@ -1,5 +1,4 @@
 import { useContext } from "react"
-import { db } from "../../db"
 import Cupcake from "../cards/Cupcake"
 import CupcakesContext from "../context/cupcakes/CupcakesContext"
 
@@ -7,7 +6,7 @@ const Cupcakes = ({title, specificCupcakes}) => {
 
   const {cupcakesState} = useContext(CupcakesContext)
   const {cupcakes} = cupcakesState
-  
+
   const cupcakesRequested = (cupcakes && specificCupcakes == "MOST_SOLD" ? 
     cupcakes.filter(c => c.flavor === 'Chocolate')
     : 
