@@ -4,10 +4,11 @@ import { ADD_TO_CART, REMOVE_FROM_CART } from "../context/actions"
 import CartContext from "../context/cart/CartContext"
 import CupcakesContext from "../context/cupcakes/CupcakesContext"
 import useFetchPATCH from "../hooks/useFetchPATCH"
+import { db } from "../../db"
 
 const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
 
-  const {cupcakesDispatch} = useContext(CupcakesContext)
+  const {cupcakesState, cupcakesDispatch} = useContext(CupcakesContext)
   const [cartState, cartDispatch] = useContext(CartContext)
 
   const addToCart = () => cartDispatch({
@@ -19,6 +20,18 @@ const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
     type: REMOVE_FROM_CART,
     cupcake: { id, description, img, flavor, color, price, sold }
   })
+
+  const sell = () => {
+    if (cupcakesState.cupcakes && !cupcakesState.error) {
+      return useFetchPATCH(id, cupcakesDispatch, cartDispatch)
+    }
+
+    for (const c of db.cupcakes) {
+      if (c.id === id) {
+        c.sold = true
+      }
+    }
+  }
   
   return (
     <article className="cupcake">
@@ -34,7 +47,7 @@ const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
         { sold ? 
           <span className="text">vendido</span> 
           : 
-          <button onClick={() => useFetchPATCH(id, cupcakesDispatch, cartDispatch)}>Vender</button>
+          <button onClick={sell}>Vender</button>
         }
         { cartState.cart.find(c => c.id === id) ? 
           <button onClick={removeFromCart} className="text">Remover Del Carrito</button>
