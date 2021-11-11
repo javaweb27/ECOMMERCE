@@ -1,19 +1,20 @@
 import { useContext } from "react"
+import { db } from "../../db"
 import Cupcake from "../cards/Cupcake"
 import CupcakesContext from "../context/cupcakes/CupcakesContext"
 
 const Cupcakes = ({title, specificCupcakes}) => {
 
   const {cupcakesState} = useContext(CupcakesContext)
-  const {cupcakes, error} = cupcakesState
+  let {cupcakes, error} = cupcakesState
 
+  if (!cupcakes && error || !cupcakes && !error) cupcakes = db.cupcakes
+  
   const cupcakesRequested = (cupcakes && specificCupcakes == "MOST_SOLD" ? 
-    cupcakes.filter(c => c.flavor === 'Chocolate')
-    : 
-    cupcakes
+  cupcakes.filter(c => c.flavor === 'Chocolate')
+  : 
+  cupcakes
   )
-
-  if (error) return <span>hubo un error en cupcakes</span>
 
   return (
     <>

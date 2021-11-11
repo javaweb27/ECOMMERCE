@@ -1,12 +1,11 @@
+import { db } from "../../db"
 import useFetchGET from "../hooks/useFetchGET"
 
 const Services = ({request}) => {
 
-  const [services, error] = useFetchGET(request)
+  let [services, error] = useFetchGET(request)
 
-  if (error) {
-    return <span>hubo un error en services</span>
-  }
+  if (!services && error || !services && !error) services = db.services
 
   return (
     <section className="services">
