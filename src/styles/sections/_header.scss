@@ -6,24 +6,30 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   background-color: var(--menu-bg-color);
-}
 
-.menu {
-  display: flex;
-  margin: 0;
-  padding: 1rem;
-  gap: 1rem;
-}
+  .menu {
+    display: flex;
+    margin: 0;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .item {
+    list-style: none;
+  }
+  
+  .link {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .active-page {
+    color: rgb(45, 148, 226);
+  }
 
-.item {
-  list-style: none;
-}
-
-.link {
-  display: inline-block;
-  text-decoration: none;
-}
-
-.active-page {
-  color: greenyellow;
+  .img-container {
+    width: 5.2rem;
+    height: auto;
+  }
 }
