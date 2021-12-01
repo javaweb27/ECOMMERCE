@@ -1,5 +1,5 @@
 .banner {
-  background-color: rgba(54, 159, 240, 0.8);
+  background-color: rgba(47, 157, 241, 0.9);
   height: 16rem;
   position: relative;
   display: flex;
@@ -16,5 +16,15 @@
   
   .container {
     text-align: center;
+    color: rgb(255, 255, 255);
+  }
+  
+  .link {
+    color: rgb(45, 148, 226);
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 1rem;
+    padding: .5rem;
+    background-color: rgb(255, 255, 255);
   }
 }
