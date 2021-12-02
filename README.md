@@ -1,18 +1,23 @@
-# EDcupcake, tienda que vende cupcakes
+# EDcupcake: online shop
 
-Este proyecto al inicio fue creado con `npx create-react-app project-name` y usaba yarn 2 (3.0.2). Luego de un error de importacion, se creo un nuevo proyecto con VITE, `yarn create vite project-name` y solo se paso la carpeta "src", se corrigio las importaciones y se agrego index.jsx al index.html, esta version usa yarn 1. 
+It is a shop that sells cupcakes from an API consumed with Fetch API.
+The user can view and save the cupcakes in the cart.
+Context API is used to handle the state of the cart and the cupcakes, SASS for the styles and json-server for the API.
+Single Page Aplication (SPA).
 
-## Activar `cupcakes` y `services` (OPCIONAL)
-Si no esta activado el servidor json-server, se cargan los datos locales y son los mismos del json-server
-1. instalar json-server: npm install -g json-server
-2. click derecho y luego "Guardar como" o "Save as" en la pagina: `https://raw.githubusercontent.com/devfjavier/Proyecto-de-EDcupcake/gh-pages/db.json` y desde la terminal, en la ruta de la descarga ejecutar:json-server --watch db.json --port 3050
+### Activate `cupcakes` and `services` (OPTIONAL)
+
+If json-server is not activated, the local data will be used and they are the same than json-server.
+
+1. install json-server: npm install -g json-server
+2. click right and then "Save as" on the page: `https://raw.githubusercontent.com/devfjavier/Proyecto-de-EDcupcake/gh-pages/db.json` and in the download path, from terminal run: json-server --watch db.json --port 3050
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `yarn dev`
 
-Runs the app in the development mode (lo mismo que `yarn start`).\
+Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
@@ -26,4 +31,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-IMPORTANTE: para subirlo a `github pages` , en el archivo "index.html" de la carpeta "dist" se debe eliminar la primera barra `/` de las rutas en las etiquetas "link" y "script"
+FOR GITHUB PAGES: in the folder "dist" open "index.html" file and delete the first character slash `/` of paths in html tags "link" and "script"
