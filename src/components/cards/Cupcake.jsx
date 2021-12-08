@@ -53,14 +53,14 @@ const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
       </div>
       <div className="buttons">
         { sold ? 
-          <span className="text">vendido</span> 
+          <span className="text sold-tag">vendido</span> 
           : 
-          <button onClick={sell}>Vender</button>
+          <button onClick={sell} className="btn-sell">Vender</button>
         }
         { cartState.cart.find(c => c.id === id) ? 
-          <button onClick={removeFromCart} className="text">Remover Del Carrito</button>
+          <button onClick={removeFromCart} className="text btn-remove">Remover Del Carrito</button>
           :
-          <button onClick={addToCart}>Agregar al carrito</button>
+          <button onClick={addToCart} className="text btn-add">Agregar al carrito</button>
         }
       </div>
     </article>
