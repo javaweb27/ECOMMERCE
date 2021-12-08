@@ -7,7 +7,11 @@ const CartCupcakes = () => {
   
   return (
     <section className="cart-cupcakes">
-      <h2 className="title">Cupcakes del carrito</h2>
+      <h2 className="title">
+        {state.cart.length ? 
+          "Cupcakes del carrito" : "No tienes cupcakes en el carrito"
+        }
+      </h2>
       <div className="container">
         {
           state.cart.map(({ id, description, img, flavor, color, price, sold }) => {
