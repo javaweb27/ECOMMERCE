@@ -1,46 +1,15 @@
 import { useContext } from "react"
 import {number, string} from "prop-types"
-import { ADD_TO_CART, REMOVE_FROM_CART, SELL_CUPCAKE } from "../context/actions"
 import CartContext from "../context/cart/CartContext"
 import CupcakesContext from "../context/cupcakes/CupcakesContext"
-import useFetchPATCH from "../hooks/useFetchPATCH"
+import ButtonSell from "../elements/ButtonSell"
+import ButtonAddRemoveFromCart from "../elements/ButtonAddRemoveFromCart"
 
 const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
 
   const {cupcakesState, cupcakesDispatch} = useContext(CupcakesContext)
   const [cartState, cartDispatch] = useContext(CartContext)
 
-  const addToCart = () => cartDispatch({
-    type: ADD_TO_CART,
-    cupcake: { id, description, img, flavor, color, price, sold }
-  })
-
-  const removeFromCart = () => cartDispatch({
-    type: REMOVE_FROM_CART,
-    cupcake: { id, description, img, flavor, color, price, sold }
-  })
-
-  const sell = () => {
-    if (cupcakesState.cupcakes && !cupcakesState.error) {
-      return useFetchPATCH(id, cupcakesDispatch, cartDispatch)
-    }
-
-    cupcakesDispatch({
-      type: SELL_CUPCAKE,
-      cupcake: id,
-      sold: true,
-      error: cupcakesState.error
-    })
-
-    cartDispatch({
-      type: SELL_CUPCAKE,
-      cupcake: {
-        id,
-        sold: true,
-      }
-    })
-  }
-  
   return (
     <article className="cupcake">
       <div className="img-container">
@@ -51,17 +20,21 @@ const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
         <span className="text">Color: {color}</span>
         <span className="text">Precio: {price}</span>
       </div>
+
       <div className="buttons">
-        { sold ? 
-          <span className="text sold-tag">vendido</span> 
-          : 
-          <button onClick={sell} className="btn-sell">Vender</button>
-        }
-        { cartState.cart.find(c => c.id === id) ? 
-          <button onClick={removeFromCart} className="text btn-remove">Remover Del Carrito</button>
-          :
-          <button onClick={addToCart} className="text btn-add">Agregar al carrito</button>
-        }
+        <ButtonSell 
+          id={id} 
+          sold={sold} 
+          cupcakesState={cupcakesState}
+          cupcakesDispatch={cupcakesDispatch}
+          cartDispatch={cartDispatch}
+        />
+
+        <ButtonAddRemoveFromCart 
+          cartState={cartState} 
+          cartDispatch={cartDispatch}
+          cupcake={{ id, description, img, flavor, color, price, sold }}
+        />
       </div>
     </article>
   )
