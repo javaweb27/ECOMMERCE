@@ -1,0 +1,25 @@
+@use "../cards/ph-button";
+
+.cupcake {
+  .btn-add {
+    @extend %button;
+    position: relative;
+    width: 1.9rem;
+    height: 1.9rem;
+    color: rgb(45, 148, 226);
+    &:hover {
+      color: hsl(127, 90%, 29%);
+    }
+  }
+  
+  .btn-remove {
+    @extend %button;
+    position: relative;
+    width: 1.9rem;
+    height: 1.9rem;
+    color: rgb(45, 148, 226);
+    &:hover {
+      color: hsl(0, 90%, 29%);
+    }
+  }
+}

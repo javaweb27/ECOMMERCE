@@ -10,5 +10,7 @@
 @use "pages/cupcakes";
 //cards
 @use "cards/cupcake.scss";
+//elements
+@use "elements/ButtonAddRemoveFromCart";
 //svgs
 @use "svgs/cart-svg";
