@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom"
-import { BASE_PATH } from "../../BASE_PATH"
 import CartCounter from "../elements/CartCounter"
 
 const Header = () => (
@@ -11,21 +10,19 @@ const Header = () => (
     <nav>
       <ul className="menu">
         <li className="item">
-          <NavLink to={BASE_PATH + "/"} className={({isActive}) => isActive ? "link active-page" : "link"}>Inicio</NavLink>
+          <NavLink to="/" className={({isActive}) => isActive ? "link active-page" : "link"}>Inicio</NavLink>
         </li>
         <li className="item">
-          <NavLink to={BASE_PATH + "/cupcakes"} className={({isActive}) => isActive ? "link active-page" : "link"}>Cupcakes</NavLink>
+          <NavLink to="/cupcakes" className={({isActive}) => isActive ? "link active-page" : "link"}>Cupcakes</NavLink>
         </li>
         <li className="item">
-          <NavLink to={BASE_PATH + "/login"} className={({isActive}) => isActive ? "link active-page" : "link"}>Iniciar Sesion</NavLink>
+          <NavLink to="/login" className={({isActive}) => isActive ? "link active-page" : "link"}>Iniciar Sesion</NavLink>
         </li>
         <li className="item">
-          <NavLink to={BASE_PATH + "/register"} className={({isActive}) => isActive ? "link active-page" : "link"}>Registrarse</NavLink>
+          <NavLink to="/register" className={({isActive}) => isActive ? "link active-page" : "link"}>Registrarse</NavLink>
         </li>
         <li className="item">
-          <NavLink to={BASE_PATH + "/cart"} className={({isActive}) => isActive ? "link active-page" : "link"}>
-            <CartCounter/>
-          </NavLink>
+          <NavLink to="/cart" className={({isActive}) => isActive ? "link active-page" : "link"}><CartCounter/></NavLink>
         </li>
       </ul>
     </nav>

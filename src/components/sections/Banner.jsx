@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import { BASE_PATH } from "../../BASE_PATH"
 
 const Banner = () => (
   <section className="banner">
@@ -7,7 +6,7 @@ const Banner = () => (
     <div className="container">
       <h1>Bievenido a EDcupcake</h1>
       <p>¡Un sitio lleno de sabor!</p>
-      <Link to={BASE_PATH + "/cupcakes"} className="link">Ver cupcakes</Link>
+      <Link to="/cupcakes" className="link">Ver cupcakes</Link>
     </div>
   </section>
 )

@@ -10,20 +10,20 @@ import Protected from "./routes/Protected";
 import Public from "./routes/Public";
 import CartProvider from "./context/cart/CartProvider";
 import CupcakesProvider from "./context/cupcakes/CupcakesProvider";
-import { BASE_PATH } from "../BASE_PATH";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => (
   <CartProvider>
     <CupcakesProvider request="cupcakes">
-      <BrowserRouter>
+      <BrowserRouter basename="/Proyecto-de-EDcupcake">
         <Header/>
+
         <Routes>
-          <Route path={BASE_PATH + "/login"} element={<Public render={Login}/>}/>
-          <Route path={BASE_PATH + "/register"} element={<Public render={Register}/>}/>
-          <Route path={BASE_PATH + "/cart"} element={<Protected render={Cart}/>}/>
-          <Route path={BASE_PATH + "/cupcakes"} element={<Protected render={AllCupcakes}/>}/>
-          <Route path={BASE_PATH + "/"} element={<Protected render={Home}/>} />
+          <Route path="/login" element={<Public render={Login}/>}/>
+          <Route path="/register" element={<Public render={Register}/>}/>
+          <Route path="/cart" element={<Protected render={Cart}/>}/>
+          <Route path="/cupcakes" element={<Protected render={AllCupcakes}/>}/>
+          <Route path="/" element={<Protected render={Home}/>} />
           <Route path="*" element={<Page404/>}/>
         </Routes>
       </BrowserRouter>
