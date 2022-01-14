@@ -1,17 +1,15 @@
-import { Redirect, Route } from "react-router"
+import { Navigate } from "react-router-dom"
 import { BASE_PATH } from "../../BASE_PATH"
 
-const Protected = ({component: Component}) => {
+const Protected = ({render: Component}) => {
 
   const userLogged = true
 
   if (!userLogged) {
-    return <Redirect to={BASE_PATH + "/login"}/>
+    return <Navigate to={BASE_PATH + "/login"}/>
   }
 
-  return (
-    <Route render={Component}/>
-  )
+  return <Component/>
 }
 
 export default Protected

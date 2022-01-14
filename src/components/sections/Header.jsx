@@ -11,19 +11,19 @@ const Header = () => (
     <nav>
       <ul className="menu">
         <li className="item">
-          <NavLink to={BASE_PATH + "/"} exact className="link" activeClassName="active-page">Inicio</NavLink>
+          <NavLink to={BASE_PATH + "/"} className={({isActive}) => isActive ? "link active-page" : "link"}>Inicio</NavLink>
         </li>
         <li className="item">
-          <NavLink to={BASE_PATH + "/cupcakes"} exact className="link" activeClassName="active-page">Cupcakes</NavLink>
+          <NavLink to={BASE_PATH + "/cupcakes"} className={({isActive}) => isActive ? "link active-page" : "link"}>Cupcakes</NavLink>
         </li>
         <li className="item">
-          <NavLink to={BASE_PATH + "/login"} exact className="link" activeClassName="active-page">Iniciar Sesion</NavLink>
+          <NavLink to={BASE_PATH + "/login"} className={({isActive}) => isActive ? "link active-page" : "link"}>Iniciar Sesion</NavLink>
         </li>
         <li className="item">
-          <NavLink to={BASE_PATH + "/register"} exact className="link" activeClassName="active-page">Registrarse</NavLink>
+          <NavLink to={BASE_PATH + "/register"} className={({isActive}) => isActive ? "link active-page" : "link"}>Registrarse</NavLink>
         </li>
         <li className="item">
-          <NavLink to={BASE_PATH + "/cart"} exact className="link" activeClassName="active-page">
+          <NavLink to={BASE_PATH + "/cart"} className={({isActive}) => isActive ? "link active-page" : "link"}>
             <CartCounter/>
           </NavLink>
         </li>

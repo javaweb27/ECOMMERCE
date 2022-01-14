@@ -11,29 +11,22 @@ import Public from "./routes/Public";
 import CartProvider from "./context/cart/CartProvider";
 import CupcakesProvider from "./context/cupcakes/CupcakesProvider";
 import { BASE_PATH } from "../BASE_PATH";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => (
   <CartProvider>
     <CupcakesProvider request="cupcakes">
-      <Router>
+      <BrowserRouter>
         <Header/>
-      
-        <Switch>
-          <Public path={BASE_PATH + "/login"} exact component={Login}/>
-          <Public path={BASE_PATH + "/register"} exact component={Register}/>
-          <Protected path={BASE_PATH + "/cart"} exact component={Cart}/>
-          <Protected path={BASE_PATH + "/cupcakes"} exact component={AllCupcakes}/>
-          <Protected path={BASE_PATH + "/"} exact component={Home} />
-
-          <Route path="*" component={Page404}/>
-          
-        </Switch>
-      </Router>
+        <Routes>
+          <Route path={BASE_PATH + "/login"} element={<Public render={Login}/>}/>
+          <Route path={BASE_PATH + "/register"} element={<Public render={Register}/>}/>
+          <Route path={BASE_PATH + "/cart"} element={<Protected render={Cart}/>}/>
+          <Route path={BASE_PATH + "/cupcakes"} element={<Protected render={AllCupcakes}/>}/>
+          <Route path={BASE_PATH + "/"} element={<Protected render={Home}/>} />
+          <Route path="*" element={<Page404/>}/>
+        </Routes>
+      </BrowserRouter>
     </CupcakesProvider>
   </CartProvider>
 )
