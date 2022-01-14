@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom"
 import CartCounter from "../elements/CartCounter"
+import MenuLink from "../elements/MenuLink"
 
 const Header = () => (
   <header className="header">
@@ -9,21 +9,13 @@ const Header = () => (
     <span/>
     <nav>
       <ul className="menu">
-        <li className="item">
-          <NavLink to="/" className={({isActive}) => isActive ? "link active-page" : "link"}>Inicio</NavLink>
-        </li>
-        <li className="item">
-          <NavLink to="/cupcakes" className={({isActive}) => isActive ? "link active-page" : "link"}>Cupcakes</NavLink>
-        </li>
-        <li className="item">
-          <NavLink to="/login" className={({isActive}) => isActive ? "link active-page" : "link"}>Iniciar Sesion</NavLink>
-        </li>
-        <li className="item">
-          <NavLink to="/register" className={({isActive}) => isActive ? "link active-page" : "link"}>Registrarse</NavLink>
-        </li>
-        <li className="item">
-          <NavLink to="/cart" className={({isActive}) => isActive ? "link active-page" : "link"}><CartCounter/></NavLink>
-        </li>
+        <MenuLink to="/">Inicio</MenuLink>
+        <MenuLink to="/cupcakes">Cupcakes</MenuLink>
+        <MenuLink to="/login">Iniciar Sesion</MenuLink>
+        <MenuLink to="/register">Registrarse</MenuLink>
+        <MenuLink to="/cart">
+          <CartCounter/>
+        </MenuLink>
       </ul>
     </nav>
   </header>
