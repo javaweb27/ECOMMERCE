@@ -1,6 +1,7 @@
 :root {
     --menu-bg-color: hsl(180, 100%, 100%);
     --bg-color: hsl(180, 15%, 96%);
+    --header-height: 2.7rem;
 }
 
 
@@ -10,6 +11,7 @@ body {
     background-color: var(--bg-color);
     margin: 0;
 }
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
