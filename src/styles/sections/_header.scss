@@ -1,11 +1,15 @@
 .header {
   display: grid;
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   z-index: 1;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  background-color: var(--menu-bg-color);
+  transition: background-color .12s linear;
+  &.bg-active {
+    background-color: var(--menu-bg-color);
+  }
 
   .menu {
     display: flex;
