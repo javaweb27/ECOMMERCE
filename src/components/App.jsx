@@ -1,5 +1,4 @@
 import "../styles/styles.scss"
-import Header from "./sections/Header";
 import Home from "./pages/home";
 import AllCupcakes from "./pages/allCupcakes";
 import Cart from "./pages/cart";
@@ -13,11 +12,11 @@ import CupcakesProvider from "./context/cupcakes/CupcakesProvider";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => (
+
   <CartProvider>
     <CupcakesProvider request="cupcakes">
-      <BrowserRouter basename="/Proyecto-de-EDcupcake">
-        <Header/>
 
+      <BrowserRouter basename="/Proyecto-de-EDcupcake">
         <Routes>
           <Route path="/login" element={<Public render={Login}/>}/>
           <Route path="/register" element={<Public render={Register}/>}/>
@@ -27,6 +26,7 @@ const App = () => (
           <Route path="*" element={<Page404/>}/>
         </Routes>
       </BrowserRouter>
+
     </CupcakesProvider>
   </CartProvider>
 )
