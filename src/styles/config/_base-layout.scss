@@ -1,0 +1,12 @@
+body {
+    background-color: var(--bg-color);
+    margin: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img, svg {
+    display: block;
+}

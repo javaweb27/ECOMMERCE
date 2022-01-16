@@ -1,4 +1,4 @@
-@use "../sass-vars" as vars;
+@use "../config/sass-vars" as vars;
 @use "./ph-button";
 
 .cupcake {
@@ -33,6 +33,7 @@
 
   .img {
     height: 100%;
+    width: 100%;
     object-fit: cover;
   }
 

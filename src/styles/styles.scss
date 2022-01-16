@@ -1,5 +1,7 @@
 //config, css vars
-@use "config";
+@use "config/sass-vars";
+@use "config/css-vars";
+@use "config/base-layout";
 //sections
 @use "sections/header";
 @use "sections/services";
