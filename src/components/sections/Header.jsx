@@ -7,11 +7,9 @@ const Header = ({headerForHome}) => {
   const header = useRef()
 
   document.onscroll = () => {
-    const banner = document.getElementById("banner-section")
+    if (!headerForHome) return
 
-    if (!banner) return
-
-    if (window.scrollY >= getHeight(banner) - getHeight(header.current)) {
+    if (window.scrollY >= window.innerHeight - getHeight(header.current)) {
       header.current.classList.add("bg-active")
     }
     else {
