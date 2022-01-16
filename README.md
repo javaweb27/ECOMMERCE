@@ -31,4 +31,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-FOR GITHUB PAGES: in the folder "dist" open "index.html" file and delete the first character slash `/` of paths in html tags "link" and "script"
+FOR GITHUB PAGES: open the file `vite.config.js` and `defineConfig` should have the property `base: "/BasePath/"` in the object of its parameter
