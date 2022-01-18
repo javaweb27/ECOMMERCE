@@ -4,9 +4,11 @@
 @use "config/base-layout";
 //sections
 @use "sections/header";
-@use "sections/services";
+@use "sections/pastry-course";
+@use "sections/delivery";
 @use "sections/login-register";
 @use "sections/cart-cupcakes";
+@use "sections/cupcakes-features";
 //pages
 @use "pages/home";
 @use "pages/cupcakes";
