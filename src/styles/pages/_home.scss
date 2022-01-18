@@ -24,12 +24,14 @@
   }
   
   .link {
+    display: inline-block;
     color: rgb(255, 255, 255);
     text-shadow: none;
     font-weight: bold;
     text-decoration: none;
     border-radius: 2rem;
     padding: .5rem;
-    background-color: rgb(45, 148, 226);
+    margin: 1.2rem;
+    background-color: var(--primary-color);
   }
 }
