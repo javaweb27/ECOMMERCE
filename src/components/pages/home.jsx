@@ -1,8 +1,9 @@
-import Cupcakes from "../sections/Cupcakes"
-import Services from "../sections/Services"
+import { useEffect } from "react"
 import Banner from "../sections/Banner"
 import ContentContainer from "../elements/ContentContainer"
-import { useEffect } from "react"
+import CupcakesFeatures from "../sections/CupcakesFeatures"
+import PastryCourse from "../sections/PastryCourse"
+import Delivery from "../sections/Delivery"
 
 const  Home = () => {
   useEffect(() => {
@@ -11,8 +12,9 @@ const  Home = () => {
   return (
     <ContentContainer headerForHome>
       <Banner/>
-      <Cupcakes title="h2" specificCupcakes="MOST_SOLD"/>
-      <Services request="services"/>
+      <CupcakesFeatures/>
+      <PastryCourse/>
+      <Delivery/>
     </ContentContainer>
   )
 }
