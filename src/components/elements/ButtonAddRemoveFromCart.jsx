@@ -1,5 +1,5 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from "../context/actions"
-import Icon from "../../svg/icon"
+import Icon from "./icon"
 
 const ButtonAddRemoveFromCart = ({cartState, cartDispatch, cupcake}) => {
 
