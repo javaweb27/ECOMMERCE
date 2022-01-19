@@ -5,24 +5,21 @@ import CupcakesContext from "../context/cupcakes/CupcakesContext"
 import ButtonSell from "../elements/ButtonSell"
 import ButtonAddRemoveFromCart from "../elements/ButtonAddRemoveFromCart"
 
-const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
-
+const Cupcake = ({ styles, id, description, img, flavor, color, price, sold }) => {
   const {cupcakesState, cupcakesDispatch} = useContext(CupcakesContext)
   const [cartState, cartDispatch] = useContext(CartContext)
 
   return (
-    <article className="cupcake">
-      <div className="img-container">
-        <img className={sold ? "img sold" : "img"} src={img} alt={flavor} />
-      </div>
-      <div className="description">
+    <article className={styles.cupcake}>
+      <img className={sold ? styles.sold : null} src={img} alt={flavor} />
+      <div className={styles.description}>
         <p className="text">{description}</p>
         <span className="text">Color: {color}</span>
         <span className="text">Precio: {price}</span>
       </div>
 
-      <div className="buttons">
-        <ButtonSell 
+      <div className={styles.buttons}>
+        <ButtonSell
           id={id} 
           sold={sold} 
           cupcakesState={cupcakesState}
@@ -30,7 +27,7 @@ const Cupcake = ({ id, description, img, flavor, color, price, sold }) => {
           cartDispatch={cartDispatch}
         />
 
-        <ButtonAddRemoveFromCart 
+        <ButtonAddRemoveFromCart
           cartState={cartState} 
           cartDispatch={cartDispatch}
           cupcake={{ id, description, img, flavor, color, price, sold }}

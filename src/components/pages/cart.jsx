@@ -2,10 +2,10 @@ import { useContext } from "react"
 import Cupcake from "../cards/Cupcake"
 import CartContext from "../context/cart/CartContext"
 import ContentContainer from "../elements/ContentContainer"
-
+import styles from "../../styles/cards/cart-cupcake.module.scss"
 const Cart = () => {
   const [state] = useContext(CartContext)
-  
+
   return (
     <ContentContainer>
       <section className="cart-cupcakes">
@@ -19,6 +19,7 @@ const Cart = () => {
             state.cart.map(({ id, description, img, flavor, color, price, sold }) => {
               return (
                 <Cupcake
+                  styles={styles}
                   key={id}
                   id={id}
                   description={description}

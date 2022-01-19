@@ -2,6 +2,7 @@ import { useContext } from "react"
 import CupcakesContext from "../context/cupcakes/CupcakesContext"
 import ContentContainer from "../elements/ContentContainer"
 import Cupcake from "../cards/Cupcake"
+import styles from  "../../styles/cards/cupcake.module.scss"
 
 const AllCupcakes = () => {
   const {cupcakesState} = useContext(CupcakesContext)
@@ -23,6 +24,7 @@ const AllCupcakes = () => {
             }) => {
               return (
                 <Cupcake
+                  styles={styles}
                   key={id}
                   id={id}
                   description={description}
