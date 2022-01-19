@@ -1,10 +1,16 @@
+import { Link } from "react-router-dom"
 import ContentContainer from "../elements/ContentContainer"
 
 const Page404 = () => {
 
   return (
-    <ContentContainer>
-      <h1>404 not found</h1>
+    <ContentContainer headerForHome>
+      <section className="page404">
+        <div className="container">
+          <h1 className="title">404 page not found</h1>
+          <Link to="/" className="link">Ir al Home</Link>
+        </div>
+      </section>
     </ContentContainer>
   )
 }
