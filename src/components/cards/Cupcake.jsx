@@ -11,7 +11,7 @@ const Cupcake = ({ styles, id, description, img, flavor, color, price, sold }) =
 
   return (
     <article className={styles.cupcake}>
-      <img className={sold ? styles.sold : null} src={img} alt={flavor} />
+      <img className={sold ? styles.sold : null} src={img} alt={flavor} loading="lazy"/>
       <div className={styles.description}>
         <p className="text">{description}</p>
         <span className="text">Color: {color}</span>
