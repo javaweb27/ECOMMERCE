@@ -1,0 +1,18 @@
+@use "../cards/ph-button";
+
+.btn-sell {
+  @extend %button;
+  font-weight: bold;
+  border: .19rem solid var(--primary-color);
+  color: rgb(45, 148, 226);
+
+  &:hover {
+    color: rgb(255, 255, 255);
+    background-color: var(--primary-color);
+  }
+}
+
+.sold-tag {
+  @extend %button;
+  cursor: unset;
+}
