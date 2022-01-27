@@ -1,4 +1,4 @@
-@use "../config/sass-vars" as vars;
+@use "../mixins/breakpoint" as *;
 
 .title {
   text-align: center;
@@ -6,17 +6,20 @@
   padding: .6em;
 }
 
-.cupcakes .container {
-  display: grid;
-  gap: 1.6rem;
-  margin: 0 6%;
+.cupcakes .container {  
+  @include breakpoint(bp0) {
+    display: grid;
+    gap: 1.6rem;
+    margin: 0 6%;
+    grid-template-columns: 1fr;
+  }
   
-  @media screen and (min-width: vars.$medium-screen) {
+  @include breakpoint(bp1) {
     grid-template-columns: repeat(2, 1fr);
+    margin: 0 12%;
   }
 
-  @media screen and (min-width: vars.$big-screen) {
+  @include breakpoint(bp2) {
     grid-template-columns: repeat(3, 1fr);
-    margin: 0 12%;
   }
 }

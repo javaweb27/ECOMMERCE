@@ -1,15 +1,17 @@
+@use "../mixins/breakpoint" as *;
 @use "../config/sass-vars" as vars;
 
 .cupcake {
-  background-color: var(--menu-bg-color);
-  box-shadow: .12rem .12rem .6rem -.4rem;
-  display: grid;
-  grid-template-rows: 12rem auto auto;
-  gap: .8rem;
-
-  @media screen and (min-width: vars.$medium-screen) {
-    padding: .8rem;
+  @include breakpoint(bp0) {
+    display: grid;
+    grid-template-rows: 12rem auto auto;
+    gap: .8rem;
+    background-color: var(--menu-bg-color);
+    box-shadow: .12rem .12rem .6rem -.4rem;
+  }
+  @include breakpoint(bp1) {
     grid-template-rows: 16rem auto auto;
+    padding: .8rem;
   }
   
   img {
