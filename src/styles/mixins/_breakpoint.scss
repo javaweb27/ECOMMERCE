@@ -1,0 +1,23 @@
+@use "../config/sass-vars" as vars;
+
+@mixin breakpoint($bp-level) {
+  $bp-value: 0;
+  
+  @if $bp-level == bp0 {
+    @media screen and (min-width: $bp-value) {
+      @content
+    }
+  }
+  @else if $bp-level == bp1 {
+    $bp-value: vars.$medium-screen;
+    @media screen and (min-width: $bp-value) {
+      @content
+    }
+  }
+  @else if $bp-level == bp2 {
+    $bp-value: vars.$big-screen;
+    @media screen and (min-width: $bp-value) {
+      @content
+    }
+  }
+}
