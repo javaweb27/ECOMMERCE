@@ -1,12 +1,10 @@
 @use "../mixins/breakpoint" as *;
 
 .cupcakes-features {
-  @include breakpoint(bp0) {
-    display: grid;
-    padding: 2.7rem 6%;
-    gap: 1.9rem;
-    grid-template-columns: 1fr;
-  }
+  display: grid;
+  padding: 2.7rem 6%;
+  gap: 1.9rem;
+  grid-template-columns: 1fr;
   
   @include breakpoint(bp1) {
     padding: 2.7rem 12%;

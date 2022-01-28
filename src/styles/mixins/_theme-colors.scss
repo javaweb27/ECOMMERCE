@@ -1,0 +1,19 @@
+@mixin dark {
+  --menu-bg-color: hsl(180, 0%, 9%);
+  --bg-color: hsl(180, 0%, 6%);
+  --primary-color: #2997eb;
+  --title-color: #fff;
+  --text-color: hsl(180, 9%, 72%);
+  --dark-color: hsl(180, 12%, 6%);
+  --light-color: hsl(180, 100%, 100%);
+}
+
+@mixin light {
+  --menu-bg-color: hsl(180, 100%, 100%);
+  --bg-color: hsl(180, 15%, 96%);
+  --primary-color: #2997eb;
+  --title-color: #000;
+  --text-color: hsl(180, 0%, 12%);
+  --dark-color: hsl(180, 12%, 6%);
+  --light-color: hsl(180, 100%, 100%);
+}

@@ -4,10 +4,10 @@
   @extend %button;
   font-weight: bold;
   border: .19rem solid var(--primary-color);
-  color: rgb(45, 148, 226);
+  color: var(--primary-color);
 
   &:hover {
-    color: rgb(255, 255, 255);
+    color: var(--light-color);
     background-color: var(--primary-color);
   }
 }

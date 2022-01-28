@@ -1,9 +1,15 @@
+@use "../mixins/theme-colors";
+
 :root {
-    --header-height: 2.7rem;
-    //colors
-    --menu-bg-color: hsl(180, 100%, 100%);
-    --bg-color: hsl(180, 15%, 96%);
-    --primary-color: #2997eb;
+  --header-height: 2.7rem;
+
+  @media (prefers-color-scheme: dark) {
+    @include theme-colors.dark
+  }
+
+  @media (prefers-color-scheme: light) {
+    @include theme-colors.light
+  }
 }
 
 

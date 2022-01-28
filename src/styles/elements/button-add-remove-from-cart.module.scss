@@ -5,7 +5,7 @@
   position: relative;
   width: 1.9rem;
   height: 1.9rem;
-  color: rgb(45, 148, 226);
+  color: var(--primary-color);
   &:hover {
     color: hsl(127, 90%, 29%);
   }
@@ -23,7 +23,7 @@
   position: relative;
   width: 1.9rem;
   height: 1.9rem;
-  color: rgb(45, 148, 226);
+  color: var(--primary-color);
   &:hover {
     color: hsl(0, 90%, 29%);
   }

@@ -2,17 +2,14 @@
 
 .title {
   text-align: center;
-  margin: 0;
   padding: .6em;
 }
 
-.cupcakes .container {  
-  @include breakpoint(bp0) {
-    display: grid;
-    gap: 1.6rem;
-    margin: 0 6%;
-    grid-template-columns: 1fr;
-  }
+.cupcakes .container {
+  display: grid;
+  gap: 1.6rem;
+  margin: 0 6%;
+  grid-template-columns: 1fr;
   
   @include breakpoint(bp1) {
     grid-template-columns: repeat(2, 1fr);

@@ -11,43 +11,41 @@
   align-items: center;
   transition: background-color .12s linear;
   background-color: var(--menu-bg-color);
+  color: var(--title-color);
   &.fixed {
     background-color: rgba(27, 27, 27, 0.8);
     backdrop-filter: blur(2px);
-    color: var(--menu-bg-color);
+    color: var(--light-color);
     position: fixed;
     
     .menu {
-      @include breakpoint(bp0) {
-        background-color: rgba(27, 27, 27, 0.8);
-      }
+      background-color: rgba(27, 27, 27, 0.8);
+
       @include breakpoint(bp1) {
         background-color: unset;
       }
     }
   }
   &.bg-active {
-    color: black;
+    color: var(--title-color);
     background-color: var(--menu-bg-color);
   }
-
+  
   .menu {
-    @include breakpoint(bp0) {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      visibility: hidden;
-      background-color: var(--menu-bg-color);
-      filter: opacity(0);
-      transition: filter .06s linear;
-      
-      &.is-active {
-        visibility: visible;
-        filter: opacity(1);
-      }
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    background-color: var(--menu-bg-color);
+    filter: opacity(0);
+    transition: filter .06s linear;
+    
+    &.is-active {
+      visibility: visible;
+      filter: opacity(1);
     }
     
     @include breakpoint(bp1) {

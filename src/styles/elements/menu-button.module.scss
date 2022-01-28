@@ -1,15 +1,13 @@
 @use "../mixins/breakpoint" as *;
 
 .button {
-  @include breakpoint(bp0) {
-    all: unset;
-    cursor: pointer;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: calc(var(--header-height) * 1.5);
-    width: calc(var(--header-height) * 1.5);
-  }
+  all: unset;
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: calc(var(--header-height) * 1.5);
+  width: calc(var(--header-height) * 1.5);
 
   @include breakpoint(bp1) {
     display: none;
