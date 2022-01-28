@@ -1,18 +1,12 @@
 import { useRef } from "react"
 import getHeight from "../../functions/getHeight"
 import CartCounter from "../elements/CartCounter"
-import Icon from "../elements/icon"
+import MenuButton from "../elements/MenuButton"
 import MenuLink from "../elements/MenuLink"
 
 const Header = ({headerForHome}) => {
   const header = useRef()
   const menu = useRef()
-  const button = useRef()
-
-  const toggleMenu = () => {
-    menu.current.classList.toggle("is-active")
-    button.current.classList.toggle("is-active")
-  }
 
   document.onscroll = () => {
     if (!headerForHome) return
@@ -42,10 +36,7 @@ const Header = ({headerForHome}) => {
           </MenuLink>
         </ul>
       </nav>
-      <button ref={button} onClick={toggleMenu} className="menu-button">
-        <Icon name="list" className="list"/>
-        <Icon name="close" className="close"/>
-      </button>
+      <MenuButton menuRef={menu}/>
     </header>
   )
 }
