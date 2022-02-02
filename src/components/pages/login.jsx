@@ -1,5 +1,6 @@
 import { useState } from "react"
 import ContentContainer from "../elements/ContentContainer"
+import Input from "../elements/Input"
 
 const LoginUser = () => {
   const [data, setData] = useState({email: "", password: ""})
@@ -11,9 +12,18 @@ const LoginUser = () => {
     })
   }
 
-  const submit = e => {
+  const submit = async e => {
     e.preventDefault()
-    alert("iniciar sesion")
+    const config = {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    }
+
+    const resp = await fetch(`http://localhost:3050/login`, config)
+    const json = await resp.json()
+
+    localStorage.setItem("token", json.token ?? null)
   }
 
   return (
@@ -21,15 +31,15 @@ const LoginUser = () => {
       <section>
         <h1 className="title">Iniciar sesion</h1>
         <form action="" onSubmit={submit} className="login">
-          <label htmlFor="email" className="data">Escribe tu correo
-            <input type="email" name="email" value={data.email} onChange={changeData} required/>
-          </label>
+          <Input type="email" name="email" value={data.email} onChange={changeData}>
+            Escribe tu correo
+          </Input>
 
-          <label htmlFor="password" className="data">Escribe tu contraseña
-            <input type="password" name="password" value={data.password} onChange={changeData} required/>
-          </label>
+          <Input type="password" name="password" value={data.password} onChange={changeData}>
+            Escribe tu contraseña
+          </Input>
 
-          <input type="submit" value="Ingresar" />
+          <Input type="submit" value="Ingresar"/>
         </form>
       </section>
     </ContentContainer>
