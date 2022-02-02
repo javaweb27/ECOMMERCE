@@ -1,5 +1,6 @@
 import { useState } from "react"
 import ContentContainer from "../elements/ContentContainer"
+import Input from "../elements/Input"
 
 const RegisterUser = () => {
 
@@ -28,10 +29,16 @@ const RegisterUser = () => {
     setPasswordError(false)
   }
 
-  const submit = e => {
+  const submit = async e => {
     e.preventDefault()
     if (!(data.password === passwordRepeated)) return
-    alert("registrar")
+    const config = {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    }
+
+    const resp = await fetch(`http://localhost:3050/register`, config)
   }
 
   return (
@@ -39,25 +46,25 @@ const RegisterUser = () => {
       <section>
         <h1 className="title">Registrar usuario</h1>
         <form action="" onSubmit={submit} className="register">
-          <label htmlFor="name" className="data">Escribe tu nombre de usuario
-            <input type="text" name="name" value={data.name} onChange={changeData} required/>
-          </label>
+          <Input type="text" name="name" value={data.name} onChange={changeData}>
+            Escribe tu nombre de usuario
+          </Input>
 
-          <label htmlFor="email" className="data">Escribe tu correo
-            <input type="email" name="email" value={data.email} onChange={changeData} required/>
-          </label>
+          <Input type="email" name="email" value={data.email} onChange={changeData}>
+            Escribe tu correo
+          </Input>
 
-          <label htmlFor="password" className="data">Escribe tu contraseña
-            <input type="password" name="password" value={data.password} onChange={changeData} required/>
-          </label>
+          <Input type="password" name="password" value={data.password} onChange={changeData}>
+            Escribe tu contraseña
+          </Input>
 
-          <label htmlFor="repeat-password" className="data">Repite la contraseña
-            <input type="password" name="repeat-password" value={passwordRepeated} onChange={checkPassword} required/>
-          </label>
+          <Input type="password" name="repeat-password" value={passwordRepeated} onChange={checkPassword}>
+            Repite la contraseña
+          </Input>
 
           <p className={`error-message${passwordError ? " is-active" : ""}`}>Las contraseñas tienen que ser iguales</p>
 
-          <input type="submit" value="Registrar" />
+          <Input type="submit" value="Registrar"/>
         </form>
       </section>
     </ContentContainer>
