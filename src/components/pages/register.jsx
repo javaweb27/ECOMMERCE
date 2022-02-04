@@ -4,41 +4,26 @@ import Input from "../elements/Input"
 
 const RegisterUser = () => {
 
-  const [data, setData] = useState({name: "", email: "", password: ""})
-
-  const [passwordRepeated, setPasswordRepeated] = useState("")
-
-  const [passwordError, setPasswordError] = useState(false)
+  const [data, setData] = useState({name: "", email: "", password: "", repeatedPassword: ""})
 
   const changeData = e => {
     setData({
       ...data,
       [e.target.name]: e.target.value
     })
-
-    if (passwordRepeated && passwordRepeated !== e.target.value) return setPasswordError(true)
-
-    setPasswordError(false)
-  }
-
-  const checkPassword = e => {
-    setPasswordRepeated(e.target.value)
-
-    if (data.password !== e.target.value) return setPasswordError(true)
-
-    setPasswordError(false)
   }
 
   const submit = async e => {
     e.preventDefault()
-    if (!(data.password === passwordRepeated)) return
+    if (data.password !== data.repeatedPassword) return
+
     const config = {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
     }
 
-    const resp = await fetch(`http://localhost:3050/register`, config)
+    await fetch(`http://localhost:3050/register`, config)
   }
 
   return (
@@ -58,11 +43,11 @@ const RegisterUser = () => {
             Escribe tu contraseña
           </Input>
 
-          <Input type="password" name="repeat-password" value={passwordRepeated} onChange={checkPassword}>
+          <Input type="password" name="repeatedPassword" value={data.repeatedPassword} onChange={changeData}>
             Repite la contraseña
           </Input>
 
-          <p className={`error-message${passwordError ? " is-active" : ""}`}>Las contraseñas tienen que ser iguales</p>
+          <p className={`error-message${data.password !== data.repeatedPassword ? " is-active" : ""}`}>Las contraseñas tienen que ser iguales</p>
 
           <Input type="submit" value="Registrar"/>
         </form>
