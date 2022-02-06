@@ -1,13 +1,8 @@
-import { useContext } from "react"
-import {number, string} from "prop-types"
-import CartContext from "../context/cart/CartContext"
-import CupcakesContext from "../context/cupcakes/CupcakesContext"
+import { number, string } from "prop-types"
 import ButtonSell from "../elements/ButtonSell"
 import ButtonAddRemoveFromCart from "../elements/ButtonAddRemoveFromCart"
 
 const Cupcake = ({ styles, id, description, img, flavor, color, price, sold }) => {
-  const {cupcakesState, cupcakesDispatch} = useContext(CupcakesContext)
-  const [cartState, cartDispatch] = useContext(CartContext)
 
   return (
     <article className={styles.cupcake}>
@@ -19,19 +14,9 @@ const Cupcake = ({ styles, id, description, img, flavor, color, price, sold }) =
       </div>
 
       <div className={styles.buttons}>
-        <ButtonSell
-          id={id} 
-          sold={sold} 
-          cupcakesState={cupcakesState}
-          cupcakesDispatch={cupcakesDispatch}
-          cartDispatch={cartDispatch}
-        />
+        <ButtonSell cupcake={{id, sold}}/>
 
-        <ButtonAddRemoveFromCart
-          cartState={cartState} 
-          cartDispatch={cartDispatch}
-          cupcake={{ id, description, img, flavor, color, price, sold }}
-        />
+        <ButtonAddRemoveFromCart cupcake={{ id, description, img, flavor, color, price, sold }}/>
       </div>
     </article>
   )

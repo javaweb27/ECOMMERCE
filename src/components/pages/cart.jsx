@@ -1,22 +1,23 @@
-import { useContext } from "react"
-import Cupcake from "../cards/Cupcake"
-import CartContext from "../context/cart/CartContext"
-import ContentContainer from "../elements/ContentContainer"
 import styles from "../../styles/cards/cart-cupcake.module.scss"
+import { useSelector } from "react-redux"
+import Cupcake from "../cards/Cupcake"
+import ContentContainer from "../elements/ContentContainer"
+
 const Cart = () => {
-  const [state] = useContext(CartContext)
+
+  const cart = useSelector(({cart}) => cart)
 
   return (
     <ContentContainer>
       <section className="cart-cupcakes">
         <h2 className="title">
-          {state.cart.length ? 
-            "Cupcakes del carrito" : "No tienes cupcakes en el carrito"
+          {
+            cart.length ? "Cupcakes del carrito" : "No tienes cupcakes en el carrito"
           }
         </h2>
         <div className="container">
           {
-            state.cart.map(({ id, description, img, flavor, color, price, sold }) => {
+            cart.map(({ id, description, img, flavor, color, price, sold }) => {
               return (
                 <Cupcake
                   styles={styles}

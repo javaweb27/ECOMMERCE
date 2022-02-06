@@ -1,9 +1,8 @@
 import { REACT_APP_URL_API } from "../../../API_URL"
-import { SELL_CUPCAKE } from "../context/actions"
+import { sellCupcake } from "../redux/actionCreators"
 
-const useFetchPATCH = (id, cupcakesDispatch, cartDispatch) => {
-
-  fetch(`${REACT_APP_URL_API}cupcakes/${id}`, {
+const useFetchPATCH = (cupcakeId, dispatch) => {
+  fetch(`${REACT_APP_URL_API}cupcakes/${cupcakeId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
@@ -14,18 +13,10 @@ const useFetchPATCH = (id, cupcakesDispatch, cartDispatch) => {
   })
   .then(response => response.ok && response.json())
   .then(data => {
-    cupcakesDispatch({
-      type: SELL_CUPCAKE,
-      cupcake: id,
+    dispatch(sellCupcake({
+      id: cupcakeId,
       sold: data.sold
-    })
-    cartDispatch({
-      type: SELL_CUPCAKE,
-      cupcake: {
-        id: id,
-        sold: data.sold
-      }
-    })
+    }))
   })
 }
 

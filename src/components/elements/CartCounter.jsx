@@ -1,12 +1,11 @@
-import { useContext } from "react"
-import CartContext from "../context/cart/CartContext"
+import { useSelector } from "react-redux"
 
 const CartCounter = () => {
 
-  const [state] = useContext(CartContext)
+  const cart = useSelector(({cart}) => cart)
 
   return (
-    <span>Carrito: {state.cart.length}</span>
+    <span>Carrito: {cart.length}</span>
   )
 }
 

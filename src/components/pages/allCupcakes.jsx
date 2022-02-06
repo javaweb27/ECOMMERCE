@@ -1,11 +1,29 @@
-import { useContext } from "react"
-import CupcakesContext from "../context/cupcakes/CupcakesContext"
+import styles from  "../../styles/cards/cupcake.module.scss"
+import { useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { startInitialState } from "../redux/actionCreators"
 import ContentContainer from "../elements/ContentContainer"
 import Cupcake from "../cards/Cupcake"
-import styles from  "../../styles/cards/cupcake.module.scss"
+import useFetchGET from "../hooks/useFetchGET"
+import { db } from "../../db"
 
 const AllCupcakes = () => {
-  const {cupcakesState} = useContext(CupcakesContext)
+  const [data, error] = useFetchGET("cupcakes")
+
+  const dispatch = useDispatch()
+  const cupcakes = useSelector(({cupcakes}) => cupcakes.data)
+
+  useEffect(() => {
+    if (cupcakes.length) {
+      null
+    }
+    else if (data && !error) {
+      dispatch(startInitialState(data))
+    }
+    else if (!data && error){
+      dispatch(startInitialState([...db.cupcakes], true))
+    }
+  }, [data, error])
 
   return (
     <ContentContainer>
@@ -13,7 +31,7 @@ const AllCupcakes = () => {
         <h1 className="title">Todos los Cupcakes</h1>
         <div className="container">
           {
-            cupcakesState.cupcakes ? cupcakesState.cupcakes.map(({
+            cupcakes.length ? cupcakes.map(({
               id, 
               description,
               img,

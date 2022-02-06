@@ -1,8 +1,8 @@
-# EDcupcake: online shop
+# EDcupcake: e-commerce
 
 It is a shop that sells cupcakes from an API consumed with Fetch API.
 The user can view and save the cupcakes in the cart.
-Context API is used to handle the state of the cart and the cupcakes, SASS for the styles and json-server for the API.
+REDUX is used to handle the state of the cart and the cupcakes, sass and css modules for the styles and json-server for the API.
 Single Page Aplication (SPA).
 
 ### Activate `cupcakes` and `services` (OPTIONAL)
