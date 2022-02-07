@@ -1,8 +1,7 @@
-import { REACT_APP_URL_API } from "../../../API_URL"
 import { sellCupcake } from "../redux/actionCreators"
 
 const useFetchPATCH = (cupcakeId, dispatch) => {
-  fetch(`${REACT_APP_URL_API}cupcakes/${cupcakeId}`, {
+  fetch(`${import.meta.env.VITE_REACT_API_URL}cupcakes/${cupcakeId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"

@@ -23,7 +23,7 @@ const RegisterUser = () => {
       body: JSON.stringify(data)
     }
 
-    await fetch(`http://localhost:3050/register`, config)
+    await fetch(`${import.meta.env.VITE_REACT_API_URL}register`, config)
   }
 
   return (

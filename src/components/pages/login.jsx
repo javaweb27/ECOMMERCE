@@ -20,7 +20,7 @@ const LoginUser = () => {
       body: JSON.stringify(data)
     }
 
-    const resp = await fetch(`http://localhost:3050/login`, config)
+    const resp = await fetch(`${import.meta.env.VITE_REACT_API_URL}login`, config)
     const json = await resp.json()
 
     localStorage.setItem("token", json.token ?? null)
