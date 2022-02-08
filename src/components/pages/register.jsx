@@ -32,15 +32,15 @@ const RegisterUser = () => {
         <h1 className="title">Registrar usuario</h1>
         <form action="" onSubmit={submit} className="register">
           <Input type="text" name="name" value={data.name} onChange={changeData}>
-            Escribe tu nombre de usuario
+            Nombre de usuario
           </Input>
 
           <Input type="email" name="email" value={data.email} onChange={changeData}>
-            Escribe tu correo
+            Correo electronico
           </Input>
 
           <Input type="password" name="password" value={data.password} onChange={changeData}>
-            Escribe tu contraseña
+            Contraseña
           </Input>
 
           <Input type="password" name="repeatedPassword" value={data.repeatedPassword} onChange={changeData}>
@@ -49,7 +49,7 @@ const RegisterUser = () => {
 
           <p className={`error-message${data.password !== data.repeatedPassword ? " is-active" : ""}`}>Las contraseñas tienen que ser iguales</p>
 
-          <Input type="submit" value="Registrar"/>
+          <input type="submit" value="Registrar"/>
         </form>
       </section>
     </ContentContainer>
