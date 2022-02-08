@@ -1,8 +1,10 @@
+import styles from "../../styles/elements/input.module.scss"
+
 const Input = ({type, name, value, onChange, children}) => {
   return (
-    <label htmlFor={name} className="data">
+    <label className={styles.label} htmlFor={name}>
       <span>{ children }</span>
-      <input type={type} id={name} name={name} value={value} onChange={onChange} required/>
+      <input className={styles.input} type={type} id={name} name={name} value={value} onChange={onChange} required/>
     </label>
   )
 }
