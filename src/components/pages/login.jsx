@@ -39,7 +39,7 @@ const LoginUser = () => {
             Escribe tu contraseña
           </Input>
 
-          <Input type="submit" value="Ingresar"/>
+          <input type="submit" value="Ingresar"/>
         </form>
       </section>
     </ContentContainer>
