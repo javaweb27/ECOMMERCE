@@ -1,6 +1,7 @@
 @use "../mixins/breakpoint" as *;
 
 .title {
+  color: var(--title-color);
   text-align: center;
   padding: .6em;
 }
