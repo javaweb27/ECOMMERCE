@@ -2,6 +2,8 @@
 @use "config/sass-vars";
 @use "config/css-vars";
 @use "config/base-layout";
+//global stiles
+@use "global";
 //sections
 @use "sections/header";
 @use "sections/pastry-course";

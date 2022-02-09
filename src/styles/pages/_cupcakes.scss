@@ -1,23 +1,24 @@
 @use "../mixins/breakpoint" as *;
 
-.title {
-  color: var(--title-color);
-  text-align: center;
-  padding: .6em;
-}
-
-.cupcakes .container {
-  display: grid;
-  gap: 1.6rem;
-  margin: 0 6%;
-  grid-template-columns: 1fr;
-  
-  @include breakpoint(bp1) {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 0 12%;
+.cupcakes {
+  .title {
+    color: var(--title-color);
+    text-align: center;
   }
 
-  @include breakpoint(bp2) {
-    grid-template-columns: repeat(3, 1fr);
+  .container {
+    display: grid;
+    gap: 1.6rem;
+    margin: 0 6%;
+    grid-template-columns: 1fr;
+    
+    @include breakpoint(bp1) {
+      grid-template-columns: repeat(2, 1fr);
+      margin: 0 12%;
+    }
+
+    @include breakpoint(bp2) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
