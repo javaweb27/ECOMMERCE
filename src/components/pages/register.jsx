@@ -28,9 +28,9 @@ const RegisterUser = () => {
 
   return (
     <ContentContainer>
-      <section>
+      <section className="register">
         <h1 className="title">Registrar usuario</h1>
-        <form action="" onSubmit={submit} className="register">
+        <form action="" onSubmit={submit} className="forms">
           <Input type="text" name="name" value={data.name} onChange={changeData}>
             Nombre de usuario
           </Input>

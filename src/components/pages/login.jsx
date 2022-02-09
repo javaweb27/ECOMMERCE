@@ -28,9 +28,9 @@ const LoginUser = () => {
 
   return (
     <ContentContainer>
-      <section>
+      <section className="login">
         <h1 className="title">Iniciar sesion</h1>
-        <form action="" onSubmit={submit} className="login">
+        <form action="" onSubmit={submit} className="forms">
           <Input type="email" name="email" value={data.email} onChange={changeData}>
             Escribe tu correo
           </Input>

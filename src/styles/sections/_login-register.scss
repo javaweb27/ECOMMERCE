@@ -1,10 +1,17 @@
-.login, .register  {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.login, .register{
+  color: var(--title-color);
+
+  .title {
+    text-align: center;
+  }
+
+  .forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .error-message {
-    color: var(--title-color);
     opacity: 0;
     &.is-active {
       opacity: 1;
