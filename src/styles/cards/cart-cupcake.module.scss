@@ -1,16 +1,24 @@
+@use "../mixins/breakpoint" as *;
+
 .cupcake {
   display: grid;
-  grid-template-columns: auto 1fr;
-  justify-content: center;
-  align-items: flex-start;
-  column-gap: .6rem;
+  grid-template-columns: 12rem;
+  gap: .6rem;
+  margin-bottom: 1.2rem;
   color: var(--text-color);
+  @include breakpoint(bp1) {
+    grid-template-columns: 1fr 1fr;
+  }
   
   img {
-    height: 8rem ;
-    width: 16rem ;
-    grid-row: 1 / 3;
+    height: 6rem;
+    width: 100%;
     object-fit: cover;
+    @include breakpoint(bp1) {
+      height: 8rem;
+      width: 16rem;
+      grid-row: 1 / 3;
+    }
 
     &.sold {
       filter: grayscale(1);
@@ -24,9 +32,13 @@
   }
 
   .buttons {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto auto;
     justify-content: space-between;
-    gap: 1rem
+    @include breakpoint (bp1) {
+      gap: 1.9rem;
+      grid-template-columns: 1fr 2fr;
+    }
   }
 }
