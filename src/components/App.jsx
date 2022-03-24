@@ -13,7 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => (
   <Provider store={store}>
-    <BrowserRouter basename="/Proyecto-de-EDcupcake">
+    <BrowserRouter basename="/ECOMMERCE">
       <Routes>
         <Route path="/login" element={<Public render={Login}/>}/>
         <Route path="/register" element={<Public render={Register}/>}/>

@@ -1,6 +1,6 @@
 {
-  "name": "proyecto-de-edcupcake",
-  "homepage": "https://devfjavier.github.io/Proyecto-de-EDcupcake/",
+  "name": "ecommerce",
+  "homepage": "https://devfjavier.github.io/ECOMMERCE/",
   "version": "0.0.0",
   "scripts": {
     "local-db": "json-server --watch db.json --port 3050",

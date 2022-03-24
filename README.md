@@ -1,6 +1,6 @@
-# EDcupcake: e-commerce
+# ECOMMERCE
 
-It is a shop that sells cupcakes from an API consumed with Fetch API.
+It is a online shop that sells cupcakes from an API consumed with Fetch API.
 The user can view and save the cupcakes in the cart.
 REDUX is used to handle the state of the cart and the cupcakes, sass and css modules for the styles and json-server for the API.
 Single Page Aplication (SPA).
@@ -10,7 +10,7 @@ Single Page Aplication (SPA).
 If json-server is not activated, the local data will be used and they are the same than json-server.
 
 1. install json-server: npm install -g json-server
-2. click right and then "Save as" on the page: `https://raw.githubusercontent.com/devfjavier/Proyecto-de-EDcupcake/gh-pages/db.json` and in the download path, from terminal run: json-server --watch db.json --port 3050
+2. click right and then "Save as" on the page: `https://raw.githubusercontent.com/devfjavier/Proyecto-de-ECOMMERCE/gh-pages/db.json` and in the download path, from terminal run: json-server --watch db.json --port 3050
 ## Available Scripts
 
 In the project directory, you can run:
