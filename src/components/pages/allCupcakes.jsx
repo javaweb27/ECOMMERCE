@@ -5,7 +5,7 @@ import { startInitialState } from "../redux/actionCreators"
 import ContentContainer from "../elements/ContentContainer"
 import Cupcake from "../cards/Cupcake"
 import useFetchGET from "../hooks/useFetchGET"
-import { db } from "../../db"
+import db from "../../../db.json"
 
 const AllCupcakes = () => {
   const [data, error] = useFetchGET("cupcakes")
