@@ -1,4 +1,5 @@
 import Header from "../sections/Header"
+import Footer from "../sections/Footer"
 
 const ContentContainer = ({ headerForHome, children}) => {
   return (
@@ -7,6 +8,7 @@ const ContentContainer = ({ headerForHome, children}) => {
       <main>
         { children }
       </main>
+      <Footer/>
     </>
   )
 }
