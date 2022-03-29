@@ -1,0 +1,13 @@
+@use "../mixins/breakpoint" as *;
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  
+  @include breakpoint(bp1) {
+    grid-template-columns: unset;
+    grid-auto-flow: column;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+}

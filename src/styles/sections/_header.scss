@@ -1,61 +1,32 @@
 @use "../mixins/breakpoint" as *;
 
 .header {
-  display: grid;
   position: sticky;
   top: 0;
-  height: calc(var(--header-height) * 1.5);
   width: 100%;
-  z-index: 1;
+  height: calc(var(--header-height) * 1.5);
+  display: none;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  transition: background-color .12s linear;
   background-color: var(--menu-bg-color);
   color: var(--title-color);
+  transition: background-color .12s linear;
+
+  @include breakpoint(bp1) {
+    display: grid;
+  }
+
   &.fixed {
     background-color: rgba(27, 27, 27, 0.8);
     backdrop-filter: blur(2px);
     color: var(--light-color);
     position: fixed;
-    
-    .menu {
-      background-color: rgba(27, 27, 27, 0.8);
-
-      @include breakpoint(bp1) {
-        background-color: unset;
-      }
-    }
+    z-index: 1;
   }
+
   &.bg-active {
     color: var(--title-color);
     background-color: var(--menu-bg-color);
-  }
-  
-  .menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    visibility: hidden;
-    background-color: var(--menu-bg-color);
-    filter: opacity(0);
-    transition: filter .06s linear;
-    
-    &.is-active {
-      visibility: visible;
-      filter: opacity(1);
-    }
-    
-    @include breakpoint(bp1) {
-      visibility: visible;
-      filter: opacity(1);
-      position: static;
-      flex-direction: row;
-      padding: 0 1rem;
-      gap: 1rem;
-    }
   }
 
   .img-container {
