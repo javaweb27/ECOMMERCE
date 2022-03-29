@@ -1,7 +1,7 @@
 @use "../mixins/theme-colors";
 
 :root {
-  --header-height: 2.7rem;
+  --header-height: calc(2.7rem * 1.5);
 
   @media (prefers-color-scheme: dark) {
     @include theme-colors.dark
