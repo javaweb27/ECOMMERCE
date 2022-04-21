@@ -1,10 +1,7 @@
-import { combineReducers } from "redux";
-import CartReducer from "./CartReducer";
-import CupcakesReducer from "./CupcakesReducer";
+import cartSlice from "../reducers/cartSlice";
+import cupcakesSlice from "../reducers/cupcakesSlice";
 
-const reducer = combineReducers({
-  cart: CartReducer,
-  cupcakes: CupcakesReducer
-})
-
-export default reducer
+export default {
+  cartSlice,
+  cupcakesSlice
+}

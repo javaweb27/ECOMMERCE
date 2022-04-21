@@ -1,7 +1,9 @@
-import { createStore } from "redux";
-import reducer from "../reducers";
+import { configureStore } from "@reduxjs/toolkit";
+import reducers from "../reducers";
 
-const store = createStore(reducer)
+const store = configureStore({
+  reducer: reducers
+})
 
 store.subscribe(() => null)
 

@@ -1,4 +1,4 @@
-import { sellCupcake } from "../redux/actionCreators"
+import { sellCupcake } from "../redux/reducers/cupcakesSlice"
 
 const useFetchPATCH = (cupcakeId, dispatch) => {
   fetch(`${import.meta.env.VITE_REACT_API_URL}cupcakes/${cupcakeId}`, {

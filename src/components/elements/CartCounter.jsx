@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 
 const CartCounter = () => {
 
-  const cart = useSelector(({cart}) => cart)
+  const cart = useSelector(({cartSlice}) => cartSlice)
 
   return (
     <span>Carrito: {cart.length}</span>

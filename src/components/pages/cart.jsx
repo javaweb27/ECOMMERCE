@@ -5,7 +5,7 @@ import ContentContainer from "../elements/ContentContainer"
 
 const Cart = () => {
 
-  const cart = useSelector(({cart}) => cart)
+  const cart = useSelector(({cartSlice}) => cartSlice)
 
   return (
     <ContentContainer>

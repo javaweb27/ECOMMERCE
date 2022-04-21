@@ -1,11 +1,12 @@
 import styles from "../../styles/elements/button-sell.module.scss"
 import { useDispatch, useSelector } from "react-redux"
-import { sellCupcake } from "../redux/actionCreators"
+import { sellCartCupcake } from "../redux/reducers/cartSlice"
+import { sellCupcake } from "../redux/reducers/cupcakesSlice"
 import useFetchPATCH from "../hooks/useFetchPATCH"
 
 const ButtonSell= ({ cupcake }) => {
   const dispatch = useDispatch()
-  const dataError = useSelector(({cupcakes}) => cupcakes.error)
+  const dataError = useSelector(({cupcakesSlice}) => cupcakesSlice.error)
 
   const sell = () => {
     if (!dataError) {
@@ -13,6 +14,10 @@ const ButtonSell= ({ cupcake }) => {
     }
     else {
       dispatch(sellCupcake({
+        id: cupcake.id,
+        sold: true
+      }))
+      dispatch(sellCartCupcake({
         id: cupcake.id,
         sold: true
       }))

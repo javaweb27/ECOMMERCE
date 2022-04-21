@@ -1,14 +1,14 @@
 import Icon from "./icon"
 import styles from "../../styles/elements/button-add-remove-from-cart.module.scss"
 import { useDispatch, useSelector } from "react-redux"
-import { addToCart, removeFromCart } from "../redux/actionCreators"
+import { addToCart, removeFromCart } from "../redux/reducers/cartSlice"
 
 const ButtonAddRemoveFromCart = ({ cupcake }) => {
-  const cart = useSelector(({cart}) => cart)
+  const cart = useSelector(({cartSlice}) => cartSlice)
   const dispatch = useDispatch()
-
+  
   const add = () => dispatch(addToCart(cupcake))
-  const remove = () => dispatch(removeFromCart(cupcake))
+  const remove = () => dispatch(removeFromCart(cupcake.id))
 
   return (
     <>
