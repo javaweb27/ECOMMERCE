@@ -1,9 +1,9 @@
 import { useEffect } from "react"
-import Banner from "../sections/Banner"
+import Banner from "../page-sections/Banner"
 import ContentContainer from "../elements/ContentContainer"
-import CupcakesFeatures from "../sections/CupcakesFeatures"
-import PastryCourse from "../sections/PastryCourse"
-import Delivery from "../sections/Delivery"
+import CupcakesFeatures from "../page-sections/CupcakesFeatures"
+import PastryCourse from "../page-sections/PastryCourse"
+import Delivery from "../page-sections/Delivery"
 
 const  Home = () => {
   useEffect(() => {
