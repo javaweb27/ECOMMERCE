@@ -12,10 +12,12 @@ import store from "./redux/store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./core-sections/Header";
 import Footer from "./core-sections/Footer";
+import ScrollToTop from "./elements/ScrollToTop";
 
 const App = () => (
   <Provider store={store}>
     <BrowserRouter basename="/ECOMMERCE">
+      <ScrollToTop/>
       <Header/>
       <Routes>
         <Route path="/login" element={<Public render={Login}/>}/>
