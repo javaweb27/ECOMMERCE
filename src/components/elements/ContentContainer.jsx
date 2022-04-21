@@ -1,14 +1,13 @@
-import Header from "../sections/Header"
-import Footer from "../sections/Footer"
+import SetHeader from "./SetHeader"
 
 const ContentContainer = ({ headerForHome, children}) => {
+
   return (
     <>
-      <Header headerForHome={headerForHome}/>
+      <SetHeader headerForHome={headerForHome}/>
       <main>
         { children }
       </main>
-      <Footer/>
     </>
   )
 }

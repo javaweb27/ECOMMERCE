@@ -10,10 +10,13 @@ import Public from "./routes/Public";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./sections/Header";
+import Footer from "./sections/Footer";
 
 const App = () => (
   <Provider store={store}>
     <BrowserRouter basename="/ECOMMERCE">
+      <Header/>
       <Routes>
         <Route path="/login" element={<Public render={Login}/>}/>
         <Route path="/register" element={<Public render={Register}/>}/>
@@ -22,6 +25,7 @@ const App = () => (
         <Route path="/" element={<Protected render={Home}/>} />
         <Route path="*" element={<Page404/>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   </Provider>
 )
