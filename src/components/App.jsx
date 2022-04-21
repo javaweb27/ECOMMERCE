@@ -10,8 +10,8 @@ import Public from "./routes/Public";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./sections/Header";
-import Footer from "./sections/Footer";
+import Header from "./core-sections/Header";
+import Footer from "./core-sections/Footer";
 
 const App = () => (
   <Provider store={store}>
