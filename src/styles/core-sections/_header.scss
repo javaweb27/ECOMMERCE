@@ -2,15 +2,14 @@
 
 .header {
   position: sticky;
-  top: 0;
   z-index: 1;
+  top: 0;
+  width: 100%;
+  height: var(--header-height);
   display: none;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  width: 100%;
-  height: var(--header-height);
   background-color: var(--menu-bg-color);
-  color: var(--title-color);
   transition: background-color .12s linear;
 
   @include breakpoint(bp1) {
@@ -20,12 +19,10 @@
   &.fixed {
     background-color: rgba(27, 27, 27, 0.8);
     backdrop-filter: blur(2px);
-    color: var(--light-color);
     position: fixed;
   }
 
   &.bg-active {
-    color: var(--title-color);
     background-color: var(--menu-bg-color);
   }
 

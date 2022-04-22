@@ -4,7 +4,6 @@
   position: sticky;
   bottom: 0;
   background-color: var(--menu-bg-color);
-  color: var(--title-color);
 
   @include breakpoint(bp1) {
     display: none;
