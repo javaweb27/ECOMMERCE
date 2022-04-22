@@ -3,11 +3,12 @@
 .header {
   position: sticky;
   top: 0;
-  width: 100%;
-  height: var(--header-height);
+  z-index: 1;
   display: none;
   grid-template-columns: auto 1fr auto;
   align-items: center;
+  width: 100%;
+  height: var(--header-height);
   background-color: var(--menu-bg-color);
   color: var(--title-color);
   transition: background-color .12s linear;
@@ -21,7 +22,6 @@
     backdrop-filter: blur(2px);
     color: var(--light-color);
     position: fixed;
-    z-index: 1;
   }
 
   &.bg-active {

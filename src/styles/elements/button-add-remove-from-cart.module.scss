@@ -2,7 +2,6 @@
 
 .btn-add {
   @extend %button;
-  position: relative;
   width: 1.9rem;
   height: 1.9rem;
   color: var(--primary-color);
@@ -11,16 +10,12 @@
   }
 
   svg {
-    position: absolute;
-    display: inline-block;
-    top: 0;
-    left: 0;
+    display: block;
   }
 }
 
 .btn-remove {
   @extend %button;
-  position: relative;
   width: 1.9rem;
   height: 1.9rem;
   color: var(--primary-color);
@@ -29,28 +24,24 @@
   }
 
   svg {
-    position: absolute;
-    display: inline-block;
-    top: 0;
-    left: 0;
+    display: block;
   }
-
+  
   .cart-checked {
-    opacity: 1;
+    display: block;
   }
   
   .cart-remove {
-    opacity: 0;
+    display: none;
   }
-
+  
   &:hover {
     .cart-checked {
-      opacity: 0;
+      display: none;
     }
     
     .cart-remove {
-      opacity: 1;
+      display: block;
     }
   }
 }
-
