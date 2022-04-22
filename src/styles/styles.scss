@@ -2,17 +2,17 @@
 @use "config/sass-vars";
 @use "config/css-vars";
 @use "config/base-layout";
-//global stiles
+//global classes
 @use "global";
 //sections
-@use "sections/header";
-@use "sections/footer";
-@use "sections/pastry-course";
-@use "sections/delivery";
-@use "sections/login-register";
-@use "sections/cart-cupcakes";
-@use "sections/cupcakes-features";
+@use "core-sections/header";
+@use "core-sections/footer";
+@use "page-sections/banner";
+@use "page-sections/delivery";
+@use "page-sections/pastry-course";
+@use "page-sections/cupcakes-features";
 //pages
-@use "pages/home";
 @use "pages/cupcakes";
+@use "pages/cart-cupcakes";
+@use "pages/login-register";
 @use "pages/page404";
