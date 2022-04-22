@@ -2,33 +2,32 @@ import styles from "../../styles/elements/button-sell.module.scss"
 import { useDispatch, useSelector } from "react-redux"
 import { sellCartCupcake } from "../redux/reducers/cartSlice"
 import { sellCupcake } from "../redux/reducers/cupcakesSlice"
-import useFetchPATCH from "../hooks/useFetchPATCH"
+import fetchPATCH from "../hooks/fetchPATCH"
 
-const ButtonSell= ({ cupcake }) => {
+const ButtonSell = ({ cupcake: { id, sold } }) => {
   const dispatch = useDispatch()
-  const dataError = useSelector(({cupcakesSlice}) => cupcakesSlice.error)
+  const dataError = useSelector(({ cupcakesSlice }) => cupcakesSlice.error)
+
+  const dispatchPayload = (sold) => {
+    const payload = { id, sold }
+    dispatch(sellCupcake(payload))
+    dispatch(sellCartCupcake(payload))
+  }
 
   const sell = () => {
     if (!dataError) {
-      useFetchPATCH(cupcake.id, dispatch)
+      fetchPATCH(id, dispatchPayload)
     }
     else {
-      dispatch(sellCupcake({
-        id: cupcake.id,
-        sold: true
-      }))
-      dispatch(sellCartCupcake({
-        id: cupcake.id,
-        sold: true
-      }))
+      dispatchPayload(true)
     }
   }
 
   return (
     <>
-      { cupcake.sold ? 
-        <span className={`text ${styles["sold-tag"]}`}>vendido</span> 
-        : 
+      { sold ?
+        <span className={`text ${styles["sold-tag"]}`}>vendido</span>
+        :
         <button onClick={sell} className={styles["btn-sell"]}>Vender</button>
       }
     </>
