@@ -1,6 +1,6 @@
 const LoadMessage = ({ error, data, cupcakes }) => {
   const message = (error !== true && error !== false && !cupcakes) ?
-    <span>connecting to the api</span>
+    <span>Connecting to the api</span>
 
     : (error === false && data?.length === 0) ?
       <span>No cupcakes available</span>

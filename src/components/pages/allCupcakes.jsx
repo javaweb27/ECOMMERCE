@@ -28,7 +28,7 @@ const AllCupcakes = () => {
       <section className="cupcakes">
         <h1 className="title">Todos los Cupcakes</h1>
         <div className="container">
-          <LoadMessage error={Boolean(error)} data={Boolean(data)} cupcakes={Boolean(cupcakes)} />
+          <LoadMessage error={error} data={data} cupcakes={Boolean(cupcakes)} />
           {
             cupcakes?.map(({
               id,
