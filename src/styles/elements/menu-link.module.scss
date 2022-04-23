@@ -15,6 +15,12 @@
   @include breakpoint(bp1) {
     padding: .6em 0;
   }
+
+  svg {
+    margin: 0 auto;
+    width: 2.6rem;
+    height: auto;
+  }
 }
 
 .active {
