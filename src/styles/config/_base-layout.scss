@@ -6,10 +6,11 @@
 
 #root {
   min-height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
 
 main {
-  margin-bottom: auto;
+  padding-bottom: calc(var(--bottom-space));
 }
