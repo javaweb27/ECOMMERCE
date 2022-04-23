@@ -2,14 +2,14 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const cupcakesSlice = createSlice({
   name: "cupcake",
-  initialState: { data: [], error: false },
+  initialState: { cupcakes: null, error: true },
   reducers: {
     startInitialState(state, { payload }) {
-      state.data = payload.data
+      state.cupcakes = payload.cupcakes
       state.error = payload.error
     },
     sellCupcake(state, { payload }) {
-      const cupcake = state.data.find(c => c.id === payload.id)
+      const cupcake = state.cupcakes.find(c => c.id === payload.id)
       cupcake.sold = payload.sold
     }
   }

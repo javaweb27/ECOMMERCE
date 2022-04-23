@@ -1,4 +1,4 @@
-import styles from  "../../styles/cards/cupcake.module.scss"
+import styles from "../../styles/cards/cupcake.module.scss"
 import useFetchGET from "../hooks/useFetchGET"
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
@@ -6,23 +6,20 @@ import { startInitialState } from "../redux/reducers/cupcakesSlice"
 import db from "../../../db"
 import ContentContainer from "../elements/ContentContainer"
 import Cupcake from "../cards/Cupcake"
+import LoadMessage from "../elements/LoadMessage"
 
 const AllCupcakes = () => {
-  const [data, error] = useFetchGET("cupcakes")
-
   const dispatch = useDispatch()
-  const cupcakes = useSelector(({cupcakesSlice}) => cupcakesSlice.data)
-  
+
+  const [data = null, error = null] = useFetchGET("cupcakes")
+  const { cupcakes } = useSelector(({ cupcakesSlice }) => cupcakesSlice)
+
   useEffect(() => {
-    if (cupcakes.length) {
-      null
+    if (error === true && !cupcakes) {
+      dispatch(startInitialState({ cupcakes: db.cupcakes, error: true }))
     }
-    else if (data && !error) {
-      
-      dispatch(startInitialState({data, error}))
-    }
-    else if (!data && error){
-      dispatch(startInitialState({data: db.cupcakes, error: true}))
+    else if (error === false) {
+      dispatch(startInitialState({ cupcakes: data, error }))
     }
   }, [data, error])
 
@@ -31,9 +28,10 @@ const AllCupcakes = () => {
       <section className="cupcakes">
         <h1 className="title">Todos los Cupcakes</h1>
         <div className="container">
+          <LoadMessage error={Boolean(error)} data={Boolean(data)} cupcakes={Boolean(cupcakes)} />
           {
-            cupcakes.length ? cupcakes.map(({
-              id, 
+            cupcakes?.map(({
+              id,
               description,
               img,
               flavor,
@@ -55,8 +53,6 @@ const AllCupcakes = () => {
                 />
               )
             })
-            : 
-            <span>cargando</span>
           }
         </div>
       </section>

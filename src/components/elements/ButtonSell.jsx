@@ -6,7 +6,7 @@ import fetchPATCH from "../hooks/fetchPATCH"
 
 const ButtonSell = ({ cupcake: { id, sold } }) => {
   const dispatch = useDispatch()
-  const dataError = useSelector(({ cupcakesSlice }) => cupcakesSlice.error)
+  const cupcakesError = useSelector(({ cupcakesSlice }) => cupcakesSlice.error)
 
   const dispatchPayload = (sold) => {
     const payload = { id, sold }
@@ -15,7 +15,7 @@ const ButtonSell = ({ cupcake: { id, sold } }) => {
   }
 
   const sell = () => {
-    if (!dataError) {
+    if (!cupcakesError) {
       fetchPATCH(id, dispatchPayload)
     }
     else {
