@@ -17,10 +17,10 @@
   }
 }
 
-.banner .link {
-  color: var(--light-color);
-}
-
 .active {
   color: var(--primary-color);
+}
+
+.banner .link:not(.active){
+  color: var(--light-color);
 }
