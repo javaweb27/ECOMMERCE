@@ -1,4 +1,4 @@
 :root {
   --header-height: calc(2.7rem * 1.5);
-  --bottom-space: var(--header-height);
+  --bottom-space: calc(var(--header-height) + 2.6rem);
 }
