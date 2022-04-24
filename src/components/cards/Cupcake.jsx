@@ -6,21 +6,23 @@ const Cupcake = ({ styles, id, description, img, flavor, color, price, sold }) =
 
   return (
     <article className={styles.cupcake}>
-      <img className={sold ? styles.sold : null} src={img} alt={flavor} loading="lazy"/>
-      <div className={styles.description}>
-        <p className="text">{description}</p>
-        <span className="text">Color: {color}</span>
-        <span className="text">Precio: {price}</span>
-      </div>
+      <img className={sold ? styles.sold : null} src={img} alt={flavor} loading="lazy" />
+      <div className={styles.container}>
+        <div className={styles.details}>
+          <p className="text">{description}</p>
+          <span className="text">Color: {color}</span>
+          <span className="text">Precio: {price}</span>
+        </div>
 
-      <div className={styles.buttons}>
-        <ButtonSell cupcake={{id, sold}}/>
+        <div className={styles.buttons}>
+          <ButtonSell cupcake={{ id, sold }} />
 
-        <ButtonAddRemoveFromCart cupcake={{ id, description, img, flavor, color, price, sold }}/>
+          <ButtonAddRemoveFromCart cupcake={{ id, description, img, flavor, color, price, sold }} />
+        </div>
       </div>
     </article>
   )
-} 
+}
 
 Cupcake.propTypes = {
   price: number,

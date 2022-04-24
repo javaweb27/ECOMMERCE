@@ -2,38 +2,47 @@
 @use "../config/sass-vars" as vars;
 
 .cupcake {
-  display: grid;
-  grid-template-rows: 12rem auto auto;
-  gap: .8rem;
-  color: var(--text-color);
-  background-color: var(--menu-bg-color);
-  box-shadow: .12rem .12rem .6rem -.4rem var(--dark-color);
+  box-shadow: .27rem .27rem .6rem -.4rem var(--dark-color);
 
-  @include breakpoint(bp1) {
-    grid-template-rows: 16rem auto auto;
-    padding: .8rem;
-  }
+  background-color: var(--menu-bg-color);
+  border-radius: 6px;
+  overflow: hidden;
   
   img {
-    height: 100%;
-    width: 100%;
     object-fit: cover;
-
+    width: 100%;
+    height: 12rem;
+    
+    @include breakpoint(bp1) {
+      height: 16rem;
+    }
+    
     &.sold {
       filter: grayscale(1);
     }
   }
   
-  .description {
-    display: flex;
-    flex-direction: column;
-    gap: .4rem;
+  .container {
+    padding: .6rem;
+    color: var(--text-color);
+  }
+  
+  .details {
+    font-size: 1.027rem;
+    margin-bottom: .6rem;
+
+    > *{
+      display: block;
+      margin-bottom: .4rem;
+    }
+
   }
 
   .buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 1rem
+    align-items: flex-end;
+    gap: 1.27rem;
   }
 }
