@@ -1,47 +1,36 @@
-@use "../cards/ph-button";
+.btn-add, .btn-remove {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  width: 2.6rem;
+  height: 2.6rem;
+  color: var(--primary-color);
+}
 
 .btn-add {
-  @extend %button;
-  width: 1.9rem;
-  height: 1.9rem;
-  color: var(--primary-color);
   &:hover {
     color: hsl(127, 90%, 29%);
-  }
-
-  svg {
-    display: block;
   }
 }
 
 .btn-remove {
-  @extend %button;
-  width: 1.9rem;
-  height: 1.9rem;
-  color: var(--primary-color);
   &:hover {
     color: hsl(0, 90%, 29%);
-  }
 
-  svg {
-    display: block;
+    .cart-checked {
+      display: none;
+    }
+
+    .cart-remove {
+      display: block;
+    }
   }
   
   .cart-checked {
     display: block;
   }
-  
+
   .cart-remove {
     display: none;
-  }
-  
-  &:hover {
-    .cart-checked {
-      display: none;
-    }
-    
-    .cart-remove {
-      display: block;
-    }
   }
 }
