@@ -1,10 +1,11 @@
 import { useState } from "react"
 import ContentContainer from "../elements/ContentContainer"
 import Input from "../elements/Input"
+import fetchPOST from "../hooks/fetchPOST"
 
 const RegisterUser = () => {
 
-  const [data, setData] = useState({name: "", email: "", password: "", repeatedPassword: ""})
+  const [data, setData] = useState({ name: "", email: "", password: "", repeatedPassword: "" })
 
   const changeData = e => {
     setData({
@@ -17,19 +18,9 @@ const RegisterUser = () => {
     e.preventDefault()
 
     if (data.password !== data.repeatedPassword) return
-    
-    const config = {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(data)
-    }
 
-    const LOCAL_API = import.meta.env.VITE_LOCAL_API_URL
-    const NODE_API = import.meta.env.VITE_NODE_API_URL
-    
-    const res = await fetch(`${NODE_API || LOCAL_API}register`, config)
-    const json = res.json()
-    alert(res.ok ? `Email: ${json.email}, Nombre: ${json.name}, Contraseña: ${json.password}` : "ha ocurrido un error al registrarse")
+    const json = await fetchPOST("register", data)
+    alert(json ? `Email: ${json.email}, Nombre: ${json.name}, Contraseña: ${json.password}` : 'usuario ya registrado, "name" o "email" tienen caracteres invalidos o los datos estan incompletos')
   }
 
   return (
@@ -55,7 +46,7 @@ const RegisterUser = () => {
 
           <p className={`error-message${data.password !== data.repeatedPassword ? " is-active" : ""}`}>Las contraseñas tienen que ser iguales</p>
 
-          <input type="submit" value="Registrar"/>
+          <input type="submit" value="Registrar" />
         </form>
       </section>
     </ContentContainer>
