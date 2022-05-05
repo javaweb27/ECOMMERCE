@@ -9,7 +9,7 @@ const fetchPOST = async (endpoint, data) => {
   const NODE_API = import.meta.env.VITE_NODE_API_URL
 
   try {
-    const res = await fetch(`${LOCAL_API || NODE_API}${endpoint}`, {
+    const res = await fetch(`${NODE_API || LOCAL_API}${endpoint}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
