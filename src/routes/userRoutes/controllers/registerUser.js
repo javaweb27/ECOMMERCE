@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 
 function registerUser(req, res) {
   const { email: reqEmail, name: reqName, password: reqPassword } = req.body
+
   const emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{1,7})+$/;
 
   if (!(reqEmail && reqName && reqPassword) || !emailRegex.test(reqEmail)) {
@@ -13,7 +14,17 @@ function registerUser(req, res) {
     return
   }
 
-  UserModel.findOne({ email: reqEmail }, (error, foundUser) => {
+  try {
+    btoa(reqEmail)
+    btoa(reqName)
+  }
+  catch (_error) {
+    console.error('"email" o "name" tienen caracteres invalidos')
+    res.sendStatus(403)
+    return
+  }
+
+  UserModel.findOne({ email: btoa(reqName) }, (error, foundUser) => {
     if (error) {
       console.error("Error al buscar al usuario para ver si ya esta registrado")
       res.send(null)
@@ -27,8 +38,8 @@ function registerUser(req, res) {
     }
 
     const newUser = new UserModel({
-      email: reqEmail,
-      name: reqName,
+      email: btoa(reqEmail),
+      name: btoa(reqName),
       password: bcrypt.hashSync(reqPassword, 10)
     })
 
@@ -41,14 +52,14 @@ function registerUser(req, res) {
 
       console.log("Usuario registrado correctamente")
       res.send({
-        email: registeredUser.email,
-        name: registeredUser.name,
+        email: atob(registeredUser.email),
+        name: atob(registeredUser.name),
         password: registeredUser.password
       })
     })
 
     setTimeout(() => {
-      UserModel.deleteOne({ email: reqEmail }, (error) => {
+      UserModel.deleteOne({ email: btoa(reqEmail) }, (error) => {
         if (error) {
           console.error("Error al eliminar a un usuario automaticamente")
           return
