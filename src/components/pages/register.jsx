@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Navigate } from "react-router-dom"
 import ContentContainer from "../elements/ContentContainer"
 import Input from "../elements/Input"
 import fetchPOST from "../hooks/fetchPOST"
@@ -6,6 +7,7 @@ import fetchPOST from "../hooks/fetchPOST"
 const RegisterUser = () => {
 
   const [data, setData] = useState({ name: "", email: "", password: "", repeatedPassword: "" })
+  const [register, setRegister] = useState({ isNewUser: false, isValidData: true })
 
   const changeData = e => {
     setData({
@@ -20,8 +22,16 @@ const RegisterUser = () => {
     if (data.password !== data.repeatedPassword) return
 
     const json = await fetchPOST("register", data)
-    alert(json ? `Email: ${json.email}, Nombre: ${json.name}, Contraseña: ${json.password}` : 'usuario ya registrado, "name" o "email" tienen caracteres invalidos o los datos estan incompletos')
+
+    if (json) {
+      setRegister({ isNewUser: true, isValidData: true })
+    }
+    else {
+      setRegister({ ...register, isValidData: false })
+    }
   }
+
+  if (register.isNewUser) return <Navigate to="/login" />
 
   return (
     <ContentContainer>
@@ -45,6 +55,7 @@ const RegisterUser = () => {
           </Input>
 
           <p className={`error-message${data.password !== data.repeatedPassword ? " is-active" : ""}`}>Las contraseñas tienen que ser iguales</p>
+          <p className={`error-message${register.isValidData ? "" : " is-active"}`}>Ya existe un usuario registrado con este correo</p>
 
           <input type="submit" value="Registrar" />
         </form>
