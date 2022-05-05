@@ -24,7 +24,7 @@ function registerUser(req, res) {
     return
   }
 
-  UserModel.findOne({ email: btoa(reqName) }, (error, foundUser) => {
+  UserModel.findOne({ email: btoa(reqEmail) }, (error, foundUser) => {
     if (error) {
       console.error("Error al buscar al usuario para ver si ya esta registrado")
       res.send(null)
@@ -51,7 +51,7 @@ function registerUser(req, res) {
       }
 
       console.log("Usuario registrado correctamente")
-      res.send({
+      res.json({
         email: atob(registeredUser.email),
         name: atob(registeredUser.name),
         password: registeredUser.password
