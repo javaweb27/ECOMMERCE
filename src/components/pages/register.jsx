@@ -15,15 +15,21 @@ const RegisterUser = () => {
 
   const submit = async e => {
     e.preventDefault()
-    if (data.password !== data.repeatedPassword) return
 
+    if (data.password !== data.repeatedPassword) return
+    
     const config = {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
     }
 
-    await fetch(`${import.meta.env.VITE_REACT_API_URL}register`, config)
+    const LOCAL_API = import.meta.env.VITE_LOCAL_API_URL
+    const NODE_API = import.meta.env.VITE_NODE_API_URL
+    
+    const res = await fetch(`${NODE_API || LOCAL_API}register`, config)
+    const json = res.json()
+    alert(res.ok ? `Email: ${json.email}, Nombre: ${json.name}, Contraseña: ${json.password}` : "ha ocurrido un error al registrarse")
   }
 
   return (

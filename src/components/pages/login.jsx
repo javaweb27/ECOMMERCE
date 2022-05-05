@@ -20,9 +20,13 @@ const LoginUser = () => {
       body: JSON.stringify(data)
     }
 
-    const resp = await fetch(`${import.meta.env.VITE_REACT_API_URL}login`, config)
+    const LOCAL_API = import.meta.env.VITE_LOCAL_API_URL
+    const NODE_API = import.meta.env.VITE_NODE_API_URL
+  
+    const res = await fetch(`${NODE_API || LOCAL_API}login`, config)
     const json = await resp.json()
 
+    alert(res.ok ? `Email: ${json.email}, Nombre: ${json.name}, Contraseña: ${json.password}` : "ha ocurrido un error al iniciar sesion")
     localStorage.setItem("token", json.token ?? null)
   }
 
