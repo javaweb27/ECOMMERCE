@@ -1,6 +1,6 @@
 @mixin dark {
   --menu-bg-color: hsl(180, 0%, 9%);
-  --bg-color: hsl(180, 0%, 6%);
+  --bg-color: hsl(180, 0%, 12%);
   --primary-color: #2997eb;
   --title-color: #fff;
   --text-color: hsl(180, 9%, 72%);
@@ -13,7 +13,7 @@
   --bg-color: hsl(180, 15%, 96%);
   --primary-color: #2997eb;
   --title-color: #000;
-  --text-color: hsl(180, 0%, 12%);
+  --text-color: hsl(180, 0%, 17.2%);
   --dark-color: hsl(180, 12%, 6%);
   --light-color: hsl(180, 100%, 100%);
 }
