@@ -1,33 +1,39 @@
-.login, .register{
+@use "../mixins/breakpoint" as *;
+
+.login, .register {
   color: var(--title-color);
+  margin: 0 9%;
+
+  @include breakpoint(bp1) {
+    margin: 0 calc(19% + 2.7rem);
+  }
+
+  @include breakpoint(bp2) {
+    margin: 0 calc(26% + 4rem);
+  }
 
   .title {
     text-align: center;
   }
 
-  .forms {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .error-message {
     opacity: 0;
+
     &.is-active {
       opacity: 1;
     }
   }
 
-  [type="submit"] {
+  .btn-submit {
     cursor: pointer;
     border: none;
     border-radius: 6px;
-    margin: .5rem 0;
-    padding: .5rem 0;
-    width: calc(12rem + 6%);
+    margin: 1.2rem 0;
+    padding: .6rem 0;
+    width: 100%;
     background-color: var(--primary-color);
     color: var(--light-color);
-    font-size: 1rem;
+    font-size: 1.27rem;
     font-weight: bold;
   }
 }

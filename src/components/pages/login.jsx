@@ -35,19 +35,18 @@ const LoginUser = () => {
     <ContentContainer>
       <section className="login">
         <h1 className="title">Iniciar sesion</h1>
-        <form action="" onSubmit={submit} className="forms">
-          <Input type="email" name="email" value={data.email} onChange={changeData}>
+        <form action="" onSubmit={submit}>
+          <Input i="email" name="email" value={data.email} onChange={changeData}>
             Escribe tu correo
           </Input>
 
-          <Input type="password" name="password" value={data.password} onChange={changeData}>
+          <Input i="password" name="password" value={data.password} onChange={changeData}>
             Escribe tu contraseña
           </Input>
 
-          <p className={`error-message${login.isValidData ? "" : " is-active"}`}>Uno o ambos datos son incorrectos</p>
-
-          <input type="submit" value="Ingresar" />
+          <button className="btn-submit">Ingresar</button>
         </form>
+        <p className={`error-message${login.isValidData ? "" : " is-active"}`}>Uno o ambos datos son incorrectos</p>
       </section>
     </ContentContainer>
   )

@@ -11,7 +11,7 @@ const RegisterUser = () => {
   const [register, setRegister] = useState({ isNewUser: false, isValidData: true, areValidCharacters: true })
 
   const emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{1,7})+$/;
-  
+
   const changeData = e => {
 
     setData({
@@ -55,29 +55,28 @@ const RegisterUser = () => {
     <ContentContainer>
       <section className="register">
         <h1 className="title">Registrar usuario</h1>
-        <form action="" onSubmit={submit} className="forms">
-          <Input type="text" name="name" value={data.name} onChange={changeData}>
+        <form action="" onSubmit={submit}>
+          <Input i="text" name="name" value={data.name} onChange={changeData} placeholder="Tu nombre de usuario">
             Nombre de usuario
           </Input>
 
-          <Input type="email" name="email" value={data.email} onChange={changeData}>
+          <Input i="email" name="email" value={data.email} onChange={changeData} placeholder="ejemplo@dominio.com">
             Correo electronico
           </Input>
 
-          <Input type="password" name="password" value={data.password} onChange={changeData}>
+          <Input i="password" name="password" value={data.password} onChange={changeData}>
             Contraseña
           </Input>
 
-          <Input type="password" name="repeatedPassword" value={data.repeatedPassword} onChange={changeData}>
+          <Input i="password" name="repeatedPassword" value={data.repeatedPassword} onChange={changeData}>
             Repite la contraseña
           </Input>
 
-          <p className={`error-message${data.password !== data.repeatedPassword ? " is-active" : ""}`}>Las contraseñas tienen que ser iguales</p>
-          <p className={`error-message${register.areValidCharacters ? "" : " is-active"}`}>EL nombre o el email tiene caracteres invalidos</p>
-          <p className={`error-message${register.isValidData ? "" : " is-active"}`}>Ya existe un usuario registrado con este correo</p>
-
-          <input type="submit" value="Registrar" />
+          <button className="btn-submit">Ingresar</button>
         </form>
+        <p className={`error-message${data.password !== data.repeatedPassword ? " is-active" : ""}`}>Las contraseñas tienen que ser iguales</p>
+        <p className={`error-message${register.areValidCharacters ? "" : " is-active"}`}>EL nombre o el email tiene caracteres invalidos</p>
+        <p className={`error-message${register.isValidData ? "" : " is-active"}`}>Ya existe un usuario registrado con este correo</p>
       </section>
     </ContentContainer>
   )

@@ -1,19 +1,25 @@
 .label {
+  font-size: 1.09rem;
+  box-sizing: border-box;
   white-space: nowrap;
-  display: flex;
-  flex-direction: column;
-  gap: .2rem;
   padding: .5rem 0;
-  width: calc(12rem + 6%);
+  display: block;
   color: var(--title-color);
+}
 
-  .input {
-    border: none;
-    border-radius: 2px;
-    padding: 0.19rem;
-    box-shadow: 0px 0px 2px var(--dark-color);
-    &:focus {
-      outline: 2px solid var(--primary-color);
-    }
+.input {
+  all: unset;
+  display: block;
+  box-sizing: border-box;
+  cursor: text;
+  border-radius: 6px;
+  margin-top: .27rem;
+  padding: 0.27rem;
+  width: 100%;
+  border: 2px solid var(--text-color);
+
+  &:focus {
+    border-color: var(--primary-color);
+    background-color: var(--menu-bg-color);
   }
 }
