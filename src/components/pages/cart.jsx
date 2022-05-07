@@ -6,6 +6,11 @@ import ContentContainer from "../elements/ContentContainer"
 const Cart = () => {
 
   const cart = useSelector(({ cartSlice }) => cartSlice)
+  let totalPrice = 0 
+
+  for (const {price} of cart) {
+    totalPrice += price
+  }
 
   return (
     <ContentContainer>
@@ -15,7 +20,7 @@ const Cart = () => {
         <div className="container">
           <div>
             <h3 className="title">
-              {cart.length ? "Cupcakes del carrito" : "No tienes cupcakes en el carrito"}
+              {cart.length ? "Tus cupcakes" : "No tienes ningun cupcake"}
             </h3>
             <div className="cupcakes-container">
               {
@@ -35,6 +40,12 @@ const Cart = () => {
                   )
                 })
               }
+            </div>
+          </div>
+          <div>
+            <h3 className="title">Costo</h3>
+            <div className="pay-container">
+              <span>Total: {totalPrice}</span>
             </div>
           </div>
         </div>

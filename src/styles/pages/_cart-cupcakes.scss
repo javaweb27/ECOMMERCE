@@ -13,4 +13,23 @@
     padding-right: unset;
   }
 
+  .container {
+    display: flex;
+    gap: 1.27rem;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    @include breakpoint(bp2) {
+      flex-direction: row;
+    }
+  }
+
+  .pay-container {
+    span {
+      color: var(--text-color);
+      display: block;
+      margin: 0 .4rem .4rem 0;
+      white-space: nowrap;
+    }
+  }
 }
