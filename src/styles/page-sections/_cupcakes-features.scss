@@ -6,12 +6,12 @@
   gap: 1.9rem;
   grid-template-columns: 1fr;
   
-  @include breakpoint(bp1) {
+  @include breakpoint(bp2) {
     padding: 2.7rem 12%;
     grid-template-columns: 1fr 1fr;
   }
   
-  @include breakpoint(bp2) {
+  @include breakpoint(bp3) {
     grid-template-columns: repeat(4, 1fr);
   }
 }

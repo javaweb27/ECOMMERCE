@@ -13,7 +13,7 @@
     width: 100%;
     height: 12rem;
     
-    @include breakpoint(bp1) {
+    @include breakpoint(bp2) {
       height: 16rem;
     }
     

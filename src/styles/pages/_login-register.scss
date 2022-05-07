@@ -4,11 +4,11 @@
   color: var(--title-color);
   margin: 0 9%;
 
-  @include breakpoint(bp1) {
+  @include breakpoint(bp2) {
     margin: 0 calc(19% + 2.7rem);
   }
 
-  @include breakpoint(bp2) {
+  @include breakpoint(bp3) {
     margin: 0 calc(26% + 4rem);
   }
 

@@ -12,7 +12,7 @@
   background-color: var(--menu-bg-color);
   transition: background-color .12s linear;
 
-  @include breakpoint(bp1) {
+  @include breakpoint(bp2) {
     display: grid;
   }
 

@@ -2,11 +2,16 @@
 
 @mixin breakpoint($level) {
   @if $level == bp1 {
-    @media screen and (min-width: vars.$medium-screen) {
+    @media screen and (min-width: vars.$small-screen) {
       @content
     }
   }
   @else if $level == bp2 {
+    @media screen and (min-width: vars.$medium-screen) {
+      @content
+    }
+  }
+  @else if $level == bp3 {
     @media screen and (min-width: vars.$big-screen) {
       @content
     }

@@ -12,7 +12,7 @@
   text-align: center;
   padding: .46em .27em;
   
-  @include breakpoint(bp1) {
+  @include breakpoint(bp2) {
     padding: .6em 0;
   }
 

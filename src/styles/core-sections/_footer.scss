@@ -7,7 +7,7 @@
   bottom: 0;
   background-color: var(--menu-bg-color);
 
-  @include breakpoint(bp1) {
+  @include breakpoint(bp2) {
     display: none;
   }
 }

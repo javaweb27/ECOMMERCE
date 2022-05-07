@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   
-  @include breakpoint(bp1) {
+  @include breakpoint(bp2) {
     grid-template-columns: unset;
     grid-auto-flow: column;
     padding: 0 1rem;

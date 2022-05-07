@@ -12,12 +12,12 @@
     margin: 0 6%;
     grid-template-columns: 1fr;
     
-    @include breakpoint(bp1) {
+    @include breakpoint(bp2) {
       grid-template-columns: repeat(2, 1fr);
       margin: 0 12%;
     }
 
-    @include breakpoint(bp2) {
+    @include breakpoint(bp3) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
