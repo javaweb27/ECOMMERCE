@@ -2,10 +2,10 @@ import { useSelector } from "react-redux"
 
 const CartCounter = () => {
 
-  const cart = useSelector(({cartSlice}) => cartSlice)
+  const count = useSelector(({ cartSlice }) => cartSlice.cupcakes.length)
 
   return (
-    <span>Carrito: {cart.length}</span>
+    <span>Carrito: {count}</span>
   )
 }
 

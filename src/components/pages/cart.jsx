@@ -5,12 +5,7 @@ import ContentContainer from "../elements/ContentContainer"
 
 const Cart = () => {
 
-  const cart = useSelector(({ cartSlice }) => cartSlice)
-  let totalPrice = 0 
-
-  for (const {price} of cart) {
-    totalPrice += price
-  }
+  const { cupcakes: cart, totalPrice } = useSelector(({ cartSlice }) => cartSlice)
 
   return (
     <ContentContainer>

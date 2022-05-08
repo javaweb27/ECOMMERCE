@@ -5,7 +5,7 @@ import { addToCart, removeFromCart } from "../redux/reducers/cartSlice"
 
 const ButtonAddRemoveFromCart = ({ cupcake }) => {
   const dispatch = useDispatch()
-  const cart = useSelector(({ cartSlice }) => cartSlice)
+  const cart = useSelector(({ cartSlice }) => cartSlice.cupcakes)
   const isInCart = cart.find(c => c.id === cupcake.id) ? true : false
 
   const add = () => dispatch(addToCart(cupcake))
