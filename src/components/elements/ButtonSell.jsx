@@ -16,7 +16,7 @@ const ButtonSell = ({ cupcake: { id, sold } }) => {
 
   const sell = () => {
     if (!cupcakesError) {
-      fetchPATCH(id, dispatchPayload)
+      fetchPATCH("cupcakes/" + id, dispatchPayload, { sold: true })
     }
     else {
       dispatchPayload(true)
@@ -25,7 +25,7 @@ const ButtonSell = ({ cupcake: { id, sold } }) => {
 
   return (
     <>
-      { sold ?
+      {sold ?
         <span className={`text ${styles["sold-tag"]}`}>vendido</span>
         :
         <button onClick={sell} className={styles["btn-sell"]}>Vender</button>
