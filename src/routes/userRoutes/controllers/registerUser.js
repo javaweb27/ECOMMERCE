@@ -40,7 +40,8 @@ function registerUser(req, res) {
     const newUser = new UserModel({
       email: btoa(reqEmail),
       name: btoa(reqName),
-      password: bcrypt.hashSync(reqPassword, 10)
+      password: bcrypt.hashSync(reqPassword, 10),
+      money: 60 + Math.floor(Math.random() * 60)
     })
 
     newUser.save((error, registeredUser) => {
