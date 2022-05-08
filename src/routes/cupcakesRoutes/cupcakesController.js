@@ -28,7 +28,7 @@ function patchCupcake(req, res) {
       return
     }
 
-    res.json({ sold: req.body.sold })
+    res.json({ data: req.body.sold })
 
     setTimeout(() => {
       CupcakeModel.findByIdAndUpdate(req.params.id, { sold: false }, (error, result) => {
