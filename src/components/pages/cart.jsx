@@ -2,10 +2,21 @@ import styles from "../../styles/cards/cart-cupcake.module.scss"
 import { useSelector } from "react-redux"
 import Cupcake from "../cards/Cupcake"
 import ContentContainer from "../elements/ContentContainer"
+import { useEffect, useState } from "react"
+import fetchPATCH from "../hooks/fetchPATCH"
+import MenuLink from "../elements/MenuLink"
+
 
 const Cart = () => {
-
   const { cupcakes: cart, totalPrice } = useSelector(({ cartSlice }) => cartSlice)
+
+  const [money, setMoney] = useState(null)
+
+  const pay = () => fetchPATCH("pay", setMoney, { amount: totalPrice })
+
+  useEffect(() => {
+    fetchPATCH("money", setMoney)
+  }, [])
 
   return (
     <ContentContainer>
@@ -40,7 +51,15 @@ const Cart = () => {
           <div>
             <h3 className="title">Costo</h3>
             <div className="pay-container">
+              <span>Tu saldo: {money ?? "0"}</span>
               <span>Total: {totalPrice}</span>
+              {
+                money ? <button onClick={pay}>Pagar</button>
+                : <>
+                  <MenuLink to="/login">Inicia sesion</MenuLink><br />
+                  <MenuLink to="/register">registrate</MenuLink>
+                </>
+              }
             </div>
           </div>
         </div>

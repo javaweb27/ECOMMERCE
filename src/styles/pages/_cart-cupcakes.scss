@@ -31,5 +31,15 @@
       margin: 0 .4rem .4rem 0;
       white-space: nowrap;
     }
+
+    button {
+      all: unset;
+      display: block;
+      cursor: pointer;
+      color: var(--title-color);
+      padding: .6rem 1.27rem;
+      border-radius: .4rem;
+      background-color: var(--primary-color);
+    }
   }
 }
