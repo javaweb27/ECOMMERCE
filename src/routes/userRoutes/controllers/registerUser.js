@@ -2,6 +2,7 @@
 
 const UserModel = require("../userModel")
 const bcrypt = require("bcrypt");
+const areValidCharacters = require("../../../lib/areValidCharacters");
 
 function registerUser(req, res) {
   const { email: reqEmail, name: reqName, password: reqPassword } = req.body
@@ -14,11 +15,7 @@ function registerUser(req, res) {
     return
   }
 
-  try {
-    btoa(reqEmail)
-    btoa(reqName)
-  }
-  catch (_error) {
+  if (!areValidCharacters(reqEmail), !areValidCharacters(reqName)) {
     console.error('"email" o "name" tienen caracteres invalidos')
     res.sendStatus(403)
     return

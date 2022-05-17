@@ -2,18 +2,16 @@
 
 const UserModel = require("../userModel")
 const jwt = require("jsonwebtoken")
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+const areValidCharacters = require("../../../lib/areValidCharacters");
 
 function loginUser(req, res) {
   const { email, password } = req.body
 
-  try {
-    btoa(email)
-  }
-  catch (_error) {
+  if (!areValidCharacters(email)) {
     console.error('"email" tiene caracteres invalidos, no se ha registrado el usuario')
     res.sendStatus(403)
-    return
+    return 
   }
 
   UserModel.findOne({ email: btoa(email) }, (error, foundUser) => {
