@@ -1,10 +1,10 @@
 "use strict";
 
-const UserModel = require("../userModel")
+const UserModel = require("./UserModel")
 const bcrypt = require("bcrypt");
-const areValidCharacters = require("../../../lib/areValidCharacters");
+const areValidCharacters = require("../../lib/areValidCharacters");
 
-function registerUser(req, res) {
+function userRegister(req, res) {
   const { email: reqEmail, name: reqName, password: reqPassword } = req.body
 
   const emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{1,7})+$/;
@@ -69,4 +69,4 @@ function registerUser(req, res) {
   })
 }
 
-module.exports = registerUser
+module.exports = userRegister

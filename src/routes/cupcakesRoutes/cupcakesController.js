@@ -1,6 +1,6 @@
 "use strict";
 
-const CupcakeModel = require("./cupcakeModel")
+const CupcakeModel = require("./CupcakeModel")
 
 function getCupcakes(req, res) {
   CupcakeModel.find({}, (error, result) => {

@@ -1,8 +1,8 @@
 "use strict";
 
-const UserModel = require("../userModel")
+const UserModel = require("./UserModel")
 
-function moneyUser(req, res) {
+function userMoney(req, res) {
 
   UserModel.findOne({ email: req.dataFromToken.email }, (error, foundUser) => {
     console.log("buscando al usuario")
@@ -21,4 +21,4 @@ function moneyUser(req, res) {
   })
 }
 
-module.exports = moneyUser
+module.exports = userMoney

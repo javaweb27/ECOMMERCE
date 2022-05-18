@@ -1,11 +1,11 @@
 "use strict";
 
-const UserModel = require("../userModel")
+const UserModel = require("./UserModel")
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt");
-const areValidCharacters = require("../../../lib/areValidCharacters");
+const areValidCharacters = require("../../lib/areValidCharacters");
 
-function loginUser(req, res) {
+function userLogin(req, res) {
   const { email, password } = req.body
 
   if (!areValidCharacters(email)) {
@@ -33,4 +33,4 @@ function loginUser(req, res) {
   })
 }
 
-module.exports = loginUser
+module.exports = userLogin

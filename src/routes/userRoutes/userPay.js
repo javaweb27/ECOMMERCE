@@ -1,8 +1,8 @@
 "use strict";
 
-const UserModel = require("../userModel")
+const UserModel = require("./UserModel")
 
-function payUser(req, res) {
+function userPay(req, res) {
   const priceToPay = Number(req.body.amount)
   const emailToFilter = { email: req.dataFromToken.email }
 
@@ -25,4 +25,4 @@ function payUser(req, res) {
   })
 }
 
-module.exports = payUser
+module.exports = userPay
