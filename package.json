@@ -1,13 +1,13 @@
 {
   "name": "ecommerce",
   "homepage": "https://devfjavier.github.io/ECOMMERCE/",
-  "version": "0.0.0",
+  "private":"true",
   "scripts": {
     "local-db": "json-server --watch db.json --port 3050",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.1.0",
