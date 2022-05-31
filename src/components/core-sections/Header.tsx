@@ -1,4 +1,4 @@
-import NavMenu from "../elements/NavMenu"
+import NavMenu from "../elements/nav-menu"
 
 const Header = () => {
 
