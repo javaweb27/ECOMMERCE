@@ -12,7 +12,7 @@ import store from "./redux/store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./core-sections/Header";
 import Footer from "./core-sections/Footer";
-import ScrollToTop from "./elements/ScrollToTop";
+import ScrollToTop from "./fragments/ScrollToTop";
 
 const App = () => (
   <Provider store={store}>
