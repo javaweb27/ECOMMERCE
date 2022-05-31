@@ -1,4 +1,10 @@
-const LoadMessage = ({ error, data, cupcakes }) => {
+interface I_Props {
+  error: null | boolean;
+  data: null | any[];
+  cupcakes: boolean;
+}
+
+const LoadMessage = ({ error, data, cupcakes }: I_Props) => {
   const message = (error !== true && error !== false && !cupcakes) ?
     <span>Connecting to the api</span>
 
