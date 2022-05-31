@@ -1,4 +1,4 @@
-import Feature from "../cards/Feature"
+import Feature from "../elements/Feature"
 
 const CupcakesFeatures = () => {
   return (

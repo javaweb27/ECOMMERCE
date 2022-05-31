@@ -1,5 +1,5 @@
 import Banner from "../page-sections/Banner"
-import ContentContainer from "../elements/ContentContainer"
+import ContentContainer from "../fragments/ContentContainer"
 import CupcakesFeatures from "../page-sections/CupcakesFeatures"
 import PastryCourse from "../page-sections/PastryCourse"
 import Delivery from "../page-sections/Delivery"
