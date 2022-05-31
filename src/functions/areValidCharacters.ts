@@ -1,4 +1,4 @@
-const verifyAllowedCharacters = (string) => {
+const verifyAllowedCharacters = (string: string) => {
   try {
     btoa(string)
     return true
