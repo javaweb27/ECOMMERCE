@@ -1,4 +1,4 @@
-import classes from "../../../styles/elements/nav-menu/index.module.scss"
+import classes from "./index.module.scss"
 import Link from "./NavMenuLink"
 import CartCounter from "./CartCounter"
 

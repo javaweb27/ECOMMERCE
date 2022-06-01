@@ -1,4 +1,4 @@
-import classes from "../../styles/elements/nav-menu/nav-menu-link.module.scss";
+import classes from "../elements/nav-menu/nav-menu-link.module.scss";
 import { useEffect } from "react"
 import getHeight from "../../functions/getHeight"
 

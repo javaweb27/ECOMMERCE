@@ -1,4 +1,4 @@
-import classes from "../../../styles/elements/nav-menu/nav-menu-link.module.scss"
+import classes from "./nav-menu-link.module.scss"
 import { NavLink } from "react-router-dom"
 import Icon from "../icon"
 
