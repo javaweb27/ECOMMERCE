@@ -1,4 +1,4 @@
-import classes from "../../../styles/elements/cupcake/btn-add-remove-from-cart.module.scss"
+import classes from "./btn-add-remove-from-cart.module.scss"
 import Icon from "../icon"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart, removeFromCart } from "../../redux/reducers/cartSlice"

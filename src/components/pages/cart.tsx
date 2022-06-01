@@ -1,4 +1,4 @@
-import classes from "../../styles/elements/cupcake/cart-cupcake.module.scss"
+import classes from "../elements/cupcake/cart-cupcake.module.scss"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import fetchPATCH from "../hooks/fetchPATCH"

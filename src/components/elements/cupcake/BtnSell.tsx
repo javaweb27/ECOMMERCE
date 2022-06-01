@@ -1,4 +1,4 @@
-import classes from "../../../styles/elements/cupcake/btn-sell.module.scss"
+import classes from "./btn-sell.module.scss"
 import { useDispatch, useSelector } from "react-redux"
 import { sellCartCupcake } from "../../redux/reducers/cartSlice"
 import { sellCupcake } from "../../redux/reducers/cupcakesSlice"

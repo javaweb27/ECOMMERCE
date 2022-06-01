@@ -1,5 +1,5 @@
-@use "../../mixins/breakpoint" as *;
-@use "../../config/sass-vars" as vars;
+@use "../../../styles/mixins/breakpoint" as *;
+@use "../../../styles//config/sass-vars" as vars;
 
 .cupcake {
   box-shadow: .27rem .27rem .6rem -.4rem var(--dark-color);
