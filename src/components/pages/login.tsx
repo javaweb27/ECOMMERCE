@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
-import ContentContainer from "../elements/ContentContainer"
+import ContentContainer from "../fragments/ContentContainer"
 import Input from "../elements/Input"
 import fetchPOST from "../hooks/fetchPOST"
 
@@ -8,14 +8,14 @@ const LoginUser = () => {
   const [data, setData] = useState({ email: "", password: "" })
   const [login, setLogin] = useState({ isLogged: false, isValidData: true })
 
-  const changeData = e => {
+  const changeData = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({
       ...data,
       [e.target.name]: e.target.value
     })
   }
 
-  const submit = async e => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const json = await fetchPOST("login", data)

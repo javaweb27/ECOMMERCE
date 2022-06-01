@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
 import verifyAllowedCharacters from "../../functions/areValidCharacters"
-import ContentContainer from "../elements/ContentContainer"
+import ContentContainer from "../fragments/ContentContainer"
 import Input from "../elements/Input"
 import fetchPOST from "../hooks/fetchPOST"
 
@@ -12,7 +12,7 @@ const RegisterUser = () => {
 
   const emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{1,7})+$/;
 
-  const changeData = e => {
+  const changeData = (e: React.ChangeEvent<HTMLInputElement>) => {
 
     setData({
       ...data,
@@ -20,10 +20,9 @@ const RegisterUser = () => {
     })
   }
 
-  const submit = async e => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!verifyAllowedCharacters(data.name) || !emailRegex.test(data.email)) {
-      console.log("varacteres invalidos")
       setRegister({
         ...register,
         areValidCharacters: false
