@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import ContentContainer from "../elements/ContentContainer"
+import ContentContainer from "../fragments/ContentContainer"
 
 const Page404 = () => {
 
@@ -14,5 +14,5 @@ const Page404 = () => {
     </ContentContainer>
   )
 }
-  
+
 export default Page404
