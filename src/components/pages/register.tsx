@@ -4,13 +4,12 @@ import verifyAllowedCharacters from "../../functions/areValidCharacters"
 import ContentContainer from "../fragments/ContentContainer"
 import Input from "../elements/Input"
 import fetchPOST from "../hooks/fetchPOST"
+import { emailRegex } from "../../functions/regex"
 
 const RegisterUser = () => {
 
   const [data, setData] = useState({ name: "", email: "", password: "", repeatedPassword: "" })
   const [register, setRegister] = useState({ isNewUser: false, isValidData: true, areValidCharacters: true })
-
-  const emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{1,7})+$/;
 
   const changeData = (e: React.ChangeEvent<HTMLInputElement>) => {
 
