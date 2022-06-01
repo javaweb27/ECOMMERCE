@@ -3,7 +3,7 @@
   "homepage": "https://devfjavier.github.io/ECOMMERCE/",
   "private": true,
   "scripts": {
-    "local-db": "json-server --watch db.json --port 3050",
+    "local-db": "json-server --watch db.json --port 3060",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc && vite build",

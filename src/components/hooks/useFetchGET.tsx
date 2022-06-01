@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react"
+import { NODE_API } from "../../config"
 
-const useFetchGET = endpoint => {
-  const [data, setData] = useState()
-  const [error, setError] = useState()
-  const LOCAL_API = import.meta.env.VITE_LOCAL_API_URL
-  const NODE_API = import.meta.env.VITE_NODE_API_URL
-  
+/**
+ * @param {string} endpoint 
+ * @returns an array with data and error
+ */
+
+const useFetchGET = (endpoint: string) => {
+  const [data, setData] = useState<any>()
+  const [error, setError] = useState<boolean>()
+
   useEffect(() => {
-    fetch(`${NODE_API || LOCAL_API}${endpoint}`)
+    fetch(`${NODE_API}/${endpoint}`)
       .then(response => response.ok && response.json())
       .then(json => {
         setData(json)
