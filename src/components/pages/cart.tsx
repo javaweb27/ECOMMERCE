@@ -1,14 +1,15 @@
-import styles from "../../styles/cards/cart-cupcake.module.scss"
-import { useSelector } from "react-redux"
-import Cupcake from "../cards/Cupcake"
-import ContentContainer from "../elements/ContentContainer"
+import classes from "../../styles/elements/cupcake/cart-cupcake.module.scss"
 import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 import fetchPATCH from "../hooks/fetchPATCH"
-import MenuLink from "../elements/MenuLink"
+import ContentContainer from "../fragments/ContentContainer"
+import Cupcake from "../elements/cupcake"
+import MenuLink from "../elements/nav-menu/NavMenuLink"
+import I_Cupcake from "../elements/cupcake/cupcakeInterface"
 
 
 const Cart = () => {
-  const { cupcakes: cart, totalPrice } = useSelector(({ cartSlice }) => cartSlice)
+  const { cupcakes: cart, totalPrice } = useSelector(({ cartSlice }: any) => cartSlice)
 
   const [money, setMoney] = useState(null)
 
@@ -30,10 +31,10 @@ const Cart = () => {
             </h3>
             <div className="cupcakes-container">
               {
-                cart.map(({ id, description, img, flavor, color, price, sold }) => {
+                cart.map(({ id, description, img, flavor, color, price, sold }: I_Cupcake) => {
                   return (
                     <Cupcake
-                      styles={styles}
+                      classes={classes}
                       key={id}
                       id={id}
                       description={description}

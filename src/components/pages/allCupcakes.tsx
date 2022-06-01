@@ -1,18 +1,18 @@
-import styles from "../../styles/cards/cupcake.module.scss"
-import useFetchGET from "../hooks/useFetchGET"
+import classes from "../../styles/elements/cupcake/page-cupcake.module.scss"
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { startInitialState } from "../redux/reducers/cupcakesSlice"
-import db from "../../../db"
-import ContentContainer from "../elements/ContentContainer"
-import Cupcake from "../cards/Cupcake"
+import useFetchGET from "../hooks/useFetchGET"
+import ContentContainer from "../fragments/ContentContainer"
+import Cupcake from "../elements/cupcake"
 import LoadMessage from "../elements/LoadMessage"
+import db from "../../../db.json"
 
 const AllCupcakes = () => {
   const dispatch = useDispatch()
 
   const [data = null, error = null] = useFetchGET("cupcakes")
-  const { cupcakes } = useSelector(({ cupcakesSlice }) => cupcakesSlice)
+  const cupcakes: null | any[] = useSelector(({ cupcakesSlice }: any) => cupcakesSlice.cupcakes)
 
   useEffect(() => {
     if (error === true && !cupcakes) {
@@ -38,10 +38,10 @@ const AllCupcakes = () => {
               color,
               price,
               sold
-            }) => {
+            }: any) => {
               return (
                 <Cupcake
-                  styles={styles}
+                  classes={classes}
                   key={id}
                   id={id}
                   description={description}
