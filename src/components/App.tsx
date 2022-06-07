@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./core-sections/Header";
 import Footer from "./core-sections/Footer";
 import ScrollToTop from "./fragments/ScrollToTop";
+import Profile from "./pages/profile";
 
 const App = () => (
   <Provider store={store}>
@@ -20,6 +21,7 @@ const App = () => (
       <ScrollToTop/>
       <Header/>
       <Routes>
+        <Route path="/profile" element={<Public render={Profile}/>}/>
         <Route path="/login" element={<Public render={Login}/>}/>
         <Route path="/register" element={<Public render={Register}/>}/>
         <Route path="/cart" element={<Protected render={Cart}/>}/>
