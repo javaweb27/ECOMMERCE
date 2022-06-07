@@ -1,5 +1,6 @@
+import "./index.scss"
 import { Link } from "react-router-dom"
-import ContentContainer from "../fragments/ContentContainer"
+import ContentContainer from "../../fragments/ContentContainer"
 
 const Page404 = () => {
 

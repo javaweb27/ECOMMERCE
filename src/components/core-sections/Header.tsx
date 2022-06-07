@@ -1,3 +1,4 @@
+import "./header.scss"
 import NavMenu from "../elements/nav-menu"
 
 const Header = () => {

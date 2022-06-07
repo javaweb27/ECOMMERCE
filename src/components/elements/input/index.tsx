@@ -1,4 +1,4 @@
-import classes from "../../styles/elements/input.module.scss"
+import classes from "./index.module.scss"
 
 const Input = ({ i: inputName, name, value, children, ...params }: any) => {
   return (

@@ -1,8 +1,9 @@
+import "./index.scss"
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
-import ContentContainer from "../fragments/ContentContainer"
-import Input from "../elements/Input"
-import fetchPOST from "../hooks/fetchPOST"
+import ContentContainer from "../../fragments/ContentContainer"
+import Input from "../../elements/input"
+import fetchPOST from "../../hooks/fetchPOST"
 
 const LoginUser = () => {
   const [data, setData] = useState({ email: "", password: "" })

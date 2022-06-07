@@ -1,3 +1,4 @@
+import "./footer.scss"
 import NavMenu from "../elements/nav-menu"
 
 const Footer = () => {

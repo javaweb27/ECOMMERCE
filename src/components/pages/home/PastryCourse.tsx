@@ -1,3 +1,5 @@
+import "./pastry-course.scss"
+
 const PastryCourse = () => {
   return (
     <section className="pastry-course">

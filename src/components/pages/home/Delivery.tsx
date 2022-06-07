@@ -1,3 +1,5 @@
+import "./delivery.scss"
+
 const Delivery = () => {
   return (
     <section className="delivery">

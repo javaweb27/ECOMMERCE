@@ -1,23 +1,13 @@
-import classes from "../elements/cupcake/cart-cupcake.module.scss"
-import { useEffect, useState } from "react"
+import "./index.scss"
+import classes from "../../elements/cupcake/cart-cupcake.module.scss"
 import { useSelector } from "react-redux"
-import fetchPATCH from "../hooks/fetchPATCH"
-import ContentContainer from "../fragments/ContentContainer"
-import Cupcake from "../elements/cupcake"
-import MenuLink from "../elements/nav-menu/NavMenuLink"
-import I_Cupcake from "../elements/cupcake/cupcakeInterface"
-
+import ContentContainer from "../../fragments/ContentContainer"
+import Cupcake from "../../elements/cupcake"
+import I_Cupcake from "../../elements/cupcake/cupcakeInterface"
+import Pay from "./Pay"
 
 const Cart = () => {
   const { cupcakes: cart, totalPrice } = useSelector(({ cartSlice }: any) => cartSlice)
-
-  const [money, setMoney] = useState(null)
-
-  const pay = () => fetchPATCH("pay", setMoney, { amount: totalPrice })
-
-  useEffect(() => {
-    fetchPATCH("money", setMoney)
-  }, [])
 
   return (
     <ContentContainer>
@@ -49,20 +39,7 @@ const Cart = () => {
               }
             </div>
           </div>
-          <div>
-            <h3 className="title">Costo</h3>
-            <div className="pay-container">
-              <span>Tu saldo: {money ?? "0"}</span>
-              <span>Total: {totalPrice}</span>
-              {
-                money ? <button onClick={pay}>Pagar</button>
-                : <>
-                  <MenuLink to="/login">Inicia sesion</MenuLink><br />
-                  <MenuLink to="/register">registrate</MenuLink>
-                </>
-              }
-            </div>
-          </div>
+          <Pay totalPrice={totalPrice}/>
         </div>
       </section>
     </ContentContainer>

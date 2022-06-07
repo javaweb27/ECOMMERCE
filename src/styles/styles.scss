@@ -5,15 +5,3 @@
 @use "config/theme-colors";
 //global classes
 @use "global";
-//sections
-@use "core-sections/header";
-@use "core-sections/footer";
-@use "page-sections/banner";
-@use "page-sections/delivery";
-@use "page-sections/pastry-course";
-@use "page-sections/cupcakes-features";
-//pages
-@use "pages/cupcakes";
-@use "pages/cart-cupcakes";
-@use "pages/login-register";
-@use "pages/page404";

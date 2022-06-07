@@ -1,15 +1,16 @@
-import classes from "../elements/cupcake/page-cupcake.module.scss"
+import "./index.scss"
+import classes from "../../elements/cupcake/page-cupcake.module.scss"
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { startInitialState } from "../redux/reducers/cupcakesSlice"
-import useFetchGET from "../hooks/useFetchGET"
-import ContentContainer from "../fragments/ContentContainer"
-import Cupcake from "../elements/cupcake"
-import LoadMessage from "../elements/LoadMessage"
-import I_Cupcake from "../elements/cupcake/cupcakeInterface"
-import db from "../../../db.json"
+import { startInitialState } from "../../redux/reducers/cupcakesSlice"
+import useFetchGET from "../../hooks/useFetchGET"
+import ContentContainer from "../../fragments/ContentContainer"
+import Cupcake from "../../elements/cupcake"
+import LoadMessage from "../../elements/LoadMessage"
+import I_Cupcake from "../../elements/cupcake/cupcakeInterface"
+import db from "../../../../db.json"
 
-const AllCupcakes = () => {
+const AllProducts = () => {
   const dispatch = useDispatch()
 
   const [data = null, error = null] = useFetchGET("cupcakes")
@@ -61,4 +62,4 @@ const AllCupcakes = () => {
   )
 }
 
-export default AllCupcakes
+export default AllProducts
