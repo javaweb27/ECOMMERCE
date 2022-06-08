@@ -1,20 +1,20 @@
 interface I_Props {
   error: null | boolean;
   data: null | any[];
-  cupcakes: boolean;
+  products: boolean;
 }
 
-const LoadMessage = ({ error, data, cupcakes }: I_Props) => {
-  const message = (error !== true && error !== false && !cupcakes) ?
+const LoadMessage = ({ error, data, products }: I_Props) => {
+  const message = (error !== true && error !== false && !products) ?
     <span>Connecting to the api</span>
 
     : (error === false && data?.length === 0) ?
       <span>No cupcakes available</span>
 
-    : (error === false && !cupcakes) ?
+    : (error === false && !products) ?
       <span>Loading fetched data</span>
 
-    : (error === true && !cupcakes) ?
+    : (error === true && !products) ?
       <span>Error connecting to the api, loading local data</span>
 
     : null

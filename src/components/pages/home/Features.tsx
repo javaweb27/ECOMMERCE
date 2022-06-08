@@ -1,6 +1,6 @@
-import classes from "./cupcakes-features.module.scss"
+import classes from "./features.module.scss"
 
-const CupcakesFeatures = () => {
+const Features = () => {
   const features: number[] = [1, 2, 3, 4]
 
   return (
@@ -20,4 +20,4 @@ const CupcakesFeatures = () => {
   )
 }
 
-export default CupcakesFeatures
+export default Features

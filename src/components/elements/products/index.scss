@@ -1,0 +1,17 @@
+@use "../../../styles/mixins/breakpoint" as *;
+
+.products-container {
+  display: grid;
+  gap: 1.9rem;
+  margin: 0 6%;
+  grid-template-columns: 1fr;
+
+  @include breakpoint(bp2) {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 12%;
+  }
+
+  @include breakpoint(bp3) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,6 +1,6 @@
 import Banner from "./Banner"
 import ContentContainer from "../../fragments/ContentContainer"
-import CupcakesFeatures from "./CupcakesFeatures"
+import Features from "./Features"
 import PastryCourse from "./PastryCourse"
 import Delivery from "./Delivery"
 
@@ -9,7 +9,7 @@ const  Home = () => {
   return (
     <ContentContainer headerForHome>
       <Banner/>
-      <CupcakesFeatures/>
+      <Features/>
       <PastryCourse/>
       <Delivery/>
     </ContentContainer>

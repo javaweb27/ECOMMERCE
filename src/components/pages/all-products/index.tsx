@@ -1,61 +1,36 @@
 import "./index.scss"
-import classes from "../../elements/cupcake/page-cupcake.module.scss"
 import { useEffect } from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { startInitialState } from "../../redux/reducers/cupcakesSlice"
+import { useDispatch, useSelector } from "react-redux"
+import { startInitialState } from "../../redux/reducers/loadedProductsSlice"
 import useFetchGET from "../../hooks/useFetchGET"
 import ContentContainer from "../../fragments/ContentContainer"
-import Cupcake from "../../elements/cupcake"
 import LoadMessage from "../../elements/LoadMessage"
-import I_Cupcake from "../../elements/cupcake/cupcakeInterface"
 import db from "../../../../db.json"
+import Products from "../../elements/products"
+import { I_ProductPartData } from "../../elements/products/productInterface"
 
 const AllProducts = () => {
   const dispatch = useDispatch()
 
   const [data = null, error = null] = useFetchGET("cupcakes")
-  const cupcakes: null | I_Cupcake[] = useSelector(({ cupcakesSlice }: any) => cupcakesSlice.cupcakes)
+  const loadedProducts: null | I_ProductPartData[] = useSelector(({ loadedProductsSlice }: any) => loadedProductsSlice.products)
 
   useEffect(() => {
-    if (error === true && !cupcakes) {
-      dispatch(startInitialState({ cupcakes: db.cupcakes, error: true }))
+    if (error === true && !loadedProducts) {
+      dispatch(startInitialState({ products: db.cupcakes, error: true }))
     }
     else if (error === false) {
-      dispatch(startInitialState({ cupcakes: data, error }))
+      dispatch(startInitialState({ products: data, error }))
     }
   }, [data, error])
 
   return (
     <ContentContainer>
-      <section className="cupcakes">
+      <section className="all-products">
         <h1 className="title">Todos los Cupcakes</h1>
-        <div className="container">
-          <LoadMessage error={error} data={data} cupcakes={Boolean(cupcakes)} />
-          {
-            cupcakes?.map(({
-              id,
-              description,
-              img,
-              flavor,
-              color,
-              price,
-              sold
-            }) => {
-              return (
-                <Cupcake
-                  classes={classes}
-                  key={id}
-                  id={id}
-                  description={description}
-                  img={img}
-                  flavor={flavor}
-                  color={color}
-                  price={price}
-                  sold={sold}
-                />
-              )
-            })
-          }
+        <div>
+          <LoadMessage error={error} data={data} products={Boolean(loadedProducts)} />
+          <Products products={loadedProducts} />
         </div>
       </section>
     </ContentContainer>

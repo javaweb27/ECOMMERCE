@@ -1,12 +1,8 @@
 import BtnSell from "./BtnSell"
 import BtnAddRemoveFromCart from "./BtnAddRemoveFromCart"
-import I_Cupcake from "./cupcakeInterface"
+import I_Product from "./productInterface"
 
-interface I_Props extends I_Cupcake {
-  classes: CSSModuleClasses
-}
-
-const Cupcake = ({
+const Prod = ({
   classes,
   id,
   description,
@@ -15,10 +11,10 @@ const Cupcake = ({
   color,
   price,
   sold
-}: I_Props) => {
+}: I_Product) => {
 
   return (
-    <article className={classes.cupcake}>
+    <article className={classes.product}>
       <img className={sold ? classes.sold : ""} src={img} alt={flavor} loading="lazy" />
       <div className={classes.container}>
         <div className={classes.details}>
@@ -36,4 +32,4 @@ const Cupcake = ({
   )
 }
 
-export default Cupcake
+export default Prod

@@ -1,34 +1,34 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import I_Cupcake, { I_CupcakePartToSell } from "../../elements/cupcake/cupcakeInterface";
+import { I_ProductPartData, I_ProductPartSell } from "../../elements/products/productInterface";
 
-interface I_State { cupcakes: I_Cupcake[]; totalPrice: number }
+interface I_State { products: I_ProductPartData[]; totalPrice: number }
 
-const initialState: I_State = { cupcakes: [], totalPrice: 0 }
+const initialState: I_State = { products: [], totalPrice: 0 }
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart(state, { payload }: PayloadAction<I_Cupcake>) {
-      state.cupcakes.push(payload)
-      state.totalPrice = calcTotalPrice(state.cupcakes)
+    addToCart(state, { payload }: PayloadAction<I_ProductPartData>) {
+      state.products.push(payload)
+      state.totalPrice = calcTotalPrice(state.products)
     },
     removeFromCart(state, { payload }: PayloadAction<number>) {
-      state.cupcakes = state.cupcakes.filter((c: any) => c.id !== payload)
-      state.totalPrice = calcTotalPrice(state.cupcakes)
+      state.products = state.products.filter((c: any) => c.id !== payload)
+      state.totalPrice = calcTotalPrice(state.products)
     },
-    sellCartCupcake(state, { payload }: PayloadAction<I_CupcakePartToSell>) {
-      const cupcake = state.cupcakes.find((c: I_Cupcake) => c.id === payload.id)
+    sellCartCupcake(state, { payload }: PayloadAction<I_ProductPartSell>) {
+      const cupcake = state.products.find(c => c.id === payload.id)
 
       if (cupcake) cupcake.sold = payload.sold
     }
   }
 })
 
-function calcTotalPrice(cupcakes: I_Cupcake[]) {
+function calcTotalPrice(products: I_ProductPartData[]) {
   let totalPrice = 0
 
-  for (const { price } of cupcakes) {
+  for (const { price } of products) {
     totalPrice += price
   }
 

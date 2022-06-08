@@ -2,12 +2,12 @@ import classes from "./btn-add-remove-from-cart.module.scss"
 import Icon from "../icon"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart, removeFromCart } from "../../redux/reducers/cartSlice"
-import I_Cupcake from "./cupcakeInterface"
+import { I_ProductPartData } from "./productInterface"
 
-const BtnAddRemoveFromCart = (props: I_Cupcake) => {
+const BtnAddRemoveFromCart = (props: I_ProductPartData) => {
   const dispatch = useDispatch()
 
-  const cart: I_Cupcake[] = useSelector(({ cartSlice }: any) => cartSlice.cupcakes)
+  const cart: I_ProductPartData[] = useSelector(({ cartSlice }: any) => cartSlice.products)
   const isInCart = cart.find(c => c.id === props.id) ? true : false
 
   const add = () => dispatch(addToCart(props))
