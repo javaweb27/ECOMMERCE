@@ -1,6 +1,6 @@
 @use "../../../styles/mixins/breakpoint" as *;
 
-.login, .register {
+.login-register {
   color: var(--title-color);
   margin: 0 9%;
 
@@ -14,14 +14,6 @@
 
   .title {
     text-align: center;
-  }
-
-  .error-message {
-    opacity: 0;
-
-    &.is-active {
-      opacity: 1;
-    }
   }
 
   .btn-submit {

@@ -3,7 +3,7 @@ import fetchPATCH from "../../hooks/fetchPATCH"
 import MenuLink from "../../elements/nav-menu/NavMenuLink"
 
 const Pay = ({ totalPrice }: { totalPrice: number }) => {
-  const [money, setMoney] = useState(null)
+  const [money, setMoney] = useState<number | null>(null)
 
   const pay = () => fetchPATCH("pay", setMoney, { amount: totalPrice })
 
@@ -15,10 +15,10 @@ const Pay = ({ totalPrice }: { totalPrice: number }) => {
     <div>
       <h3 className="title">Costo</h3>
       <div className="pay-container">
-        <span>Tu saldo: {money ?? "0"}</span>
-        <span>Total: {totalPrice}</span>
+        <span>Tu saldo: {money ?? "None"}</span>
+        <span>Total a pagar: {totalPrice}</span>
         {
-          money ? <button onClick={pay}>Pagar</button>
+          typeof money === "number" ? <button onClick={pay}>Pagar</button>
           : <>
             <MenuLink to="/login">Inicia sesion</MenuLink><br />
             <MenuLink to="/register">registrate</MenuLink>
