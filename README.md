@@ -7,7 +7,7 @@ Single Page Aplication (SPA).
 ***
 Branch: master\
 Role: Frontend\
-Stack: Vite, JavaScript, React, React Router, Redux, Sass\
+Stack: Vite, TypeScript, React, React Router, Redux, Sass
 
 The source code of the Backend is in the `main` branch
 
@@ -24,7 +24,8 @@ The page will reload if you make edits.
 
 ### `yarn local-db`
 
-The module `json-server` is installed globally and it is used for the local api. It reads and modifies the `db.json` file.
+Runs the local api using the `db.json` file.
+The module `json-server` must be installed globally, it reads and modifies the `db.json` file.
 
 Api url: [http://localhost:3060](http://localhost:3060)
 
@@ -38,10 +39,11 @@ Your app is ready to be deployed!
 
 ### `yarn preview`
 
-Runs the app that was built to the `dist` folder.\
+Runs the app that was built to the `dist` folder in the preview mode.\
 Open [http://localhost:4173](http://localhost:4173) to view it in the browser.
 
 ### `yarn deploy`
 
-The module `gh-pages` is installed globally and it is used to deploy on GitHub Pages.\
-The file `vite.config.js` from Vite and the component `BrowserRouter` from react-router-dom have configured a base path to deploy on GitHub Pages.
+Deploys to GitHub Pages the app that was built to the `dist` folder.\
+The module `gh-pages` must be installed globally.\
+The `vite.config.js` file from Vite has configured a base path to deploy to GitHub Pages.

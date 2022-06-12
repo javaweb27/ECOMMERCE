@@ -8,7 +8,7 @@ import Protected from "./routes/Protected";
 import Public from "./routes/Public";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./core-sections/Header";
 import Footer from "./core-sections/Footer";
 import ScrollToTop from "./fragments/ScrollToTop";
@@ -16,7 +16,7 @@ import Profile from "./pages/profile";
 
 const App = () => (
   <Provider store={store}>
-    <BrowserRouter basename="/ECOMMERCE">
+    <HashRouter>
       <ScrollToTop />
       <Header />
       <Routes>
@@ -29,7 +29,7 @@ const App = () => (
         <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   </Provider>
 )
 
