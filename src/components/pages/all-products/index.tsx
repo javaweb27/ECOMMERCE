@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { startInitialState } from "../../redux/reducers/loadedProductsSlice"
 import useFetchGET from "../../hooks/useFetchGET"
 import ContentContainer from "../../fragments/ContentContainer"
-import LoadMessage from "../../elements/LoadMessage"
 import db from "../../../../db.json"
 import Products from "../../elements/products"
 import { I_ProductPartData } from "../../elements/products/productInterface"
@@ -28,10 +27,7 @@ const AllProducts = () => {
     <ContentContainer>
       <section className="all-products">
         <h1 className="title">Todos los Cupcakes</h1>
-        <div>
-          <LoadMessage error={error} data={data} products={Boolean(loadedProducts)} />
-          <Products products={loadedProducts} />
-        </div>
+        <Products products={loadedProducts} />
       </section>
     </ContentContainer>
   )
