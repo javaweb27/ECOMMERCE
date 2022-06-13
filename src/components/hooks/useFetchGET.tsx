@@ -3,28 +3,26 @@ import { NODE_API } from "../../config"
 
 /**
  * @param {string} endpoint 
- * @returns an array with data and error
+ * @returns an array of products, if fetch fails null is returned
  */
 
 const useFetchGET = (endpoint: string) => {
   const [data, setData] = useState<any>()
-  const [error, setError] = useState<boolean>()
+
 
   useEffect(() => {
     fetch(`${NODE_API}/${endpoint}`)
       .then(response => response.ok && response.json())
       .then(json => {
         setData(json)
-        setError(false)
       })
       .catch(err => {
         console.error(err)
         setData(null)
-        setError(true)
       })
   }, [endpoint])
 
-  return [data, error]
+  return data
 }
 
 export default useFetchGET

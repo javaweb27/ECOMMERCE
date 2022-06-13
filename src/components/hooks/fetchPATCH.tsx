@@ -9,7 +9,7 @@ import { NODE_API } from "../../config"
 const fetchPATCH = async (
   endpoint: string,
   dispatchPayload: (a: any) => void,
-  dataToSend?: object
+  dataToSend?: { sold: boolean }
 ) => {
   try {
     const res = await fetch(`${NODE_API}/${endpoint}`, {
@@ -30,6 +30,7 @@ const fetchPATCH = async (
   }
   catch (error) {
     console.error(error)
+    if (dataToSend?.sold) dispatchPayload(dataToSend.sold)
   }
 }
 

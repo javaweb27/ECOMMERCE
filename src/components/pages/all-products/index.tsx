@@ -1,7 +1,7 @@
 import "./index.scss"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { startInitialState } from "../../redux/reducers/loadedProductsSlice"
+import { loadProducts } from "../../redux/reducers/productsSlice"
 import useFetchGET from "../../hooks/useFetchGET"
 import ContentContainer from "../../fragments/ContentContainer"
 import db from "../../../../db.json"
@@ -11,23 +11,23 @@ import { I_ProductPartData } from "../../elements/products/productInterface"
 const AllProducts = () => {
   const dispatch = useDispatch()
 
-  const [data = null, error = null] = useFetchGET("cupcakes")
-  const loadedProducts: null | I_ProductPartData[] = useSelector(({ loadedProductsSlice }: any) => loadedProductsSlice.products)
+  const data: I_ProductPartData[] | null = useFetchGET("cupcakes")
+  const { products } = useSelector(({ productsSlice }: any) => productsSlice)
 
   useEffect(() => {
-    if (error === true && !loadedProducts) {
-      dispatch(startInitialState({ products: db.cupcakes, error: true }))
+    if (data === null) {
+      dispatch(loadProducts({ products: db.cupcakes }))
     }
-    else if (error === false) {
-      dispatch(startInitialState({ products: data, error }))
+    else if (data) {
+      dispatch(loadProducts({ products: data }))
     }
-  }, [data, error])
+  }, [data])
 
   return (
     <ContentContainer>
       <section className="all-products">
         <h1 className="title">Todos los Cupcakes</h1>
-        <Products products={loadedProducts} />
+        <Products products={products} />
       </section>
     </ContentContainer>
   )

@@ -1,13 +1,12 @@
 import classes from "./btn-sell.module.scss"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { sellCartCupcake } from "../../redux/reducers/cartSlice"
-import { sellCupcake } from "../../redux/reducers/loadedProductsSlice"
+import { sellCupcake } from "../../redux/reducers/productsSlice"
 import fetchPATCH from "../../hooks/fetchPATCH"
 import { I_ProductPartSell } from "./productInterface"
 
 const BtnSell = ({ id, sold }: I_ProductPartSell) => {
   const dispatch = useDispatch()
-  const cupcakesError: boolean = useSelector(({ loadedProductsSlice }: any) => loadedProductsSlice.error)
 
   const dispatchPayload = (sold: boolean) => {
     const payload = { id, sold }
@@ -16,12 +15,7 @@ const BtnSell = ({ id, sold }: I_ProductPartSell) => {
   }
 
   const sell = () => {
-    if (!cupcakesError) {
-      fetchPATCH("cupcakes/" + id, dispatchPayload, { sold: true })
-    }
-    else {
-      dispatchPayload(true)
-    }
+    fetchPATCH("cupcakes/" + id, dispatchPayload, { sold: true })
   }
 
   if (sold) {

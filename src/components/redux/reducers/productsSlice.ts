@@ -1,17 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { I_ProductPartData, I_ProductPartSell } from "../../elements/products/productInterface"
 
-interface I_State { products: I_ProductPartData[] | null, error: boolean }
+interface I_State { products: I_ProductPartData[] | null }
 
-const initialState: I_State = { products: null, error: true }
+const initialState: I_State = { products: null }
 
-const loadedProductsSlice = createSlice({
+const productsSlice = createSlice({
   name: "cupcake",
   initialState,
   reducers: {
-    startInitialState(state, { payload }: PayloadAction<I_State>) {
+    loadProducts(state, { payload }: PayloadAction<I_State>) {
       state.products = payload.products
-      state.error = payload.error
     },
     sellCupcake(state, { payload }: PayloadAction<I_ProductPartSell>) {
       const cupcake = state.products?.find(prod => prod.id === payload.id)
@@ -21,5 +20,5 @@ const loadedProductsSlice = createSlice({
   }
 })
 
-export const { startInitialState, sellCupcake } = loadedProductsSlice.actions
-export default loadedProductsSlice.reducer
+export const { loadProducts, sellCupcake } = productsSlice.actions
+export default productsSlice.reducer

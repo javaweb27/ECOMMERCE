@@ -1,7 +1,7 @@
 import cartSlice from "./cartSlice";
-import loadedProductsSlice from "./loadedProductsSlice";
+import productsSlice from "./productsSlice";
 
 export default {
   cartSlice,
-  loadedProductsSlice
+  productsSlice
 }
