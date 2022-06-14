@@ -1,4 +1,3 @@
-import BtnSell from "./BtnSell"
 import BtnAddRemoveFromCart from "./BtnAddRemoveFromCart"
 import I_Product from "./productInterface"
 
@@ -24,7 +23,6 @@ const Prod = ({
         </div>
 
         <div className={classes.buttons}>
-          <BtnSell {...{ id, sold }} />
           <BtnAddRemoveFromCart {...{ id, description, img, flavor, color, price, sold }} />
         </div>
       </div>

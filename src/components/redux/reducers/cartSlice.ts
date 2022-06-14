@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { I_ProductPartData, I_ProductPartSell } from "../../elements/products/productInterface";
+import { I_ProductPartData } from "../../elements/products/productInterface";
 
 interface I_State { products: I_ProductPartData[]; totalPrice: number }
 
@@ -16,11 +16,6 @@ const cartSlice = createSlice({
     removeFromCart(state, { payload }: PayloadAction<number>) {
       state.products = state.products.filter((c: any) => c.id !== payload)
       state.totalPrice = calcTotalPrice(state.products)
-    },
-    sellCartCupcake(state, { payload }: PayloadAction<I_ProductPartSell>) {
-      const cupcake = state.products.find(c => c.id === payload.id)
-
-      if (cupcake) cupcake.sold = payload.sold
     }
   }
 })
@@ -35,5 +30,5 @@ function calcTotalPrice(products: I_ProductPartData[]) {
   return totalPrice
 }
 
-export const { addToCart, removeFromCart, sellCartCupcake } = cartSlice.actions
+export const { addToCart, removeFromCart } = cartSlice.actions
 export default cartSlice.reducer

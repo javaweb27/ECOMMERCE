@@ -1,9 +1,6 @@
-export interface I_ProductPartSell {
+export interface I_ProductPartData {
   id: number;
   sold: boolean;
-}
-
-export interface I_ProductPartData extends I_ProductPartSell {
   description: string;
   img: string;
   flavor: string;
