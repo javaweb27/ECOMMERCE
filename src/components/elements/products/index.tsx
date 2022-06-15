@@ -1,12 +1,11 @@
 import "./index.scss"
-import normalClasses from "./product-normal.module.scss"
-import compactClasses from "./product-compact.module.scss"
-import { I_ProductPartData } from "./productInterface"
-import Product from "./Product"
-import ProdLoadSkeleton from "./ProdLoadSkeleton"
+import normalClasses from "./prod-normal.module.scss"
+import compactClasses from "./prod-compact.module.scss"
+import { I_ProdPartData } from "./prodInterface"
+import Prod, { ProdLoadSkeleton } from "./Prod"
 
 interface I_Props {
-  products: I_ProductPartData[] | null;
+  products: I_ProdPartData[] | null;
   compact?: boolean
 }
 
@@ -18,8 +17,9 @@ const Products = ({ products, compact = false }: I_Props) => {
   return (
     <div className={compact ? "" : "products-container"}>
       {
-        !products ? skeletons
-          : products.map(data => <Product key={data.id} {...data} classes={classes} />)
+        !products ? skeletons : products.map(data => (
+          <Prod key={data.id} data={data} isCart={compact} classes={classes} />
+        ))
       }
     </div>
   )

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { I_ProductPartData } from "../../elements/products/productInterface"
+import { I_ProdPartData } from "../../elements/products/prodInterface"
 
-interface I_State { products: I_ProductPartData[] | null }
+interface I_State { products: I_ProdPartData[] | null }
 
 const initialState: I_State = { products: null }
 

@@ -1,7 +1,7 @@
 @use "../../../styles/mixins/breakpoint" as *;
 @use "../../../styles/config/sass-vars" as vars;
 
-.product {
+.prod {
   box-shadow: .27rem .27rem .6rem -.4rem var(--dark-color);
 
   background-color: var(--menu-bg-color);
