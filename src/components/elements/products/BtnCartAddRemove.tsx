@@ -1,42 +1,60 @@
 import classes from "./btn-cart-add-remove.module.scss"
-import Icon from "../icon"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart, removeFromCart } from "../../redux/reducers/cartSlice"
 import { I_ProdPartCartAdd, I_ProdPartData } from "./prodInterface"
 
 interface I_Props {
   data: I_ProdPartData,
-  isCart: boolean
+  isCompact: boolean
 }
 
-const BtnCartAddRemove = ({ data, isCart }: I_Props) => {
+const BtnCartAddRemove = ({ data, isCompact }: I_Props) => {
   const dispatch = useDispatch()
 
+  const [qty, setQty] = useState<number>(1)
+
   const cart: I_ProdPartCartAdd[] = useSelector(({ cartSlice }: any) => cartSlice.products)
-  const found = cart.find(c => c.id === data.id)
-  let qtyToAdd = 1
+
+  const found = isCompact ? cart.find(c => c.id === data.id) : null
 
   const add = () => dispatch(addToCart({
     ...data,
-    qty: qtyToAdd
+    qty: qty
   }))
 
   const remove = () => dispatch(removeFromCart({
     id: data.id,
-    qty: qtyToAdd
+    qty: qty
   }))
 
-  return <>
-    {isCart && "Qty: " + found?.qty}
-    <div className={classes.buttons}>
-      <button onClick={add} className={classes["btn-add"]}>
-        <Icon name="cart" />
-      </button>
-      <button onClick={remove} disabled={found ? false : true} className={classes["btn-remove"]}>
-        <Icon name="cart_remove" className={classes["cart-remove"]} />
-      </button>
+  const changeQty = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(event.target.value)
+
+    if (value < 1 || !value) return setQty(1)
+    if (value > 100) return setQty(100)
+
+    setQty(value)
+  }
+
+  return <div>
+    {
+      found && <div>
+        <span>Cantidad: {found.qty} / ${found.qty * found.price} </span>
+      </div>
+    }
+
+    <div className={classes.qtyContainer}>
+      <button className={classes.btnQty} onClick={() => qty < 100 && setQty(qty + 1)}>+</button>
+
+      <input className={classes.qty} onChange={changeQty} value={qty} type="number" />
+
+      <button className={classes.btnQty} onClick={() => qty > 1 && setQty(qty - 1)}>-</button>
     </div>
-  </>
+
+    <button className={classes.btnAdd} onClick={add}>Agregar</button>
+    <button className={classes.btnRemove} onClick={remove}>Remover</button>
+  </div>
 }
 
 export default BtnCartAddRemove

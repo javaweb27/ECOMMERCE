@@ -20,5 +20,5 @@ export interface I_ProdPartCartRemove {
 export default interface I_Prod {
   classes: CSSModuleClasses;
   data: I_ProdPartData;
-  isCart: boolean;
+  isCompact: boolean;
 }

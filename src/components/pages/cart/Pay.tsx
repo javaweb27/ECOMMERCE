@@ -16,7 +16,7 @@ const Pay = ({ totalPrice }: { totalPrice: number }) => {
       <h3 className="title">Costo</h3>
       <div className="pay-container">
         <span>Tu saldo: {money ?? "None"}</span>
-        <span>Total a pagar: {totalPrice}</span>
+        <span>Total a pagar: ${totalPrice}</span>
         {
           typeof money === "number" ? <button onClick={pay}>Pagar</button>
           : <>

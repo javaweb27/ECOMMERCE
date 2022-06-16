@@ -3,7 +3,7 @@
 .cart-cupcakes {
   margin: 0 6%;
 
-  > .title {
+  >.title {
     text-align: center;
   }
 
@@ -15,16 +15,18 @@
 
   .container {
     display: flex;
-    gap: 1.27rem;
+    gap: 2.7rem;
     flex-direction: column;
     justify-content: space-between;
-    
+
     @include breakpoint(bp2) {
       flex-direction: row;
     }
   }
 
   .pay-container {
+    min-width: 12rem;
+
     span {
       color: var(--text-color);
       display: block;

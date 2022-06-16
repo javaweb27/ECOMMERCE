@@ -12,13 +12,16 @@ interface I_Props {
 const skeletons = [1, 2, 3, 4, 5, 6].map((k) => <ProdLoadSkeleton key={k} />)
 
 const Products = ({ products, compact = false }: I_Props) => {
-  const classes = compact ? compactClasses : normalClasses
-
   return (
     <div className={compact ? "" : "products-container"}>
       {
         !products ? skeletons : products.map(data => (
-          <Prod key={data.id} data={data} isCart={compact} classes={classes} />
+          <Prod
+            key={data.id}
+            data={data}
+            isCompact={compact}
+            classes={compact ? compactClasses : normalClasses}
+          />
         ))
       }
     </div>
