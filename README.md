@@ -1,15 +1,25 @@
 # ECOMMERCE
 
-It is a online shop that sells products from an API consumed with Fetch API.
-The user can view and save the products in the cart.
-REDUX is used to handle the state of the cart and the products, sass and css modules for the styles and json-server for the API.\
+It is a online shop with a shopping cart.\
+Products are obtained from a Node/Express API.\
+Users can create an account, they will be assigned a random amount of fake money so that they can pay for the products added to the cart, and they will be automatically deleted in 2 minutes after the account is created.\
+User data is saved in MongoDB/Mongoose, the password is encrypted, the email and the name are coded in base 64.
+
 Single Page Aplication (SPA).
-***
-Branch: master\
-Role: Frontend\
-Stack: Vite, TypeScript, React, React Router, Redux, Sass
 
 The source code of the Backend is in the `main` branch
+***
+Branch: master\
+Role: Frontend
+
+**Stack:**
+- Build tool: Vite
+- UI Library: React with TypeScript
+- Styles: Sass, CSS Modules
+- App State: React Redux
+- Routing: React Router
+- Local API: json-server
+- Fetching resources: Fetch API
 
 ## Available Scripts
 
