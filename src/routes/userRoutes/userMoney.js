@@ -1,10 +1,7 @@
-"use strict";
+import ModelUser from "../../models/ModelUser"
 
-const UserModel = require("./UserModel")
-
-function userMoney(req, res) {
-
-  UserModel.findOne({ email: req.dataFromToken.email }, (error, foundUser) => {
+export default function userMoney(req, res) {
+  ModelUser.findOne({ email: req.dataFromToken.email }, (error, foundUser) => {
     console.log("buscando al usuario")
     if (error) {
       console.error("Error al intentar buscar usuario para enviar dinero actual");
@@ -20,5 +17,3 @@ function userMoney(req, res) {
     res.json({ data: foundUser.money })
   })
 }
-
-module.exports = userMoney

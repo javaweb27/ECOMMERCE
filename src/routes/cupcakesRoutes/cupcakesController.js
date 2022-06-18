@@ -1,9 +1,7 @@
-"use strict";
+import ModelCupcake from "../../models/ModelCupcake"
 
-const CupcakeModel = require("./CupcakeModel")
-
-function getCupcakes(req, res) {
-  CupcakeModel.find({}, (error, result) => {
+export function getCupcakes(req, res) {
+  ModelCupcake.find({}, (error, result) => {
     if (error) {
       console.error("Error al encontrar los cupcakes: " + error)
       res.send(result)
@@ -14,8 +12,8 @@ function getCupcakes(req, res) {
   })
 }
 
-function patchCupcake(req, res) {
-  CupcakeModel.findByIdAndUpdate(req.params.id, req.body, (error, result) => {
+export function patchCupcake(req, res) {
+  ModelCupcake.findByIdAndUpdate(req.params.id, req.body, (error, result) => {
     if (error) {
       console.error("Error al vender el cupcake: " + error)
       res.send(result)
@@ -31,7 +29,7 @@ function patchCupcake(req, res) {
     res.json({ data: req.body.sold })
 
     setTimeout(() => {
-      CupcakeModel.findByIdAndUpdate(req.params.id, { sold: false }, (error, result) => {
+      ModelCupcake.findByIdAndUpdate(req.params.id, { sold: false }, (error, result) => {
         if (error || !result) {
           console.error(`No se pudo restaurar el cupcake con id ${req.params.id}`)
           return
@@ -41,9 +39,4 @@ function patchCupcake(req, res) {
       })
     }, 60000)
   })
-}
-
-module.exports = {
-  getCupcakes,
-  patchCupcake
 }

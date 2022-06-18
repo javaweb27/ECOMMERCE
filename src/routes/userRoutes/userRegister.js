@@ -1,10 +1,8 @@
-"use strict";
+import bcrypt from "bcrypt"
+import ModelUser from "../../models/ModelUser"
+import areValidChars from "../../lib/areValidChars"
 
-const UserModel = require("./UserModel")
-const bcrypt = require("bcrypt");
-const areValidCharacters = require("../../lib/areValidCharacters");
-
-function userRegister(req, res) {
+export default function userRegister(req, res) {
   const { email: reqEmail, name: reqName, password: reqPassword } = req.body
 
   const emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{1,7})+$/;
@@ -15,13 +13,13 @@ function userRegister(req, res) {
     return
   }
 
-  if (!areValidCharacters(reqEmail), !areValidCharacters(reqName)) {
+  if (!areValidChars(reqEmail), !areValidChars(reqName)) {
     console.error('"email" o "name" tienen caracteres invalidos')
     res.sendStatus(403)
     return
   }
 
-  UserModel.findOne({ email: btoa(reqEmail) }, (error, foundUser) => {
+  ModelUser.findOne({ email: btoa(reqEmail) }, (error, foundUser) => {
     if (error) {
       console.error("Error al buscar al usuario para ver si ya esta registrado")
       res.send(null)
@@ -34,7 +32,7 @@ function userRegister(req, res) {
       return
     }
 
-    const newUser = new UserModel({
+    const newUser = new ModelUser({
       email: btoa(reqEmail),
       name: btoa(reqName),
       password: bcrypt.hashSync(reqPassword, 10),
@@ -57,7 +55,7 @@ function userRegister(req, res) {
     })
 
     setTimeout(() => {
-      UserModel.deleteOne({ email: btoa(reqEmail) }, (error) => {
+      ModelUser.deleteOne({ email: btoa(reqEmail) }, (error) => {
         if (error) {
           console.error("Error al eliminar a un usuario automaticamente")
           return
@@ -68,5 +66,3 @@ function userRegister(req, res) {
     }, 90000)
   })
 }
-
-module.exports = userRegister

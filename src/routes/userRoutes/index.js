@@ -1,16 +1,15 @@
-"use strict";
+import { Router } from "express";
+import tokenControl from "../../middlewares/tokenControl"
+import userRegister from "./userRegister"
+import userLogin from "./userLogin"
+import userMoney from "./userMoney"
+import userPay from "./userPay"
 
-const express = require("express")
-const router = express.Router()
-const tokenControl = require("../../middlewares/tokenControl")
-const userRegister = require("./userRegister")
-const userLogin = require("./userLogin")
-const userMoney = require("./userMoney");
-const userPay = require("./userPay");
+const router = Router()
 
 router.post("/register", userRegister)
 router.post("/login", userLogin)
 router.patch("/money", tokenControl.verifyAndSendData, userMoney)
 router.patch("/pay", tokenControl.verifyAndSendData, userPay)
 
-module.exports = router
+export default router

@@ -1,11 +1,10 @@
-"use strict";
+import { Router } from "express";
+import { getCupcakes, patchCupcake } from "./cupcakesController"
 
-const express = require("express")
-const router = express.Router()
-const cupcakesController = require("./cupcakesController")
+const router = Router()
 
-router.get("/", (req, res) => {res.send("Pagina principal del backend escrito en nodejs para ECOMMERCE")})
-router.get("/cupcakes", cupcakesController.getCupcakes)
-router.patch("/cupcakes/:id", cupcakesController.patchCupcake)
+router.get("/", (req, res) => { res.send("Pagina principal del backend escrito en nodejs para ECOMMERCE") })
+router.get("/cupcakes", getCupcakes)
+router.patch("/cupcakes/:id", patchCupcake)
 
-module.exports = router
+export default router

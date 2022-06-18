@@ -1,6 +1,4 @@
-"use strict";
-
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken"
 
 function control(send, req, res, next) {
   console.log("acceciendo al middleware tokenControl para validar el token")
@@ -24,7 +22,7 @@ function control(send, req, res, next) {
   })
 }
 
-module.exports = {
+export default {
   verify(req, res, next) {
     control(false, req, res, next)
   },

@@ -1,12 +1,10 @@
-"use strict";
+import ModelUser from "../../models/ModelUser"
 
-const UserModel = require("./UserModel")
-
-function userPay(req, res) {
+export default function userPay(req, res) {
   const priceToPay = Number(req.body.amount)
   const emailToFilter = { email: req.dataFromToken.email }
 
-  UserModel.findOne(emailToFilter, (error, foundUser) => {
+  ModelUser.findOne(emailToFilter, (error, foundUser) => {
     if (error) {
       console.error("Error al intentar buscar usuario para pagar", error);
       res.send(null)
@@ -19,10 +17,8 @@ function userPay(req, res) {
       return
     }
 
-    UserModel.findOneAndUpdate(emailToFilter, { money: currentMoney - priceToPay }, { new: true }, (error, updatedUser) => {
+    ModelUser.findOneAndUpdate(emailToFilter, { money: currentMoney - priceToPay }, { new: true }, (error, updatedUser) => {
       res.json({ data: updatedUser.money })
     })
   })
 }
-
-module.exports = userPay

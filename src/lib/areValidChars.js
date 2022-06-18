@@ -1,4 +1,4 @@
-function areValidCharacters(string) {
+export default function areValidChars(string) {
   try {
     btoa(string)
     return true
@@ -7,5 +7,3 @@ function areValidCharacters(string) {
     return false
   }
 }
-
-module.exports = areValidCharacters

@@ -1,7 +1,14 @@
-const mongoose = require("mongoose")
+import { connect } from "mongoose"
+import { MONGODB_URI } from "../config";
 
-const connection = mongoose.connect(process.env.MONGODB_URI)
-  .then(db => console.log("Base de datos: conexion exitosa"))
-  .catch(err => console.log("Ha ocurrido un error en la conexion de la base de datos:", err))
+export default async function () {
+  console.log("-connecting to MongoDB...")
 
-module.exports = connection
+  try {
+    await connect(MONGODB_URI)
+    console.log("-MongoDB connection: ok")
+  }
+  catch (error) {
+    console.error("-error to connect to MongoDB:", error)
+  }
+}

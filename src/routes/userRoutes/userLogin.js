@@ -1,20 +1,18 @@
-"use strict";
+import jwt from "jsonwebtoken"
+import bcrypt from "bcrypt"
+import ModelUser from "../../models/ModelUser"
+import areValidChars from "../../lib/areValidChars"
 
-const UserModel = require("./UserModel")
-const jwt = require("jsonwebtoken")
-const bcrypt = require("bcrypt");
-const areValidCharacters = require("../../lib/areValidCharacters");
-
-function userLogin(req, res) {
+export default function userLogin(req, res) {
   const { email, password } = req.body
 
-  if (!areValidCharacters(email)) {
+  if (!areValidChars(email)) {
     console.error('"email" tiene caracteres invalidos, no se ha registrado el usuario')
     res.sendStatus(403)
     return 
   }
 
-  UserModel.findOne({ email: btoa(email) }, (error, foundUser) => {
+  ModelUser.findOne({ email: btoa(email) }, (error, foundUser) => {
     if (error) {
       console.error("Error en el login de un usuario")
       res.send(null)
@@ -32,5 +30,3 @@ function userLogin(req, res) {
     })
   })
 }
-
-module.exports = userLogin
