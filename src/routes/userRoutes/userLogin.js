@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 import ModelUser from "../../models/ModelUser"
 import areValidChars from "../../lib/areValidChars"
+import { TOKEN_KEY } from "../../config"
 
 export default function userLogin(req, res) {
   const { email, password } = req.body
@@ -25,7 +26,7 @@ export default function userLogin(req, res) {
       return
     }
 
-    jwt.sign({ userData: foundUser }, process.env.TOKEN_KEY, { expiresIn: "90s" }, (error, token) => {
+    jwt.sign({ userData: foundUser }, TOKEN_KEY, { expiresIn: "90s" }, (error, token) => {
       res.json({ token })
     })
   })

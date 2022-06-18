@@ -1,11 +1,10 @@
 import bcrypt from "bcrypt"
 import ModelUser from "../../models/ModelUser"
 import areValidChars from "../../lib/areValidChars"
+import { emailRegex } from "../../lib/regex"
 
 export default function userRegister(req, res) {
   const { email: reqEmail, name: reqName, password: reqPassword } = req.body
-
-  const emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{1,7})+$/;
 
   if (!(reqEmail && reqName && reqPassword) || !emailRegex.test(reqEmail)) {
     console.error("Datos incompletos o caracteres invalidos en el email, no se ha registrado el usuario")

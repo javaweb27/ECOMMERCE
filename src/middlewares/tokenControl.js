@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken"
+import { TOKEN_KEY } from "../config"
 
 function control(send, req, res, next) {
   console.log("acceciendo al middleware tokenControl para validar el token")
@@ -6,7 +7,7 @@ function control(send, req, res, next) {
   const authorization_header = req.headers["authorization"]
   const authToken = authorization_header?.split(" ")[1]
 
-  jwt.verify(authToken, process.env.TOKEN_KEY, (error, decodedToken) => {
+  jwt.verify(authToken, TOKEN_KEY, (error, decodedToken) => {
     if (error) {
       console.log("El token expiro o es incorrecto")
       res.sendStatus(403)
