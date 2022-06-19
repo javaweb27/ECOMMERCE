@@ -3,65 +3,47 @@ import ModelUser from "../../models/ModelUser"
 import areValidChars from "../../lib/areValidChars"
 import { emailRegex } from "../../lib/regex"
 
-export default function userRegister(req, res) {
-  const { email: reqEmail, name: reqName, password: reqPassword } = req.body
-
-  if (!(reqEmail && reqName && reqPassword) || !emailRegex.test(reqEmail)) {
-    console.error("Datos incompletos o caracteres invalidos en el email, no se ha registrado el usuario")
+export default async function userRegister({ body }, res) {
+  if (!(body.email && body.name && body.password) || !emailRegex.test(body.email)) {
+    console.error("Datos incompletos o el formato del email es incorrecto, no se ha registrado el usuario")
     res.sendStatus(403)
     return
   }
 
-  if (!areValidChars(reqEmail), !areValidChars(reqName)) {
+  if (!areValidChars(body.email) || !areValidChars(body.name)) {
     console.error('"email" o "name" tienen caracteres invalidos')
     res.sendStatus(403)
     return
   }
 
-  ModelUser.findOne({ email: btoa(reqEmail) }, (error, foundUser) => {
-    if (error) {
-      console.error("Error al buscar al usuario para ver si ya esta registrado")
-      res.send(null)
-      return
-    }
+  const UserFound = await ModelUser.findOne({ email: btoa(body.email) })
 
-    if (foundUser) {
-      console.log("El usuario ya existe")
-      res.sendStatus(403)
-      return
-    }
+  if (UserFound) {
+    console.log("El usuario ya existe")
+    res.sendStatus(403)
+    return
+  }
 
-    const newUser = new ModelUser({
-      email: btoa(reqEmail),
-      name: btoa(reqName),
-      password: bcrypt.hashSync(reqPassword, 10),
-      money: 60 + Math.floor(Math.random() * 60)
-    })
-
-    newUser.save((error, registeredUser) => {
-      if (error) {
-        console.error("Error al registar el usuario: ", error)
-        res.send(null)
-        return
-      }
-
-      console.log("Usuario registrado correctamente")
-      res.json({
-        email: atob(registeredUser.email),
-        name: atob(registeredUser.name),
-        password: registeredUser.password
-      })
-    })
-
-    setTimeout(() => {
-      ModelUser.deleteOne({ email: btoa(reqEmail) }, (error) => {
-        if (error) {
-          console.error("Error al eliminar a un usuario automaticamente")
-          return
-        }
-
-        console.log("Un usuario ha sido eliminado automaticamente")
-      })
-    }, 90000)
+  const newUser = new ModelUser({
+    email: btoa(body.email),
+    name: btoa(body.name),
+    password: bcrypt.hashSync(body.password, 10),
+    money: 60 + Math.floor(Math.random() * 60)
   })
+
+  const UserRegistered = await newUser.save()
+
+  console.log("Usuario registrado correctamente")
+
+  res.json({
+    email: atob(UserRegistered.email),
+    name: atob(UserRegistered.name),
+    password: UserRegistered.password
+  })
+
+  setTimeout(async () => {
+    await ModelUser.deleteOne({ email: btoa(body.email) })
+
+    console.log("Un usuario ha sido eliminado automaticamente")
+  }, 90000)
 }

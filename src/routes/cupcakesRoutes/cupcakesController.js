@@ -1,42 +1,26 @@
 import ModelCupcake from "../../models/ModelCupcake"
 
-export function getCupcakes(req, res) {
-  ModelCupcake.find({}, (error, result) => {
-    if (error) {
-      console.error("Error al encontrar los cupcakes: " + error)
-      res.send(result)
-      return
-    }
+export async function getCupcakes(req, res) {
+  const Cupcakes = await ModelCupcake.find({})
 
-    res.json(result)
-  })
+  res.json(Cupcakes)
 }
 
-export function patchCupcake(req, res) {
-  ModelCupcake.findByIdAndUpdate(req.params.id, req.body, (error, result) => {
-    if (error) {
-      console.error("Error al vender el cupcake: " + error)
-      res.send(result)
-      return
-    }
+export async function patchCupcake(req, res) {
+  const CupcakeUpdated = await ModelCupcake.findByIdAndUpdate(req.params.id, req.body, { new: true })
 
-    if (!result) {
-      console.error("El cupcake no existe", result)
-      res.send(result)
-      return
-    }
+  if (!CupcakeUpdated) {
+    console.error("El cupcake no existe: ", CupcakeUpdated)
+    res.send(CupcakeUpdated)
+    return
+  }
 
-    res.json({ data: req.body.sold })
+  res.json({ data: CupcakeUpdated.sold })
 
-    setTimeout(() => {
-      ModelCupcake.findByIdAndUpdate(req.params.id, { sold: false }, (error, result) => {
-        if (error || !result) {
-          console.error(`No se pudo restaurar el cupcake con id ${req.params.id}`)
-          return
-        }
+  setTimeout(async () => {
+    await ModelCupcake.findByIdAndUpdate(req.params.id, { sold: false })
 
-        console.log(`Cupcake con id ${req.params.id} restaurado`)
-      })
-    }, 60000)
-  })
+    console.log(`Cupcake con id ${req.params.id} restaurado`)
+
+  }, 60000)
 }
