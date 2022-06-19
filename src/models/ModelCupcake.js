@@ -7,7 +7,6 @@ const schema = new Schema({
   color: String,
   description: String,
   price: Number,
-  sold: Boolean,
   img: String
 })
 
