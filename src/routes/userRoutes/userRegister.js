@@ -45,5 +45,5 @@ export default async function userRegister({ body }, res) {
     await ModelUser.deleteOne({ email: btoa(body.email) })
 
     console.log("Un usuario ha sido eliminado automaticamente")
-  }, 90000)
+  }, 127000)
 }
