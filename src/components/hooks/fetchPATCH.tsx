@@ -10,6 +10,7 @@ import { deleteAuthToken, getAuthToken } from "../../functions/localStorageHandl
 const fetchPATCH = async (
   endpoint: string,
   dispatchPayload: (a: any) => void,
+  updateLoginStatus: () => void,
   dataToSend?: { amount: number }
 ) => {
   try {
@@ -31,6 +32,7 @@ const fetchPATCH = async (
   }
   catch (error) {
     deleteAuthToken()
+    updateLoginStatus()
     console.error(error)
   }
 }

@@ -5,7 +5,8 @@ import { I_DataToSend } from "./formInterface"
 const formSubmit = async (
   event: React.FormEvent<HTMLFormElement>,
   data: I_DataToSend,
-  callback: (param: boolean) => void
+  setFinished: (param: boolean) => void,
+  updateLoginStatus: () => void
 ) => {
   event.preventDefault()
 
@@ -21,15 +22,16 @@ const formSubmit = async (
 
   //if there is token in json, it is login
   if (json?.token) {
-    callback(true)
+    setFinished(true)
     setAuthToken(json.token)
+    updateLoginStatus()
   }
   //if json results in true, it is register
   else if (json) {
-    callback(true)
+    setFinished(true)
   }
   else {
-    callback(false)
+    setFinished(false)
   }
 }
 

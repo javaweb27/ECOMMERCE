@@ -1,10 +1,11 @@
 @use "../../../styles/mixins/breakpoint" as *;
 
-.nav-menu {
+.navMenu {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   
   @include breakpoint(bp2) {
+    align-items: center;
     grid-template-columns: unset;
     grid-auto-flow: column;
     padding: 0 1rem;

@@ -1,11 +1,14 @@
 import classes from "./index.module.scss"
 import Link from "./NavMenuLink"
 import CartCounter from "./CartCounter"
+import { useSelector } from "react-redux"
 
 const NavMenu = ({ header = false }: { header?: boolean }) => {
+  const isLogged: boolean = useSelector(({ loginStatusSlice }: any) => loginStatusSlice.isLogged)
+  
   return (
     <nav>
-      <ul className={classes["nav-menu"]}>
+      <ul className={classes.navMenu}>
         <Link to="/" iconName={header ? "" : "home"}>
           Inicio
         </Link>
@@ -16,15 +19,12 @@ const NavMenu = ({ header = false }: { header?: boolean }) => {
           <CartCounter />
         </Link>
         {
-          header ? <>
+          header && !isLogged ? <>
             <Link to="/login">Iniciar Sesion</Link>
             <Link to="/register">Registrarse</Link>
-          </>
-            : (
-            <Link to="/profile" iconName={header ? "" : "profile"}>
-              Perfil
-            </Link>
-          )
+          </> : <Link to="/profile" iconName={"profile"}>
+            {header ? "" : "Perfil"}
+          </Link>
         }
       </ul>
     </nav>

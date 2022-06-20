@@ -7,8 +7,12 @@ import verifyValidChars from "../../../functions/verifyValidChars"
 import { emailRegex } from "../../../functions/regex"
 import formSubmit from "./formSubmit"
 import { I_FormBaseProps, I_StateData } from "./formInterface"
+import { updateLoginStatus } from "../../redux/reducers/loginStatusSlice"
+import { useDispatch } from "react-redux"
 
 const FormBase = ({ register = false, title }: I_FormBaseProps) => {
+  const dispatch = useDispatch()
+
   const [data, setData] = useState<I_StateData>({ email: "", password: "", name: "", repPassword: "" })
   const [isValidData, setIsValidData] = useState<boolean>(true)
   const [isValidEmail, setIsValidEmail] = useState<boolean>(true)
@@ -44,7 +48,7 @@ const FormBase = ({ register = false, title }: I_FormBaseProps) => {
 
   return <ContentContainer>
     <section className="login-register">
-      <form onSubmit={event => formSubmit(event, data, setFinished)}>
+      <form onSubmit={event => formSubmit(event, data, setFinished, () => dispatch(updateLoginStatus()))}>
         <h1 className="title">{title}</h1>
 
         {register && (
