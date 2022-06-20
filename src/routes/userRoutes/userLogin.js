@@ -19,7 +19,7 @@ export default async function userLogin(req, res) {
     return
   }
 
-  jwt.sign({ userData: UserFound }, TOKEN_KEY, { expiresIn: "90s" }, (error, token) => {
+  jwt.sign({ userData: UserFound }, TOKEN_KEY, { expiresIn: "127s" }, (error, token) => {
     res.json({ token })
   })
 }
