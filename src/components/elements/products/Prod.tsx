@@ -5,7 +5,7 @@ import I_Prod from "./prodInterface"
 const Prod = ({ classes, data, isCompact }: I_Prod) => {
   return (
     <article className={classes.prod}>
-      <img className={data.sold ? classes.sold : ""} src={data.img} alt={data.flavor} loading="lazy" />
+      <img src={data.img} alt={data.flavor} loading="lazy" />
       <div className={classes.container}>
         <div className={classes.details}>
           <p>{data.description}</p>

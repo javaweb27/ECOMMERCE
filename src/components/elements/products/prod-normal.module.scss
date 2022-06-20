@@ -16,10 +16,6 @@
     @include breakpoint(bp2) {
       height: 16rem;
     }
-    
-    &.sold {
-      filter: grayscale(1);
-    }
   }
   
   .container {

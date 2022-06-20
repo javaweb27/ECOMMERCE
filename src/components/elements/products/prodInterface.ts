@@ -1,6 +1,5 @@
 export interface I_ProdPartData {
   id: number;
-  sold: boolean;
   description: string;
   img: string;
   flavor: string;

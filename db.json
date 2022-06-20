@@ -6,7 +6,6 @@
       "color": "amarillo",
       "description": "Gran cupcake sabor vainilla",
       "price": 5,
-      "sold": false,
       "img": "https://images.unsplash.com/photo-1519869325930-281384150729?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -15,7 +14,6 @@
       "color": "marron",
       "description": "Gran cupcake sabor chocolate",
       "price": 10,
-      "sold": false,
       "img": "https://images.unsplash.com/photo-1448131063153-f1e240f98a72?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -24,7 +22,6 @@
       "color": "rojo",
       "description": "Gran cupcake sabor fresa",
       "price": 15,
-      "sold": false,
       "img": "https://images.unsplash.com/photo-1602578101453-78587cd2b2fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=402&q=80"
     },
     {
@@ -33,7 +30,6 @@
       "color": "amarillo",
       "description": "Gran cupcake sabor vainilla",
       "price": 5,
-      "sold": false,
       "img": "https://images.unsplash.com/photo-1519869325930-281384150729?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -42,7 +38,6 @@
       "color": "marron",
       "description": "Gran cupcake sabor chocolate",
       "price": 10,
-      "sold": false,
       "img": "https://images.unsplash.com/photo-1448131063153-f1e240f98a72?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -51,7 +46,6 @@
       "color": "rojo",
       "description": "Gran cupcake sabor fresa",
       "price": 15,
-      "sold": false,
       "img": "https://images.unsplash.com/photo-1602578101453-78587cd2b2fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=402&q=80"
     },
     {
@@ -60,7 +54,6 @@
       "color": "amarillo",
       "description": "Gran cupcake sabor vainilla",
       "price": 5,
-      "sold": false,
       "img": "https://images.unsplash.com/photo-1519869325930-281384150729?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -69,7 +62,6 @@
       "color": "marron",
       "description": "Gran cupcake sabor chocolate",
       "price": 10,
-      "sold": false,
       "img": "https://images.unsplash.com/photo-1448131063153-f1e240f98a72?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -78,7 +70,6 @@
       "color": "rojo",
       "description": "Gran cupcake sabor fresa",
       "price": 15,
-      "sold": false,
       "img": "https://images.unsplash.com/photo-1602578101453-78587cd2b2fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=402&q=80"
     },
     {
@@ -87,7 +78,6 @@
       "color": "amarillo",
       "description": "Gran cupcake sabor vainilla",
       "price": 5,
-      "sold": false,
       "img": "https://images.unsplash.com/photo-1519869325930-281384150729?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -96,7 +86,6 @@
       "color": "marron",
       "description": "Gran cupcake sabor chocolate",
       "price": 10,
-      "sold": false,
       "img": "https://images.unsplash.com/photo-1448131063153-f1e240f98a72?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -105,7 +94,6 @@
       "color": "rojo",
       "description": "Gran cupcake sabor fresa",
       "price": 15,
-      "sold": false,
       "img": "https://images.unsplash.com/photo-1602578101453-78587cd2b2fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=402&q=80"
     }
   ]
