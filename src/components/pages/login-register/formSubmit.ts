@@ -1,3 +1,4 @@
+import { setAuthToken } from "../../../functions/localStorageHandlers"
 import fetchPOST from "../../hooks/fetchPOST"
 import { I_DataToSend } from "./formInterface"
 
@@ -21,7 +22,7 @@ const formSubmit = async (
   //if there is token in json, it is login
   if (json?.token) {
     callback(true)
-    localStorage.setItem("token", json.token)
+    setAuthToken(json.token)
   }
   //if json results in true, it is register
   else if (json) {

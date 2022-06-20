@@ -1,4 +1,5 @@
 import { NODE_API } from "../../config"
+import { deleteAuthToken, getAuthToken } from "../../functions/localStorageHandlers"
 
 /**
  * @param {string} endpoint
@@ -16,7 +17,7 @@ const fetchPATCH = async (
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "authorization": "Bearer " + localStorage.getItem("token")
+        "authorization": "Bearer " + getAuthToken()
       },
       body: dataToSend ? JSON.stringify(dataToSend) : null
     })
@@ -29,6 +30,7 @@ const fetchPATCH = async (
 
   }
   catch (error) {
+    deleteAuthToken()
     console.error(error)
   }
 }
