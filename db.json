@@ -108,17 +108,5 @@
       "sold": false,
       "img": "https://images.unsplash.com/photo-1602578101453-78587cd2b2fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=402&q=80"
     }
-  ],
-  "services": [
-    {
-      "id": 1,
-      "name": "Curso de reposteria",
-      "description": "Este es un curso desde cero que enseñara a hacer cupcakes"
-    },
-    {
-      "id": 2,
-      "name": "Delivery a toda la cuidad",
-      "description": "Pide desde donde quieras y los cupcakes llegaran a tu casa"
-    }
   ]
 }
