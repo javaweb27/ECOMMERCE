@@ -16,7 +16,7 @@ function control(send, req, res, next) {
 
     console.log("Token valido, pasando a la siguiente funcion")
 
-    if (send) req.dataFromToken = decodedToken.userData;
+    if (send) req.dataFromToken = decodedToken.userData
 
     req.token = authToken
     next()

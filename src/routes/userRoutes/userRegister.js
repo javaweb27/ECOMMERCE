@@ -11,7 +11,7 @@ export default async function userRegister({ body }, res) {
   }
 
   if (!areValidChars(body.email) || !areValidChars(body.name)) {
-    console.error('"email" o "name" tienen caracteres invalidos')
+    console.error("\"email\" o \"name\" tienen caracteres invalidos")
     res.sendStatus(403)
     return
   }

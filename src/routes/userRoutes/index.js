@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router } from "express"
 import tokenControl from "../../middlewares/tokenControl"
 import userRegister from "./userRegister"
 import userLogin from "./userLogin"
