@@ -7,7 +7,7 @@ import Delivery from "./Delivery"
 const  Home = () => {
 
   return (
-    <ContentContainer headerForHome>
+    <ContentContainer>
       <Banner/>
       <Features/>
       <PastryCourse/>

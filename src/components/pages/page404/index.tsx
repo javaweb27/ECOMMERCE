@@ -5,7 +5,7 @@ import ContentContainer from "../../fragments/ContentContainer"
 const Page404 = () => {
 
   return (
-    <ContentContainer headerForHome>
+    <ContentContainer>
       <section className="page404">
         <div className="container">
           <h1 className="title">404 page not found</h1>
