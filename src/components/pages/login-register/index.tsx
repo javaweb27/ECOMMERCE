@@ -50,6 +50,7 @@ const FormBase = ({ register = false, title }: I_FormBaseProps) => {
     <section className="login-register">
       <form onSubmit={event => formSubmit(event, data, setFinished, () => dispatch(updateLoginStatus()))}>
         <h1 className="title">{title}</h1>
+        {register && <p>La cuenta se eliminara 2 minutos despues de crearse.</p>}
 
         {register && (
           <Input i="text" name="name" value={data.name} onChange={changeData} placeholder="Tu nombre de usuario">
