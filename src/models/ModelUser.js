@@ -4,7 +4,8 @@ const schema = new Schema({
   email: String,
   name: String,
   password: String,
-  money: Number
+  money: Number,
+  endDate: Number
 })
 
 const ModelUser = model("users", schema)

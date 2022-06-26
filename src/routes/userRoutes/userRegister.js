@@ -28,7 +28,8 @@ export default async function userRegister({ body }, res) {
     email: btoa(body.email),
     name: btoa(body.name),
     password: bcrypt.hashSync(body.password, 10),
-    money: 60 + Math.floor(Math.random() * 60)
+    money: 60 + Math.floor(Math.random() * 60),
+    endDate: Math.trunc((new Date).getTime() / 1000) + 127
   })
 
   const UserRegistered = await newUser.save()
