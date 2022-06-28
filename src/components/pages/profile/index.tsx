@@ -1,7 +1,27 @@
-import NavMenuLink from "../../elements/nav-menu/NavMenuLink"
 import "./index.scss"
+import { useSelector } from "react-redux"
+import NavMenuLink from "../../elements/nav-menu/NavMenuLink"
+import ChangePasswordForm from "./ChangePasswordForm"
+import BtnLogout from "./BtnLogout"
 
 const Profile = () => {
+  const { isLogged, loginData } = useSelector(({ loginStatusSlice }: any) => loginStatusSlice)
+
+  if (isLogged) {
+    return (
+      <section className="profile-container">
+        <p className="par">Tus datos:</p>
+        <ul className="list">
+          <li className="item">Nombre: {loginData?.name}</li>
+          <li className="item">Correo: {loginData?.email}</li>
+        </ul>
+
+        <ChangePasswordForm email={loginData?.email} />
+        <BtnLogout />
+      </section>
+    )
+  }
+
   return (
     <section className="profile-container">
       <div className="link">

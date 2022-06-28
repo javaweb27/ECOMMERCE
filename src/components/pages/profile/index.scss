@@ -1,9 +1,22 @@
 .profile-container {
   margin: auto;
+  color: var(--title-color);
 
   .link {
     border-radius: 6rem;
     background-color: var(--primary-color);
     overflow: hidden;
+  }
+
+  .par {
+    font-size: 1.27rem;
+    margin-bottom: .9rem;
+  }
+
+  .item {
+    all: unset;
+    display: block;
+    margin-bottom: .19rem;
+    font-size: 1.09rem;
   }
 }

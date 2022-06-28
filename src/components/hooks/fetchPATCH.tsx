@@ -11,7 +11,7 @@ const fetchPATCH = async (
   endpoint: string,
   dispatchPayload: (a: any) => void,
   updateLoginStatus: () => void,
-  dataToSend?: { amount: number }
+  dataToSend?: { amount?: number, password?: string, email?: string }
 ) => {
   try {
     const res = await fetch(`${NODE_API}/${endpoint}`, {

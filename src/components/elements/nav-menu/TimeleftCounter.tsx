@@ -1,32 +1,25 @@
 import classes from "./timeleft-counter.module.scss"
-import jwt_decode from "jwt-decode"
 import { useEffect, useRef } from "react"
-import { useDispatch } from "react-redux"
-import { deleteAuthToken, getAuthToken } from "../../../functions/localStorageHandlers"
+import { useDispatch, useSelector } from "react-redux"
+import { deleteAuthToken } from "../../../functions/localStorageHandlers"
 import { updateLoginStatus } from "../../redux/reducers/loginStatusSlice"
 
 const TimeleftCounter = () => {
   const dispatch = useDispatch()
 
+  const loginData = useSelector(({ loginStatusSlice }: any) => loginStatusSlice.loginData)
+
   const refTimeleft = useRef<HTMLElement | null>(null)
 
-  let decoded: { userData: { endDate: number } } | null
-
-  try {
-    decoded = jwt_decode(getAuthToken()!)
-  } catch {
-    decoded = null
-  }
-
   useEffect(() => {
-    if (decoded === null) {
+    if (loginData === null) {
       deleteAuthToken()
       dispatch(updateLoginStatus())
       return
     }
 
     const idInterval = setInterval(() => {
-      const timeleft = decoded!.userData.endDate - Math.trunc((new Date).getTime() / 1000)
+      const timeleft = loginData.endDate - Math.trunc((new Date).getTime() / 1000)
 
       refTimeleft.current!.textContent = String(timeleft)
 
@@ -41,7 +34,9 @@ const TimeleftCounter = () => {
   }, [])
 
   return <div className={classes.container}>
-    <span ref={refTimeleft} className={classes.number}></span>
+    <span ref={refTimeleft} className={classes.number}>
+      {loginData && loginData.endDate - Math.trunc((new Date).getTime() / 1000)}
+    </span>
   </div>
 }
 
