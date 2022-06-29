@@ -15,7 +15,7 @@ const formSubmit = async (
   const registerData = dataName ? { name: dataName, } : {}
 
   const json = await fetchJSON<any>(dataName ? "register" : "login", {
-    method: "POST",
+    method: dataName ? "PUT" : "POST",
     body: JSON.stringify({
       ...registerData,
       email: data.email,
