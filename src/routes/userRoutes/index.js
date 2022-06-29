@@ -8,7 +8,7 @@ import userChangePassword from "./userChangePassword"
 
 const router = Router()
 
-router.post("/register", userRegister)
+router.put("/register", userRegister)
 router.post("/login", userLogin)
 router.patch("/change", tokenControl.verify, userChangePassword)
 router.patch("/money", tokenControl.verifyAndSendData, userMoney)
