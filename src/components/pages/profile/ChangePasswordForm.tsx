@@ -1,19 +1,29 @@
 import "./change-password-form.scss"
 import { useState } from "react"
-import fetchPATCH from "../../hooks/fetchPATCH"
 import Input from "../../elements/input"
 import Icon from "../../elements/icon"
+import fetchJSON from "../../../fetch/fetchJSON"
+import { getAuthToken } from "../../../functions/localStorageHandlers"
 
 const ChangePasswordForm = ({ email }: { email: string }) => {
   const [password, setPassword] = useState<string>("")
   const [hidden, setHidden] = useState<boolean>(true)
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    fetchPATCH("change", () => { setPassword("") }, () => null, {
-      password: password,
-      email: email
+
+    const res = await fetchJSON<{}>("change", {
+      method: "PATCH",
+      headers: {
+        "authorization": `Bearer ${getAuthToken()}`
+      },
+      body: JSON.stringify({
+        password: password,
+        email: email
+      })
     })
+
+    if (res !== null) setPassword("")
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

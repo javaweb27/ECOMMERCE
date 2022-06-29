@@ -1,5 +1,5 @@
+import fetchJSON from "../../../fetch/fetchJSON"
 import { setAuthToken } from "../../../functions/localStorageHandlers"
-import fetchPOST from "../../hooks/fetchPOST"
 import { I_DataToSend } from "./formInterface"
 
 const formSubmit = async (
@@ -14,10 +14,14 @@ const formSubmit = async (
 
   const registerData = dataName ? { name: dataName, } : {}
 
-  const json = await fetchPOST(dataName ? "register" : "login", {
-    ...registerData,
-    email: data.email,
-    password: data.password
+  const json = await fetchJSON<any>(dataName ? "register" : "login", {
+    method: "POST",
+    body: JSON.stringify({
+      ...registerData,
+      email: data.email,
+      password: data.password
+    }),
+
   })
 
   //if there is token in json, it is login
