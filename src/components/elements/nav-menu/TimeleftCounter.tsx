@@ -23,7 +23,7 @@ const TimeleftCounter = () => {
 
       refTimeleft.current!.textContent = String(timeleft)
 
-      if (timeleft < 1) {
+      if (timeleft < 0) {
         clearInterval(idInterval)
         deleteAuthToken()
         dispatch(updateLoginStatus())
