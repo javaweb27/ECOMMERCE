@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"
 import NavMenuLink from "../../elements/nav-menu/NavMenuLink"
 import ChangePasswordForm from "./ChangePasswordForm"
 import BtnLogout from "./BtnLogout"
+import BtnDeleteAccount from "./BtnDeleteAccount"
 
 const Profile = () => {
   const { isLogged, loginData } = useSelector(({ loginStatusSlice }: any) => loginStatusSlice)
@@ -18,6 +19,7 @@ const Profile = () => {
 
         <ChangePasswordForm email={loginData?.email} />
         <BtnLogout />
+        <BtnDeleteAccount />
       </section>
     )
   }
