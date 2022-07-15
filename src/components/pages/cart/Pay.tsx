@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
+import { useAppDispatch } from "../../hooks/reduxHooks"
 import MenuLink from "../../elements/nav-menu/NavMenuLink"
-import { useDispatch } from "react-redux"
 import { updateLoginStatus } from "../../redux/reducers/loginStatusSlice"
 import fetchJSON from "../../../fetch/fetchJSON"
 import { deleteAuthToken, getAuthToken } from "../../../functions/localStorageHandlers"
 
 const Pay = ({ totalPrice }: { totalPrice: number }) => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const [money, setMoney] = useState<number | null>(null)
 

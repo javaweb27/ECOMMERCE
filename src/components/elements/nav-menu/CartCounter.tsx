@@ -1,9 +1,8 @@
-import { useSelector } from "react-redux"
-import { I_ProdPartCartAdd } from "../products/prodInterface"
+import { useAppSelector } from "../../hooks/reduxHooks"
 
 const CartCounter = () => {
 
-  const cart: I_ProdPartCartAdd[] = useSelector(({ cartSlice }: any) => cartSlice.products)
+  const cart = useAppSelector(({ cart }) => cart.products)
   let totalQty = 0
 
   for (const prod of cart) {

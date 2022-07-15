@@ -1,9 +1,9 @@
-import { useDispatch } from "react-redux"
+import { useAppDispatch } from "../../hooks/reduxHooks"
 import { deleteAuthToken } from "../../../functions/localStorageHandlers"
 import { updateLoginStatus } from "../../redux/reducers/loginStatusSlice"
 
 const BtnLogout = () => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const logout = () => {
     deleteAuthToken()

@@ -1,6 +1,6 @@
 import "./index.scss"
 import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks"
 import { loadProducts } from "../../redux/reducers/productsSlice"
 import useFetchGET from "../../hooks/useFetchGET"
 import ContentContainer from "../../fragments/ContentContainer"
@@ -9,10 +9,10 @@ import Products from "../../elements/products"
 import { I_ProdPartData } from "../../elements/products/prodInterface"
 
 const AllProducts = () => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const data: I_ProdPartData[] | null = useFetchGET("cupcakes")
-  const { products } = useSelector(({ productsSlice }: any) => productsSlice)
+  const { products } = useAppSelector(({ products }) => products)
 
   useEffect(() => {
     if (data === null) {

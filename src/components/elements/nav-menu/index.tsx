@@ -1,12 +1,12 @@
 
 import classes from "./index.module.scss"
+import { useAppSelector } from "../../hooks/reduxHooks"
 import Link from "./NavMenuLink"
 import CartCounter from "./CartCounter"
-import { useSelector } from "react-redux"
 import TimeleftCounter from "./TimeleftCounter"
 
 const NavMenu = ({ header = false }: { header?: boolean }) => {
-  const isLogged: boolean = useSelector(({ loginStatusSlice }: any) => loginStatusSlice.isLogged)
+  const isLogged = useAppSelector(({ loginStatus }) => loginStatus.isLogged)
 
   return (
     <nav>

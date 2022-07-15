@@ -1,9 +1,9 @@
-import cartSlice from "./cartSlice";
-import productsSlice from "./productsSlice";
-import loginStatusSlice from "./loginStatusSlice";
+import cart from "./cartSlice";
+import products from "./productsSlice";
+import loginStatus from "./loginStatusSlice";
 
 export default {
-  cartSlice,
-  productsSlice,
-  loginStatusSlice
+  cart,
+  products,
+  loginStatus
 }

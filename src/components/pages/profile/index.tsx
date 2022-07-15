@@ -1,12 +1,12 @@
 import "./index.scss"
-import { useSelector } from "react-redux"
+import { useAppSelector } from "../../hooks/reduxHooks"
 import NavMenuLink from "../../elements/nav-menu/NavMenuLink"
 import ChangePasswordForm from "./ChangePasswordForm"
 import BtnLogout from "./BtnLogout"
 import BtnDeleteAccount from "./BtnDeleteAccount"
 
 const Profile = () => {
-  const { isLogged, loginData } = useSelector(({ loginStatusSlice }: any) => loginStatusSlice)
+  const { isLogged, loginData } = useAppSelector(({ loginStatus }) => loginStatus)
 
   if (isLogged) {
     return (
@@ -17,7 +17,7 @@ const Profile = () => {
           <li className="item">Correo: {loginData?.email}</li>
         </ul>
 
-        <ChangePasswordForm email={loginData?.email} />
+        <ChangePasswordForm email={loginData!.email} />
         <BtnLogout />
         <BtnDeleteAccount />
       </section>

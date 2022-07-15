@@ -1,8 +1,8 @@
 import classes from "./btn-cart-add-remove.module.scss"
 import { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks"
+import { I_ProdPartData } from "./prodInterface"
 import { addToCart, removeFromCart } from "../../redux/reducers/cartSlice"
-import { I_ProdPartCartAdd, I_ProdPartData } from "./prodInterface"
 
 interface I_Props {
   data: I_ProdPartData,
@@ -10,11 +10,11 @@ interface I_Props {
 }
 
 const BtnCartAddRemove = ({ data, isCompact }: I_Props) => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
+  const cart = useAppSelector(({ cart }) => cart.products)
+  
   const [qty, setQty] = useState<number>(1)
-
-  const cart: I_ProdPartCartAdd[] = useSelector(({ cartSlice }: any) => cartSlice.products)
 
   const found = isCompact ? cart.find(c => c.id === data.id) : null
 

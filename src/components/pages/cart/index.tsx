@@ -1,11 +1,11 @@
 import "./index.scss"
-import { useSelector } from "react-redux"
+import { useAppSelector } from "../../hooks/reduxHooks"
 import ContentContainer from "../../fragments/ContentContainer"
 import Pay from "./Pay"
 import Products from "../../elements/products"
 
 const Cart = () => {
-  const { products, totalPrice } = useSelector(({ cartSlice }: any) => cartSlice)
+  const { products, totalPrice } = useAppSelector(({ cart }) => cart)
 
   return (
     <ContentContainer>

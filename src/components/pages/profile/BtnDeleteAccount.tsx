@@ -1,5 +1,5 @@
-import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { useAppDispatch } from "../../hooks/reduxHooks"
 import fetchJSON from "../../../fetch/fetchJSON"
 import { deleteAuthToken, getAuthToken } from "../../../functions/localStorageHandlers"
 import { updateLoginStatus } from "../../redux/reducers/loginStatusSlice"
@@ -7,7 +7,7 @@ import { updateLoginStatus } from "../../redux/reducers/loginStatusSlice"
 const BtnDeleteAccount = () => {
   const navigate = useNavigate()
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const logout = () => {
     fetchJSON("delete", {

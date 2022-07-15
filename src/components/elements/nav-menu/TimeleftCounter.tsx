@@ -1,13 +1,13 @@
 import classes from "./timeleft-counter.module.scss"
 import { useEffect, useRef } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks"
 import { deleteAuthToken } from "../../../functions/localStorageHandlers"
 import { updateLoginStatus } from "../../redux/reducers/loginStatusSlice"
 
 const TimeleftCounter = () => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
-  const loginData = useSelector(({ loginStatusSlice }: any) => loginStatusSlice.loginData)
+  const loginData = useAppSelector(({ loginStatus }) => loginStatus.loginData)
 
   const refTimeleft = useRef<HTMLElement | null>(null)
 

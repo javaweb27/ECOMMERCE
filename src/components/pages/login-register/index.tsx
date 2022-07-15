@@ -1,6 +1,7 @@
 import "./index.scss"
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
+import { useAppDispatch } from "../../hooks/reduxHooks"
 import ContentContainer from "../../fragments/ContentContainer"
 import Input from "../../elements/input"
 import verifyValidChars from "../../../functions/verifyValidChars"
@@ -8,10 +9,9 @@ import { emailRegex } from "../../../functions/regex"
 import formSubmit from "./formSubmit"
 import { I_FormBaseProps, I_StateData } from "./formInterface"
 import { updateLoginStatus } from "../../redux/reducers/loginStatusSlice"
-import { useDispatch } from "react-redux"
 
 const FormBase = ({ register = false, title }: I_FormBaseProps) => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const [data, setData] = useState<I_StateData>({ email: "", password: "", name: "", repPassword: "" })
   const [isValidData, setIsValidData] = useState<boolean>(true)
