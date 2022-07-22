@@ -17,3 +17,13 @@ export const getAuthToken = () => localStorage.getItem("token")
  * @param {string} token
  */
 export const setAuthToken = (token: string) => localStorage.setItem("token", token)
+
+/**
+ * @returns Language that was saved in localStorage with the name "language". It may be null.
+ */
+export const getSelectedLanguage = () => localStorage.getItem("language")
+
+/**
+ * Saves the selected language in localStorage with the name "language".
+ */
+export const setSelectedLanguage = (lang: string) => localStorage.setItem("language", lang)

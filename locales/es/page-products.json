@@ -1,0 +1,21 @@
+{
+  "title": "Todos los cupcakes",
+  "cupcake": {
+    "par": "Gran cupcake sabor",
+    "btn-add": "Agregar",
+    "btn-remove": "Remover",
+    "qty": "Cantidad",
+    "price": "Precio",
+    "color": "Color",
+    "colors": {
+      "yellow": "Amarillo",
+      "brown": "Marrón",
+      "red": "Rojo"
+    },
+    "flavors": {
+      "vanilla": "Vainilla",
+      "chocolate": "Chocolate",
+      "strawberry": "Fresa"
+    }
+  }
+}

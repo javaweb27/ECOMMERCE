@@ -1,0 +1,17 @@
+{
+  "login-title": "Login",
+  "login-btn": "Login",
+  "register-title": "Create account",
+  "register-btn": "Register",
+  "input-name": "Username",
+  "input-email": "Email",
+  "input-password": "Password",
+  "input-rep-password": "Repeat password",
+  "msg-account-will-be-deleted": "The account will be deleted 2 minutes after it is created",
+  "msg-incorrect-data": "Incorrect data",
+  "msg-invalid-email": "The email is incomplete or has characters that are not supported",
+  "msg-invalid-email-r": "There are invalid characters in the email",
+  "msg-invalid-name-r": " or username",
+  "msg-rep-password": "Passwords have to be the same",
+  "msg-email-not-available": "Ese correo electrónico no esta disponible"
+}

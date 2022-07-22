@@ -1,16 +1,29 @@
 import sklClasses from "./prod-skeleton.module.scss"
 import BtnCartAddRemove from "./BtnCartAddRemove"
 import I_Prod from "./prodInterface"
+import useAllProductsTrans from "../../pages/all-products/useAllProductsTrans"
 
 const Prod = ({ classes, data, isCompact }: I_Prod) => {
+  const { cupcake: t } = useAllProductsTrans()
+
   return (
     <article className={classes.prod}>
       <img src={data.img} alt={data.flavor} loading="lazy" />
       <div className={classes.container}>
         <div className={classes.details}>
-          <p>{data.description}</p>
-          <span>Color: {data.color}</span>
-          <span>Precio: ${data.price}</span>
+          <p>{t[("par")]} {t[("flavors")][(
+            data.flavor === "Vainilla" ? "vanilla" :
+              data.flavor === "Fresa" ? "strawberry" :
+                "chocolate"
+          )]}</p>
+          {/* description is obtained from translations */}
+          {/* <p>{data.description}</p> */}
+          <span>{t[("color")]}: {t[("colors")][(
+            data.color === "amarillo" ? "yellow" :
+              data.color === "marron" ? "brown" :
+                "red"
+          )]}</span>
+          <span>{t[("price")]}: ${data.price}</span>
         </div>
 
         <BtnCartAddRemove data={data} isCompact={isCompact} />

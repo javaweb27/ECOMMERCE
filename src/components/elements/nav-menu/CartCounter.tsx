@@ -1,6 +1,8 @@
 import { useAppSelector } from "../../hooks/reduxHooks"
+import useNavMenuTrans from "./useNavMenuTrans"
 
 const CartCounter = () => {
+  const t = useNavMenuTrans()
 
   const cart = useAppSelector(({ cart }) => cart.products)
   let totalQty = 0
@@ -10,7 +12,7 @@ const CartCounter = () => {
   }
 
   return (
-    <span>Carrito: {totalQty}</span>
+    <span>{t.cart}: {totalQty}</span>
   )
 }
 

@@ -1,0 +1,15 @@
+{
+  "title": "Cart",
+  "cost-btn-pay": "Pay",
+  "cost": {
+    "title": "Cost",
+    "your-balance": "Your balance",
+    "no-balance": "None",
+    "total-price": "Total payable",
+    "btn-pay": "Pay"
+  },
+  "prods-added": {
+    "title": "Your cupcakes",
+    "no-prods": "You do not have any cupcake"
+  }
+}

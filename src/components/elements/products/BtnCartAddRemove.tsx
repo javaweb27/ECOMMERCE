@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks"
 import { I_ProdPartData } from "./prodInterface"
 import { addToCart, removeFromCart } from "../../redux/reducers/cartSlice"
+import useAllProductsTrans from "../../pages/all-products/useAllProductsTrans"
 
 interface I_Props {
   data: I_ProdPartData,
@@ -10,10 +11,12 @@ interface I_Props {
 }
 
 const BtnCartAddRemove = ({ data, isCompact }: I_Props) => {
+  const { cupcake: t } = useAllProductsTrans()
+
   const dispatch = useAppDispatch()
 
   const cart = useAppSelector(({ cart }) => cart.products)
-  
+
   const [qty, setQty] = useState<number>(1)
 
   const found = isCompact ? cart.find(c => c.id === data.id) : null
@@ -40,7 +43,7 @@ const BtnCartAddRemove = ({ data, isCompact }: I_Props) => {
   return <div>
     {
       found && <div>
-        <span>Cantidad: {found.qty} / ${found.qty * found.price} </span>
+        <span>{t[("qty")]}: {found.qty} / ${found.qty * found.price} </span>
       </div>
     }
 
@@ -52,8 +55,8 @@ const BtnCartAddRemove = ({ data, isCompact }: I_Props) => {
       <button className={classes.btnQty} onClick={() => qty > 1 && setQty(qty - 1)}>-</button>
     </div>
 
-    <button className={classes.btnAdd} onClick={add}>Agregar</button>
-    <button className={classes.btnRemove} onClick={remove}>Remover</button>
+    <button className={classes.btnAdd} onClick={add}>{t[("btn-add")]}</button>
+    <button className={classes.btnRemove} onClick={remove}>{t[("btn-remove")]}</button>
   </div>
 }
 

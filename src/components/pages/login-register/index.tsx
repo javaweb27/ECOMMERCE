@@ -2,6 +2,7 @@ import "./index.scss"
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
 import { useAppDispatch } from "../../hooks/reduxHooks"
+import useLoginRegisterTrans from "./useLoginRegisterTrans"
 import ContentContainer from "../../fragments/ContentContainer"
 import Input from "../../elements/input"
 import verifyValidChars from "../../../functions/verifyValidChars"
@@ -10,7 +11,9 @@ import formSubmit from "./formSubmit"
 import { I_FormBaseProps, I_StateData } from "./formInterface"
 import { updateLoginStatus } from "../../redux/reducers/loginStatusSlice"
 
-const FormBase = ({ register = false, title }: I_FormBaseProps) => {
+const FormBase = ({ register = false }: I_FormBaseProps) => {
+  const t = useLoginRegisterTrans()
+
   const dispatch = useAppDispatch()
 
   const [data, setData] = useState<I_StateData>({ email: "", password: "", name: "", repPassword: "" })
@@ -49,52 +52,53 @@ const FormBase = ({ register = false, title }: I_FormBaseProps) => {
   return <ContentContainer>
     <section className="login-register">
       <form onSubmit={event => formSubmit(event, data, setFinished, () => dispatch(updateLoginStatus()))}>
-        <h1 className="title">{title}</h1>
-        {register && <p>La cuenta se eliminara 2 minutos despues de crearse.</p>}
+        <h1 className="title">{t[`${register ? "register" : "login"}-title`]}</h1>
+
+        {register && <p>{t[("msg-account-will-be-deleted")]}</p>}
 
         {register && (
-          <Input i="text" name="name" value={data.name} onChange={changeData} placeholder="Tu nombre de usuario">
-            Nombre de usuario
+          <Input i="text" name="name" value={data.name} onChange={changeData}>
+            {t[("input-name")]}
           </Input>
         )}
 
-        <Input i="email" name="email" value={data.email} onChange={changeData} placeholder={register ? "ejemplo@dominio.com" : ""}>
-          Correo electrónico
+        <Input i="email" name="email" value={data.email} onChange={changeData}>
+          {t[("input-email")]}
         </Input>
 
         <Input i="password" name="password" value={data.password} onChange={changeData}>
-          Contraseña
+          {t[("input-password")]}
         </Input>
 
         {register && (
           <Input i="password" name="repPassword" value={data.repPassword} onChange={changeData}>
-            Repite la contraseña
+            {t[("input-rep-password")]}
           </Input>
         )}
 
-        <button className="btn-submit">{register ? "Registrar" : "Ingresar"}</button>
+        <button className="btn-submit">{t[(`${register ? "register" : "login"}-btn`)]}</button>
 
         {(finished === false) && (
           <p>
-            {register ? "Ese correo electrónico no esta disponible" : "Los datos son incorrectos"}
+            {register ? t[("msg-email-not-available")] : t[("msg-incorrect-data")]}
           </p>
         )}
 
         {!isValidEmail && data.email !== "" && (
           <p>
-            El correo electrónico esta incompleto o tiene caracteres que no se admiten
+            {t[("msg-invalid-email")]}
           </p>
         )}
 
         {!isValidData && (data.email !== "" || data.name !== "") && (
           <p>
-            Hay caracteres invalidos en el correo electrónico{register && " o en el nombre de usuario"}
+            {t[("msg-invalid-email-r")]} {register && t[("msg-invalid-name-r")]}
           </p>
         )}
 
         {register && data.password !== data.repPassword && (
           <p>
-            Las contraseñas tienen que ser iguales
+            {t[("msg-rep-password")]}
           </p>
         )}
       </form>
@@ -102,5 +106,5 @@ const FormBase = ({ register = false, title }: I_FormBaseProps) => {
   </ContentContainer>
 }
 
-export const Login = () => <FormBase title="Iniciar sesion" />
-export const Register = () => <FormBase register title="Crear cuenta" />
+export const Login = () => <FormBase />
+export const Register = () => <FormBase register />

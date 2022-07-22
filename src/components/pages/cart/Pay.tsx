@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react"
 import { useAppDispatch } from "../../hooks/reduxHooks"
+import useCartTrans from "./useCartTrans"
+import useLoginRegisterTrans from "../login-register/useLoginRegisterTrans"
 import MenuLink from "../../elements/nav-menu/NavMenuLink"
 import { updateLoginStatus } from "../../redux/reducers/loginStatusSlice"
 import fetchJSON from "../../../fetch/fetchJSON"
 import { deleteAuthToken, getAuthToken } from "../../../functions/localStorageHandlers"
 
 const Pay = ({ totalPrice }: { totalPrice: number }) => {
+  const t = useCartTrans()
+
+  const tLoginRegister = useLoginRegisterTrans()
+
   const dispatch = useAppDispatch()
 
   const [money, setMoney] = useState<number | null>(null)
@@ -31,15 +37,19 @@ const Pay = ({ totalPrice }: { totalPrice: number }) => {
 
   return (
     <div>
-      <h3 className="title">Costo</h3>
+      <h3 className="title">{t[("cost")]["title"]}</h3>
       <div className="pay-container">
-        <span>Tu saldo: {money ?? "None"}</span>
-        <span>Total a pagar: ${totalPrice}</span>
+        <span>{t[("cost")]["your-balance"]}: {money ?? t[("cost")]["no-balance"]}</span>
+        <span>{t[("cost")]["total-price"]}: ${totalPrice}</span>
         {
-          typeof money === "number" ? <button onClick={pay}>Pagar</button>
+          typeof money === "number" ? <button onClick={pay}>{t[("cost-btn-pay")]}</button>
             : <>
-              <MenuLink to="/login">Inicia sesion</MenuLink><br />
-              <MenuLink to="/register">registrate</MenuLink>
+              <MenuLink to="/login">
+                {tLoginRegister[("login-btn")]}
+              </MenuLink><br />
+              <MenuLink to="/register">
+                {tLoginRegister[("register-btn")]}
+              </MenuLink>
             </>
         }
       </div>

@@ -1,0 +1,11 @@
+{
+  "your-data": "Tus datos",
+  "name": "Nombre",
+  "email": "Correo",
+  "new-password": "Nueva contraseña",
+  "btn-change-password": "Chambiar contraseña",
+  "btn-logout": "Cerra sesión",
+  "btn-delete-account": "Eliminar cuenta",
+  "btn-change-to-english": "Cambiar a Inglés",
+  "btn-change-to-spanish": "Cambiar a Español"
+}

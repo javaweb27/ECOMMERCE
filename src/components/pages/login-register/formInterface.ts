@@ -14,5 +14,4 @@ export interface I_StateData extends I_BaseData {
 
 export interface I_FormBaseProps {
   register?: boolean;
-  title: string;
 }
