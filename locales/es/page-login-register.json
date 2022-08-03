@@ -7,7 +7,7 @@
   "input-email": "Correo electrónico",
   "input-password": "Contraseña",
   "input-rep-password": "Repite la contraseña",
-  "msg-account-will-be-deleted": "La cuenta se eliminara 2 minutos despues de crearse.",
+  "msg-account-will-be-deleted": "La cuenta se eliminara 6 minutos despues de crearse.",
   "msg-incorrect-data": "Datos incorrectos",
   "msg-invalid-name-r": " o en el nombre de usuario",
   "msg-invalid-email-r": "Hay caracteres invalidos en el correo electrónico",

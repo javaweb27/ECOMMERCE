@@ -7,7 +7,7 @@
   "input-email": "Email",
   "input-password": "Password",
   "input-rep-password": "Repeat password",
-  "msg-account-will-be-deleted": "The account will be deleted 2 minutes after it is created",
+  "msg-account-will-be-deleted": "The account will be deleted 6 minutes after it is created",
   "msg-incorrect-data": "Incorrect data",
   "msg-invalid-email": "The email is incomplete or has characters that are not supported",
   "msg-invalid-email-r": "There are invalid characters in the email",
