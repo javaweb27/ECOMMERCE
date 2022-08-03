@@ -29,7 +29,7 @@ export default async function userRegister({ body }, res) {
     name: btoa(body.name),
     password: bcrypt.hashSync(body.password, 10),
     money: 75 + Math.floor(Math.random() * (6 + 1)) * 25,
-    endDate: Math.trunc((new Date).getTime() / 1000) + 127
+    endDate: Math.trunc((new Date).getTime() / 1000) + 360
   })
 
   const UserRegistered = await newUser.save()
@@ -46,5 +46,5 @@ export default async function userRegister({ body }, res) {
     await ModelUser.deleteOne({ email: btoa(body.email) })
 
     console.log("Un usuario ha sido eliminado automaticamente")
-  }, 127000)
+  }, 360000)
 }
