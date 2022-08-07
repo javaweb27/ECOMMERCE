@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { getSelectedLanguage, setSelectedLanguage } from "../../../functions/localStorageHandlers"
 
-export type T_SupportedLanguages = "en" | "es"
+export type T_SupportedLanguages = keyof typeof supportedLanguages
 
 const supportedLanguages = {
   en: "en",
@@ -19,6 +19,7 @@ const setLanguage = () => {
     return selectedLanguage
   }
 
+  //set to english when the detected language is not supported
   setSelectedLanguage("en")
 
   return "en"
@@ -29,7 +30,7 @@ const initialState: { current: T_SupportedLanguages } = {
 }
 
 const languageSlice = createSlice({
-  name: "cupcake",
+  name: "language",
   initialState,
   reducers: {
     changeLanguage(state, { payload }: PayloadAction<T_SupportedLanguages>) {
