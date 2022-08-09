@@ -1,0 +1,8 @@
+**/node_modules
+**/dist
+**/package.json
+**/yarn.lock
+**/package-lock.json
+**/pnpm-lock.json
+**/tsconfig.json
+**/tsconfig.node.json

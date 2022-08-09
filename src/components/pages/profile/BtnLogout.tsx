@@ -13,7 +13,11 @@ const BtnLogout = () => {
     dispatch(updateLoginStatus())
   }
 
-  return <button className="btn-logout" onClick={logout}>{t["btn-logout"]}</button>
+  return (
+    <button className="btn-logout" onClick={logout}>
+      {t["btn-logout"]}
+    </button>
+  )
 }
 
 export default BtnLogout

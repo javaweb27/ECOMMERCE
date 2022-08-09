@@ -3,11 +3,7 @@ interface I_Props {
 }
 
 const ContentContainer = ({ children }: I_Props) => {
-  return (
-    <main>
-      {children}
-    </main>
-  )
+  return <main>{children}</main>
 }
 
 export default ContentContainer

@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom"
 
 /**
  * Restores the scroll
-*/
+ */
 
 const ScrollToTop = () => {
   const { pathname } = useLocation()

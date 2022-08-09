@@ -7,9 +7,9 @@ const PastryCourse = () => {
   return (
     <section className="pastry-course">
       <div className="container">
-        <h2 className="title">{t[("pastry-title")]}</h2>
-        <p className="description">{t[("pastry-subtitle")]}</p>
-        <button className="button">{t[("pastry-btn")]}</button>
+        <h2 className="title">{t["pastry-title"]}</h2>
+        <p className="description">{t["pastry-subtitle"]}</p>
+        <button className="button">{t["pastry-btn"]}</button>
       </div>
     </section>
   )

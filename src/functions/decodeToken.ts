@@ -6,10 +6,9 @@ import { getAuthToken } from "./localStorageHandlers"
  * @returns The data from the decoded token, if the token is invalid null is returned
  */
 const decodeToken = <T>(): T | null => {
-  try {    
+  try {
     return jwt_decode(getAuthToken() || "")
-  }
-  catch(error) {
+  } catch (error) {
     return null
   }
 }

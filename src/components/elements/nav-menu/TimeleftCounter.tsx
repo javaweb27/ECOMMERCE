@@ -19,7 +19,7 @@ const TimeleftCounter = () => {
     }
 
     const idInterval = setInterval(() => {
-      const timeleft = loginData.endDate - Math.trunc((new Date).getTime() / 1000)
+      const timeleft = loginData.endDate - Math.trunc(new Date().getTime() / 1000)
 
       refTimeleft.current!.textContent = String(timeleft)
 
@@ -33,11 +33,13 @@ const TimeleftCounter = () => {
     return () => clearInterval(idInterval)
   }, [])
 
-  return <div className={classes.container}>
-    <span ref={refTimeleft} className={classes.number}>
-      {loginData && loginData.endDate - Math.trunc((new Date).getTime() / 1000)}
-    </span>
-  </div>
+  return (
+    <div className={classes.container}>
+      <span ref={refTimeleft} className={classes.number}>
+        {loginData && loginData.endDate - Math.trunc(new Date().getTime() / 1000)}
+      </span>
+    </div>
+  )
 }
 
 export default TimeleftCounter

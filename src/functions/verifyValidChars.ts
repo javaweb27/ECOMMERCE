@@ -2,8 +2,7 @@ const verifyValidChars = (string: string) => {
   try {
     btoa(string)
     return true
-  }
-  catch {
+  } catch {
     return false
   }
 }

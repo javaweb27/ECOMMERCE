@@ -19,8 +19,7 @@ const AllProducts = () => {
   useEffect(() => {
     if (data === null) {
       dispatch(loadProducts({ products: db.cupcakes }))
-    }
-    else if (data) {
+    } else if (data) {
       dispatch(loadProducts({ products: data }))
     }
   }, [data])
@@ -28,7 +27,7 @@ const AllProducts = () => {
   return (
     <ContentContainer>
       <section className="all-products">
-        <h1 className="title">{t[("title")]}</h1>
+        <h1 className="title">{t.title}</h1>
         <Products products={products} />
       </section>
     </ContentContainer>

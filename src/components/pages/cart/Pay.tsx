@@ -19,8 +19,8 @@ const Pay = ({ totalPrice }: { totalPrice: number }) => {
   const manageMoney = async (endpoint: string, body?: string) => {
     const res = await fetchJSON<{ data: number }>(endpoint, {
       method: "PATCH",
-      headers: { "authorization": "Bearer " + getAuthToken() },
-      body: body
+      headers: { authorization: "Bearer " + getAuthToken() },
+      body,
     })
 
     if (res) return setMoney(res.data)
@@ -37,21 +37,23 @@ const Pay = ({ totalPrice }: { totalPrice: number }) => {
 
   return (
     <div>
-      <h3 className="title">{t[("cost")]["title"]}</h3>
+      <h3 className="title">{t.cost.title}</h3>
       <div className="pay-container">
-        <span>{t[("cost")]["your-balance"]}: {money ?? t[("cost")]["no-balance"]}</span>
-        <span>{t[("cost")]["total-price"]}: ${totalPrice}</span>
-        {
-          typeof money === "number" ? <button onClick={pay}>{t[("cost-btn-pay")]}</button>
-            : <>
-              <MenuLink to="/login">
-                {tLoginRegister[("login-btn")]}
-              </MenuLink><br />
-              <MenuLink to="/register">
-                {tLoginRegister[("register-btn")]}
-              </MenuLink>
-            </>
-        }
+        <span>
+          {t.cost["your-balance"]}: {money ?? t.cost["no-balance"]}
+        </span>
+        <span>
+          {t.cost["total-price"]}: ${totalPrice}
+        </span>
+        {typeof money === "number" ? (
+          <button onClick={pay}>{t["cost-btn-pay"]}</button>
+        ) : (
+          <>
+            <MenuLink to="/login">{tLoginRegister["login-btn"]}</MenuLink>
+            <br />
+            <MenuLink to="/register">{tLoginRegister["register-btn"]}</MenuLink>
+          </>
+        )}
       </div>
     </div>
   )

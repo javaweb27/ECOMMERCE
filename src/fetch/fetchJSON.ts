@@ -12,13 +12,12 @@ const fetchJSON = async <T>(endpoint: string, init: RequestInit): Promise<T | nu
       ...init,
       headers: {
         ...init.headers,
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     })
 
     return await res.json()
-  }
-  catch (error) {
+  } catch (error) {
     console.error("error fetch json:", error)
     return null
   }

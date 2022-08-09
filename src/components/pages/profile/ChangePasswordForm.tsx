@@ -15,15 +15,15 @@ const ChangePasswordForm = ({ email }: { email: string }) => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const res = await fetchJSON<{}>("change", {
+    const res = await fetchJSON<any>("change", {
       method: "PATCH",
       headers: {
-        "authorization": `Bearer ${getAuthToken()}`
+        authorization: `Bearer ${getAuthToken()}`,
       },
       body: JSON.stringify({
-        password: password,
-        email: email
-      })
+        password,
+        email,
+      }),
     })
 
     if (res !== null) setPassword("")
@@ -41,7 +41,13 @@ const ChangePasswordForm = ({ email }: { email: string }) => {
   return (
     <form className="change-password-form" onSubmit={handleSubmit}>
       <div className="change-password-container">
-        <Input i={hidden ? "password" : "text"} name="password" value={password} onChange={handleChange} autoComplete="new-password">
+        <Input
+          i={hidden ? "password" : "text"}
+          name="password"
+          value={password}
+          onChange={handleChange}
+          autoComplete="new-password"
+        >
           {t["new-password"]}
         </Input>
         <button className="btn-hidden" onClick={handleClickHidden}>
@@ -49,7 +55,7 @@ const ChangePasswordForm = ({ email }: { email: string }) => {
         </button>
       </div>
 
-      <button className="btn-change-password" >{t["btn-change-password"]}</button>
+      <button className="btn-change-password">{t["btn-change-password"]}</button>
     </form>
   )
 }

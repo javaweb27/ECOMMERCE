@@ -1,23 +1,23 @@
 export interface I_ProdPartData {
-  id: number;
-  description: string;
-  img: string;
-  flavor: string;
-  color: string;
-  price: number;
+  id: number
+  description: string
+  img: string
+  flavor: string
+  color: string
+  price: number
 }
 
 export interface I_ProdPartCartAdd extends I_ProdPartData {
-  qty: number;
+  qty: number
 }
 
 export interface I_ProdPartCartRemove {
-  qty: number;
+  qty: number
   id: number
 }
 
 export default interface I_Prod {
-  classes: CSSModuleClasses;
-  data: I_ProdPartData;
-  isCompact: boolean;
+  classes: CSSModuleClasses
+  data: I_ProdPartData
+  isCompact: boolean
 }

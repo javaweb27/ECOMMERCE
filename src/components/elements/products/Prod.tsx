@@ -11,19 +11,35 @@ const Prod = ({ classes, data, isCompact }: I_Prod) => {
       <img src={data.img} alt={data.flavor} loading="lazy" />
       <div className={classes.container}>
         <div className={classes.details}>
-          <p>{t[("par")]} {t[("flavors")][(
-            data.flavor === "Vainilla" ? "vanilla" :
-              data.flavor === "Fresa" ? "strawberry" :
-                "chocolate"
-          )]}</p>
+          <p>
+            {t.par}{" "}
+            {
+              t.flavors[
+                data.flavor === "Vainilla"
+                  ? "vanilla"
+                  : data.flavor === "Fresa"
+                  ? "strawberry"
+                  : "chocolate"
+              ]
+            }
+          </p>
           {/* description is obtained from translations */}
           {/* <p>{data.description}</p> */}
-          <span>{t[("color")]}: {t[("colors")][(
-            data.color === "amarillo" ? "yellow" :
-              data.color === "marron" ? "brown" :
-                "red"
-          )]}</span>
-          <span>{t[("price")]}: ${data.price}</span>
+          <span>
+            {t.color}:{" "}
+            {
+              t.colors[
+                data.color === "amarillo"
+                  ? "yellow"
+                  : data.color === "marron"
+                  ? "brown"
+                  : "red"
+              ]
+            }
+          </span>
+          <span>
+            {t.price}: ${data.price}
+          </span>
         </div>
 
         <BtnCartAddRemove data={data} isCompact={isCompact} />

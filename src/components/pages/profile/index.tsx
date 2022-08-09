@@ -15,16 +15,20 @@ const Profile = () => {
   const t = useProfileTrans()
   const tLoginRegister = useLoginRegisterTrans()
 
-  const handleChangeLanguage = (lang: T_SupportedLanguages) => dispatch(changeLanguage(lang))
+  const handleChangeLanguage = (lang: T_SupportedLanguages) =>
+    dispatch(changeLanguage(lang))
 
   if (isLogged) {
     return (
       <section className="profile-container">
-
         <p className="par">{t["your-data"]}:</p>
         <ul className="list">
-          <li className="item">{t["name"]}: {loginData?.name}</li>
-          <li className="item">{t["email"]}: {loginData?.email}</li>
+          <li className="item">
+            {t.name}: {loginData?.name}
+          </li>
+          <li className="item">
+            {t.email}: {loginData?.email}
+          </li>
         </ul>
 
         <ChangePasswordForm email={loginData!.email} />

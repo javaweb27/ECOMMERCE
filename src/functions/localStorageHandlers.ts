@@ -4,7 +4,7 @@
 export const deleteAuthToken = () => localStorage.removeItem("token")
 
 /**
- * 
+ *
  * @returns The token that was saved in localStorage with the name "token", it may be null.
  */
 export const getAuthToken = () => localStorage.getItem("token")
@@ -26,4 +26,5 @@ export const getSelectedLanguage = () => localStorage.getItem("language")
 /**
  * Saves the selected language in localStorage with the name "language".
  */
-export const setSelectedLanguage = (lang: string) => localStorage.setItem("language", lang)
+export const setSelectedLanguage = (lang: string) =>
+  localStorage.setItem("language", lang)

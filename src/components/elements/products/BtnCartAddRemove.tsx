@@ -6,7 +6,7 @@ import { addToCart, removeFromCart } from "../../redux/reducers/cartSlice"
 import useAllProductsTrans from "../../pages/all-products/useAllProductsTrans"
 
 interface I_Props {
-  data: I_ProdPartData,
+  data: I_ProdPartData
   isCompact: boolean
 }
 
@@ -21,15 +21,21 @@ const BtnCartAddRemove = ({ data, isCompact }: I_Props) => {
 
   const found = isCompact ? cart.find(c => c.id === data.id) : null
 
-  const add = () => dispatch(addToCart({
-    ...data,
-    qty: qty
-  }))
+  const add = () =>
+    dispatch(
+      addToCart({
+        ...data,
+        qty,
+      })
+    )
 
-  const remove = () => dispatch(removeFromCart({
-    id: data.id,
-    qty: qty
-  }))
+  const remove = () =>
+    dispatch(
+      removeFromCart({
+        id: data.id,
+        qty,
+      })
+    )
 
   const changeQty = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.target.value)
@@ -40,24 +46,36 @@ const BtnCartAddRemove = ({ data, isCompact }: I_Props) => {
     setQty(value)
   }
 
-  return <div>
-    {
-      found && <div>
-        <span>{t[("qty")]}: {found.qty} / ${found.qty * found.price} </span>
+  return (
+    <div>
+      {found && (
+        <div>
+          <span>
+            {t.qty}: {found.qty} / ${found.qty * found.price}{" "}
+          </span>
+        </div>
+      )}
+
+      <div className={classes.qtyContainer}>
+        <button className={classes.btnQty} onClick={() => qty < 100 && setQty(qty + 1)}>
+          +
+        </button>
+
+        <input className={classes.qty} onChange={changeQty} value={qty} type="number" />
+
+        <button className={classes.btnQty} onClick={() => qty > 1 && setQty(qty - 1)}>
+          -
+        </button>
       </div>
-    }
 
-    <div className={classes.qtyContainer}>
-      <button className={classes.btnQty} onClick={() => qty < 100 && setQty(qty + 1)}>+</button>
-
-      <input className={classes.qty} onChange={changeQty} value={qty} type="number" />
-
-      <button className={classes.btnQty} onClick={() => qty > 1 && setQty(qty - 1)}>-</button>
+      <button className={classes.btnAdd} onClick={add}>
+        {t["btn-add"]}
+      </button>
+      <button className={classes.btnRemove} onClick={remove}>
+        {t["btn-remove"]}
+      </button>
     </div>
-
-    <button className={classes.btnAdd} onClick={add}>{t[("btn-add")]}</button>
-    <button className={classes.btnRemove} onClick={remove}>{t[("btn-remove")]}</button>
-  </div>
+  )
 }
 
 export default BtnCartAddRemove

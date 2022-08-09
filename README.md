@@ -8,11 +8,14 @@ User data is saved in MongoDB/Mongoose, the password is encrypted, the email and
 Single Page Aplication (SPA).
 
 The source code of the Backend is in the `main` branch
-***
+
+---
+
 Branch: master\
 Role: Frontend
 
 **Stack:**
+
 - Build tool: Vite
 - UI Library: React with TypeScript
 - Styles: Sass, CSS Modules

@@ -4,14 +4,13 @@ import Features from "./Features"
 import PastryCourse from "./PastryCourse"
 import Delivery from "./Delivery"
 
-const  Home = () => {
-
+const Home = () => {
   return (
     <ContentContainer>
-      <Banner/>
-      <Features/>
-      <PastryCourse/>
-      <Delivery/>
+      <Banner />
+      <Features />
+      <PastryCourse />
+      <Delivery />
     </ContentContainer>
   )
 }

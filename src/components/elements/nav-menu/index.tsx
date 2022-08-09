@@ -1,4 +1,3 @@
-
 import classes from "./index.module.scss"
 import { useAppSelector } from "../../hooks/reduxHooks"
 import Link from "./NavMenuLink"
@@ -25,15 +24,19 @@ const NavMenu = ({ header = false }: { header?: boolean }) => {
         <Link to="/cart" iconName={header ? "" : "cart"}>
           <CartCounter />
         </Link>
-        {
-          header && !isLogged ? <>
+
+        {header && !isLogged ? (
+          <>
             <Link to="/login">{tLoginRegister["login-btn"]}</Link>
-            <Link to="/register">{tLoginRegister["register-btn"]}</Link>{header ? "" : "Perfil"}
-          </> : <Link to="/profile" iconName={"profile"}>
+            <Link to="/register">{tLoginRegister["register-btn"]}</Link>
+            {header ? "" : "Perfil"}
+          </>
+        ) : (
+          <Link to="/profile" iconName={"profile"}>
             {header ? "" : t.profile}
             {isLogged && <TimeleftCounter />}
           </Link>
-        }
+        )}
       </ul>
     </nav>
   )

@@ -4,7 +4,7 @@ import es from "../../../../locales/es/page-profile.json"
 
 const profileTrans = {
   en,
-  es
+  es,
 }
 
 const useProfileTrans = () => {

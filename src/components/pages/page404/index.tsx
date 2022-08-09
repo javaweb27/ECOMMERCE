@@ -11,7 +11,9 @@ const Page404 = () => {
       <section className="page404">
         <div className="container">
           <h1 className="title">{t.title}</h1>
-          <Link to="/" className="link">{t.btn}</Link>
+          <Link to="/" className="link">
+            {t.btn}
+          </Link>
         </div>
       </section>
     </ContentContainer>

@@ -15,15 +15,19 @@ const BtnDeleteAccount = () => {
   const logout = () => {
     fetchJSON("delete", {
       method: "DELETE",
-      headers: { "authorization": "Bearer " + getAuthToken() },
+      headers: { authorization: "Bearer " + getAuthToken() },
     })
-    
+
     deleteAuthToken()
     dispatch(updateLoginStatus())
     navigate("/register")
   }
 
-  return <button className="btn-logout btn-delete-account" onClick={logout}>{t["btn-delete-account"]}</button>
+  return (
+    <button className="btn-logout btn-delete-account" onClick={logout}>
+      {t["btn-delete-account"]}
+    </button>
+  )
 }
 
 export default BtnDeleteAccount

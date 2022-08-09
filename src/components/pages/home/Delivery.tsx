@@ -7,8 +7,8 @@ const Delivery = () => {
 
   return (
     <section className="delivery">
-      <h2 className="title">{t[("delivery-title")]}</h2>
-      <p>{t[("delivery-subtitle")]}</p>
+      <h2 className="title">{t["delivery-title"]}</h2>
+      <p>{t["delivery-subtitle"]}</p>
     </section>
   )
 }

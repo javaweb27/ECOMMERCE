@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom"
 import Icon from "../icon"
 
 interface I_Props {
-  to: string,
-  iconName?: string,
+  to: string
+  iconName?: string
   children: any
 }
 
@@ -22,6 +22,5 @@ const NavMenuLink = ({ to, iconName, children }: I_Props) => {
 function className({ isActive }: { isActive: boolean }) {
   return isActive ? `${classes.link} ${classes.active}` : classes.link
 }
-
 
 export default NavMenuLink

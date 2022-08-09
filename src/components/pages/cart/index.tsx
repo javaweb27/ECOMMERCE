@@ -12,12 +12,12 @@ const Cart = () => {
   return (
     <ContentContainer>
       <section className="cart-cupcakes">
-        <h2 className="title">{t[("title")]}</h2>
+        <h2 className="title">{t.title}</h2>
 
         <div className="container">
           <div>
             <h3 className="title">
-              {t[("prods-added")][(totalPrice > 0 ? "title" : "no-prods")]}
+              {t["prods-added"][totalPrice > 0 ? "title" : "no-prods"]}
             </h3>
             <Products products={products} compact />
           </div>
