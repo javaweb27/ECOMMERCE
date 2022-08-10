@@ -1,15 +1,15 @@
 {
   "title": "Cart",
-  "cost-btn-pay": "Pay",
+  "costBtnPay": "Pay",
   "cost": {
     "title": "Cost",
-    "your-balance": "Your balance",
-    "no-balance": "None",
-    "total-price": "Total payable",
-    "btn-pay": "Pay"
+    "yourBalance": "Your balance",
+    "noBalance": "None",
+    "totalPrice": "Total payable",
+    "btnPay": "Pay"
   },
-  "prods-added": {
+  "prodsAdded": {
     "title": "Your cupcakes",
-    "no-prods": "You do not have any cupcake"
+    "noProds": "You do not have any cupcake"
   }
 }

@@ -17,7 +17,7 @@ const Cart = () => {
         <div className="container">
           <div>
             <h3 className="title">
-              {t["prods-added"][totalPrice > 0 ? "title" : "no-prods"]}
+              {t.prodsAdded[totalPrice > 0 ? "title" : "noProds"]}
             </h3>
             <Products products={products} compact />
           </div>

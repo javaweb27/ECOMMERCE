@@ -2,8 +2,8 @@
   "title": "All cupcakes",
   "cupcake": {
     "par": "Great cupcake flavor of",
-    "btn-add": "Add",
-    "btn-remove": "Remove",
+    "btnAdd": "Add",
+    "btnRemove": "Remove",
     "qty": "Quantity",
     "price": "Price",
     "color": "Color",

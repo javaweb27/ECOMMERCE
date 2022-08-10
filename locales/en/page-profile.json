@@ -1,11 +1,11 @@
 {
-  "your-data": "Your data",
+  "yourData": "Your data",
   "name": "Name",
   "email": "Email",
-  "new-password": "New password",
-  "btn-change-password": "Change password",
-  "btn-logout": "Logout",
-  "btn-delete-account": "Delete account",
-  "btn-change-to-english": "Change to English",
-  "btn-change-to-spanish": "Change to Spanish"
+  "newPassword": "New password",
+  "btnChangePassword": "Change password",
+  "btnLogout": "Logout",
+  "btnDeleteAccount": "Delete account",
+  "btnChangeToEnglish": "Change to English",
+  "btnChangeToSpanish": "Change to Spanish"
 }

@@ -2,8 +2,8 @@
   "title": "Todos los cupcakes",
   "cupcake": {
     "par": "Gran cupcake sabor",
-    "btn-add": "Agregar",
-    "btn-remove": "Remover",
+    "btnAdd": "Agregar",
+    "btnRemove": "Remover",
     "qty": "Cantidad",
     "price": "Precio",
     "color": "Color",

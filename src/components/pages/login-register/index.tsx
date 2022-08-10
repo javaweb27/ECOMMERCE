@@ -61,22 +61,22 @@ const FormBase = ({ register = false }: I_FormBaseProps) => {
             formSubmit(event, data, setFinished, () => dispatch(updateLoginStatus()))
           }
         >
-          <h1 className="title">{t[`${register ? "register" : "login"}-title`]}</h1>
+          <h1 className="title">{t[`${register ? "register" : "login"}Title`]}</h1>
 
-          {register && <p>{t["msg-account-will-be-deleted"]}</p>}
+          {register && <p>{t.msgAccountWillBeDeleted}</p>}
 
           {register && (
             <Input i="text" name="name" value={data.name} onChange={changeData}>
-              {t["input-name"]}
+              {t.inputName}
             </Input>
           )}
 
           <Input i="email" name="email" value={data.email} onChange={changeData}>
-            {t["input-email"]}
+            {t.inputEmail}
           </Input>
 
           <Input i="password" name="password" value={data.password} onChange={changeData}>
-            {t["input-password"]}
+            {t.inputPassword}
           </Input>
 
           {register && (
@@ -86,29 +86,27 @@ const FormBase = ({ register = false }: I_FormBaseProps) => {
               value={data.repPassword}
               onChange={changeData}
             >
-              {t["input-rep-password"]}
+              {t.inputRepPassword}
             </Input>
           )}
 
           <button className="btn-submit">
-            {t[`${register ? "register" : "login"}-btn`]}
+            {t[`${register ? "register" : "login"}Btn`]}
           </button>
 
           {finished === false && (
-            <p>{register ? t["msg-email-not-available"] : t["msg-incorrect-data"]}</p>
+            <p>{register ? t.msgEmailNotAvailable : t["msgIncorrect-data"]}</p>
           )}
 
-          {!isValidEmail && data.email !== "" && <p>{t["msg-invalid-email"]}</p>}
+          {!isValidEmail && data.email !== "" && <p>{t.msgInvalidEmail}</p>}
 
           {!isValidData && (data.email !== "" || data.name !== "") && (
             <p>
-              {t["msg-invalid-email-r"]} {register && t["msg-invalid-name-r"]}
+              {t.msgInvalidEmailR} {register && t.msgInvalidNameR}
             </p>
           )}
 
-          {register && data.password !== data.repPassword && (
-            <p>{t["msg-rep-password"]}</p>
-          )}
+          {register && data.password !== data.repPassword && <p>{t.msgRepPassword}</p>}
         </form>
       </section>
     </ContentContainer>

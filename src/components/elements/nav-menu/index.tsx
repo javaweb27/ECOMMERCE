@@ -27,8 +27,8 @@ const NavMenu = ({ header = false }: { header?: boolean }) => {
 
         {header && !isLogged ? (
           <>
-            <Link to="/login">{tLoginRegister["login-btn"]}</Link>
-            <Link to="/register">{tLoginRegister["register-btn"]}</Link>
+            <Link to="/login">{tLoginRegister.loginBtn}</Link>
+            <Link to="/register">{tLoginRegister.registerBtn}</Link>
             {header ? "" : "Perfil"}
           </>
         ) : (

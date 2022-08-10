@@ -48,14 +48,14 @@ const ChangePasswordForm = ({ email }: { email: string }) => {
           onChange={handleChange}
           autoComplete="new-password"
         >
-          {t["new-password"]}
+          {t.newPassword}
         </Input>
         <button className="btn-hidden" onClick={handleClickHidden}>
           <Icon name={hidden ? "eye" : "eye_slash"} width="1.9rem" height="1.9rem" />
         </button>
       </div>
 
-      <button className="btn-change-password">{t["btn-change-password"]}</button>
+      <button className="btn-change-password">{t.btnChangePassword}</button>
     </form>
   )
 }

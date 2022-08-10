@@ -21,7 +21,7 @@ const Profile = () => {
   if (isLogged) {
     return (
       <section className="profile-container">
-        <p className="par">{t["your-data"]}:</p>
+        <p className="par">{t.yourData}:</p>
         <ul className="list">
           <li className="item">
             {t.name}: {loginData?.name}
@@ -37,14 +37,14 @@ const Profile = () => {
           className="btn-change-language"
           onClick={() => handleChangeLanguage("en")}
         >
-          {t["btn-change-to-english"]}
+          {t.btnChangeToEnglish}
         </button>
 
         <button
           className="btn-change-language"
           onClick={() => handleChangeLanguage("es")}
         >
-          {t["btn-change-to-spanish"]}
+          {t.btnChangeToSpanish}
         </button>
 
         <BtnLogout />
@@ -56,11 +56,11 @@ const Profile = () => {
   return (
     <section className="profile-container">
       <div className="link">
-        <NavMenuLink to="/login">{tLoginRegister["login-btn"]}</NavMenuLink>
+        <NavMenuLink to="/login">{tLoginRegister.loginBtn}</NavMenuLink>
       </div>
       <br />
       <div className="link">
-        <NavMenuLink to="/register">{tLoginRegister["register-btn"]}</NavMenuLink>
+        <NavMenuLink to="/register">{tLoginRegister.registerBtn}</NavMenuLink>
       </div>
     </section>
   )

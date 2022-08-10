@@ -15,7 +15,7 @@ const BtnLogout = () => {
 
   return (
     <button className="btn-logout" onClick={logout}>
-      {t["btn-logout"]}
+      {t.btnLogout}
     </button>
   )
 }

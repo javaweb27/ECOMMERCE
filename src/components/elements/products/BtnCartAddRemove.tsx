@@ -69,10 +69,10 @@ const BtnCartAddRemove = ({ data, isCompact }: I_Props) => {
       </div>
 
       <button className={classes.btnAdd} onClick={add}>
-        {t["btn-add"]}
+        {t.btnAdd}
       </button>
       <button className={classes.btnRemove} onClick={remove}>
-        {t["btn-remove"]}
+        {t.btnRemove}
       </button>
     </div>
   )

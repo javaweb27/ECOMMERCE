@@ -25,7 +25,7 @@ const BtnDeleteAccount = () => {
 
   return (
     <button className="btn-logout btn-delete-account" onClick={logout}>
-      {t["btn-delete-account"]}
+      {t.btnDeleteAccount}
     </button>
   )
 }

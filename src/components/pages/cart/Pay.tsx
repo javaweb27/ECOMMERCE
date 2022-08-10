@@ -40,18 +40,18 @@ const Pay = ({ totalPrice }: { totalPrice: number }) => {
       <h3 className="title">{t.cost.title}</h3>
       <div className="pay-container">
         <span>
-          {t.cost["your-balance"]}: {money ?? t.cost["no-balance"]}
+          {t.cost.yourBalance}: {money ?? t.cost.noBalance}
         </span>
         <span>
-          {t.cost["total-price"]}: ${totalPrice}
+          {t.cost.totalPrice}: ${totalPrice}
         </span>
         {typeof money === "number" ? (
-          <button onClick={pay}>{t["cost-btn-pay"]}</button>
+          <button onClick={pay}>{t.costBtnPay}</button>
         ) : (
           <>
-            <MenuLink to="/login">{tLoginRegister["login-btn"]}</MenuLink>
+            <MenuLink to="/login">{tLoginRegister.loginBtn}</MenuLink>
             <br />
-            <MenuLink to="/register">{tLoginRegister["register-btn"]}</MenuLink>
+            <MenuLink to="/register">{tLoginRegister.registerBtn}</MenuLink>
           </>
         )}
       </div>

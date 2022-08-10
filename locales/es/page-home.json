@@ -1,10 +1,10 @@
 {
-  "banner-title": "Bienvenido a ECOMMERCE",
-  "banner-subtitle": "¡Un sitio lleno de sabor!",
-  "banner-btn": "Ver cupcakes",
-  "pastry-title": "Curso de reposteria",
-  "pastry-subtitle": "Este es un curso desde cero que enseñara a hacer cupcakes",
-  "pastry-btn": "Inscribirme",
-  "delivery-title": "Entrega a toda la cuidad",
-  "delivery-subtitle": "Pide desde donde quieras y los cupcakes llegaran a tu casa"
+  "bannerTitle": "Bienvenido a ECOMMERCE",
+  "bannerSubtitle": "¡Un sitio lleno de sabor!",
+  "bannerBtn": "Ver cupcakes",
+  "pastryTitle": "Curso de reposteria",
+  "pastrySubtitle": "Este es un curso desde cero que enseñara a hacer cupcakes",
+  "pastryBtn": "Inscribirme",
+  "deliveryTitle": "Entrega a toda la cuidad",
+  "deliverySubtitle": "Pide desde donde quieras y los cupcakes llegaran a tu casa"
 }
