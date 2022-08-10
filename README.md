@@ -17,6 +17,7 @@ Role: Frontend
 **Stack:**
 
 - Build tool: Vite
+- Linter: ESLint and Prettier
 - UI Library: React with TypeScript
 - Styles: Sass, CSS Modules
 - App State: React Redux
