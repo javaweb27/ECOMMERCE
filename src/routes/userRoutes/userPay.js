@@ -14,7 +14,11 @@ export default async function userPay(req, res) {
     return
   }
 
-  const UserUpdated = await ModelUser.findOneAndUpdate(emailToFilter, { money: currentMoney - priceToPay }, { new: true })
+  const UserUpdated = await ModelUser.findOneAndUpdate(
+    emailToFilter,
+    { money: currentMoney - priceToPay },
+    { new: true }
+  )
 
   res.json({ data: UserUpdated.money })
 }

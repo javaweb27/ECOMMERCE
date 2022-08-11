@@ -7,7 +7,7 @@ const schema = new Schema({
   color: String,
   description: String,
   price: Number,
-  img: String
+  img: String,
 })
 
 const ModelCupcake = model("cupcakes", schema)

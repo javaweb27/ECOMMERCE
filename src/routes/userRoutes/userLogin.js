@@ -6,7 +6,7 @@ import { TOKEN_KEY } from "../../config"
 
 export default async function userLogin(req, res) {
   if (!areValidChars(req.body.email)) {
-    console.error("\"email\" tiene caracteres invalidos, no se ha registrado el usuario")
+    console.error('"email" tiene caracteres invalidos, no se ha registrado el usuario')
     res.sendStatus(403)
     return
   }

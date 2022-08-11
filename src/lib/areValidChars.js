@@ -2,8 +2,7 @@ export default function areValidChars(string) {
   try {
     btoa(string)
     return true
-  }
-  catch {
+  } catch {
     return false
   }
 }

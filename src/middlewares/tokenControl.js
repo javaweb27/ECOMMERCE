@@ -29,5 +29,5 @@ export default {
   },
   verifyAndSendData(req, res, next) {
     control(true, req, res, next)
-  }
+  },
 }

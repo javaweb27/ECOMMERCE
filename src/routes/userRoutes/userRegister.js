@@ -5,13 +5,15 @@ import { emailRegex } from "../../lib/regex"
 
 export default async function userRegister({ body }, res) {
   if (!(body.email && body.name && body.password) || !emailRegex.test(body.email)) {
-    console.error("Datos incompletos o el formato del email es incorrecto, no se ha registrado el usuario")
+    console.error(
+      "Datos incompletos o el formato del email es incorrecto, no se ha registrado el usuario"
+    )
     res.sendStatus(403)
     return
   }
 
   if (!areValidChars(body.email) || !areValidChars(body.name)) {
-    console.error("\"email\" o \"name\" tienen caracteres invalidos")
+    console.error('"email" o "name" tienen caracteres invalidos')
     res.sendStatus(403)
     return
   }
@@ -29,7 +31,7 @@ export default async function userRegister({ body }, res) {
     name: btoa(body.name),
     password: bcrypt.hashSync(body.password, 10),
     money: 75 + Math.floor(Math.random() * (6 + 1)) * 25,
-    endDate: Math.trunc((new Date).getTime() / 1000) + 360
+    endDate: Math.trunc(new Date().getTime() / 1000) + 360,
   })
 
   const UserRegistered = await newUser.save()
@@ -39,7 +41,7 @@ export default async function userRegister({ body }, res) {
   res.json({
     email: atob(UserRegistered.email),
     name: atob(UserRegistered.name),
-    password: UserRegistered.password
+    password: UserRegistered.password,
   })
 
   setTimeout(async () => {

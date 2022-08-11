@@ -15,8 +15,7 @@ export default async function userChangePassword({ body }, res) {
 
   if (UserUpdated) {
     res.json({ userData: UserUpdated })
-  }
-  else {
+  } else {
     res.sendStatus(403)
   }
 }
